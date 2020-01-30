@@ -1,0 +1,118 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Doctoral Thesis                                      %
+% Original authors : Ngoc-Tu Nguyen (Ph.D)             %
+% Department of Electronic Engineering                 %
+% National Kaohsiung University of Applied Sciences    %
+% Email : kuastu2011@gmail.com                         %
+% Website : http://203.64.101.229/ngoctu/              %
+% Version 1.0 (15/11/2015)                             %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[oneside,
+12pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+%parskip, % Uncomment to add space between paragraphs
+]{MastersDoctoralThesis} % The class file specifying the document structure
+
+\usepackage{CJKutf8}
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{palatino} % Use the Palatino font by default
+\usepackage{amsopn}
+\usepackage[printwatermark]{xwatermark}
+\usepackage{transparent}
+\usepackage{xcolor}
+
+
+
+%\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA)
+
+%\addbibresource{example.bib} % The filename of the bibliography
+
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+
+%\newwatermark[pages=1-112,fontfamily=bch,color=gray!100,scale=4,xpos=4,ypos=20]{\includegraphics[width=2cm]{logos/logo.pdf}}
+%\newwatermark[allpages,color=red!50,angle=45,scale=3,xpos=-15,ypos=20]{DRAFT VERSION}
+
+
+\input{Instance/infor}
+
+\begin{document}
+\begin{CJK}{UTF8}{bkai}
+
+\CJKindent
+\newcommand{\n}{\mbox{\qquad}}
+
+\newtheorem{proper}{Property}%[theorem]
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+    \input{Instance/title}
+    \cleardoublepage
+    \newwatermark[allpages,fontfamily=bch,color=gray!100,scale=4,xpos=4,ypos=20]{\transparent{0.4}\includegraphics[width=1.25cm]{Figures/Logos/LOGO.jpg}}
+    %\input{Instance/declaration} \addchaptertocentry{\authorshipname}
+    %\input{MyInstance/abstract} \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
+    %\input{MyInstance/acknowledgement} \addchaptertocentry{\acknowledgementname}
+    %\input{Instance/publication} \addchaptertocentry{\publicationname}
+    %\input{Instance/lamtran} \addchaptertocentry{\publicationname}
+    \renewcommand{\contentsname}{目錄}
+    %\tableofcontents \addchaptertocentry{\contentsname}% Prints the main table of contents
+    %\renewcommand{\listfigurename}{圖目錄}
+    %\listoffigures \addchaptertocentry{\listfigurename}% Prints the list of figures
+    %\renewcommand{\listtablename}{表目錄}
+    %\listoftables \addchaptertocentry{\listtablename}% Prints the list of tables
+
+    %\input{Instance/abbreviation} \addchaptertocentry{\abbrevname}
+    %\input{Instance/constant}
+    %\input{Instance/symbol}
+
+%----------------------------------------------------------------------------------------
+%	DEDICATION
+%----------------------------------------------------------------------------------------
+
+%\dedicatory{For/Dedicated to/To my\ldots}
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - CHAPTERS
+%----------------------------------------------------------------------------------------
+    \mainmatter % Begin numeric (1,2,3...) page numbering
+    \pagestyle{thesis} % Return the page headers back to the "thesis" style
+
+    \input{Chapters/chapter1.tex}
+
+
+%----------------------------------------------------------------------------------------
+%	THESIS CONTENT - APPENDICES
+%----------------------------------------------------------------------------------------
+%\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+
+    % Include the appendices of the thesis as separate files from the Appendices folder
+    % Uncomment the lines as you write the Appendices
+
+    %\input{Appendices/AppendixA}
+    %\input{Appendices/AppendixB}
+    %\input{Appendices/AppendixC}
+
+    %----------------------------------------------------------------------------------------
+    %	BIBLIOGRAPHY
+    %----------------------------------------------------------------------------------------
+
+%\printbibliography[heading=bibintoc]
+    %\input{MyChapters/reference} \addchaptertocentry{\bibname}
+%----------------------------------------------------------------------------------------
+    %\input{Chapters/profile}
+\newpage
+\end{CJK}
+\end{document} 
