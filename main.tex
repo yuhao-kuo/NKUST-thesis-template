@@ -1,12 +1,11 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Doctoral Thesis                                      %
-% Original authors : Ngoc-Tu Nguyen (Ph.D)             %
-% Department of Electronic Engineering                 %
-% National Kaohsiung University of Applied Sciences    %
-% Email : kuastu2011@gmail.com                         %
-% Website : http://203.64.101.229/ngoctu/              %
-% Version 1.0 (15/11/2015)                             %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------------------------------------------------------------------------------------
+% NKUST EC Master Thesis
+% Original authors : AIoRLab/NCLab/WNDCLab Thesis LateX Team
+% Department of Electronic Engineering
+% National Kaohsiung University of Sciences and Technology
+% GitHub : https://github.com/yuhao-kuo/NKUST-thesis-template
+% Version 1.0 (2020.01.31)
+%----------------------------------------------------------------------------------------
 
 %----------------------------------------------------------------------------------------
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
@@ -22,99 +21,113 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 %liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
 %toctotoc, % Uncomment to add the main table of contents to the table of contents
 %parskip, % Uncomment to add space between paragraphs
-]{MastersDoctoralThesis} % The class file specifying the document structure
+]{NKUSTMastersThesis} % The class file specifying the document structure
 
 \usepackage{CJKutf8}
 \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[T1]{fontenc} % Output font encoding for international characters
 \usepackage{palatino} % Use the Palatino font by default
-\usepackage{amsopn}
+\usepackage{indentfirst} \setlength{\parindent}{2em}
 \usepackage[printwatermark]{xwatermark}
-\usepackage{transparent}
 \usepackage{xcolor}
 
 
+\usepackage{lettrine}  % used for chinese bigger capital
+\usepackage{transparent}
+\usepackage{slashbox,booktabs,amsmath}
+\usepackage{algorithm}
+\usepackage{transparent}
 
+\usepackage{enumerate}
+\usepackage{multirow}
 %\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA)
 
 %\addbibresource{example.bib} % The filename of the bibliography
-
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+\usepackage{makecell}
+\cleardoublepage
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 
-
-%\newwatermark[pages=1-112,fontfamily=bch,color=gray!100,scale=4,xpos=4,ypos=20]{\includegraphics[width=2cm]{logos/logo.pdf}}
-%\newwatermark[allpages,color=red!50,angle=45,scale=3,xpos=-15,ypos=20]{DRAFT VERSION}
-
+\newwatermark[pages=2-112,fontfamily=bch,color=gray!100,scale=4,xpos=4,ypos=20]{\transparent{0.4}\includegraphics[width=1.25cm]{Figures/Logos/nkust.png}}
+\usepackage{pdfpages}
 
 \input{Instance/infor}
 
 \begin{document}
 \begin{CJK}{UTF8}{bkai}
-
 \CJKindent
-\newcommand{\n}{\mbox{\qquad}}
-
-\newtheorem{proper}{Property}%[theorem]
+%------------------------------------------
+\renewcommand{\figurename}{圖}
+\renewcommand{\tablename}{表}
+\renewcommand{\contentsname}{目錄}
+\renewcommand{\listfigurename}{圖目錄}
+\renewcommand{\listtablename}{表目錄}
+%------------------------------------------
+\newcommand\n{\mbox{\qquad}}
 
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
 \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
 
-    \input{Instance/title}
-    \cleardoublepage
-    \newwatermark[allpages,fontfamily=bch,color=gray!100,scale=4,xpos=4,ypos=20]{\transparent{0.4}\includegraphics[width=1.25cm]{Figures/Logos/LOGO.jpg}}
-    %\input{Instance/declaration} \addchaptertocentry{\authorshipname}
-    %\input{MyInstance/abstract} \addchaptertocentry{\abstractname} % Add the abstract to the table of contents
-    %\input{MyInstance/acknowledgement} \addchaptertocentry{\acknowledgementname}
-    %\input{Instance/publication} \addchaptertocentry{\publicationname}
-    %\input{Instance/lamtran} \addchaptertocentry{\publicationname}
-    \renewcommand{\contentsname}{目錄}
-    %\tableofcontents \addchaptertocentry{\contentsname}% Prints the main table of contents
-    %\renewcommand{\listfigurename}{圖目錄}
-    %\listoffigures \addchaptertocentry{\listfigurename}% Prints the list of figures
-    %\renewcommand{\listtablename}{表目錄}
-    %\listoftables \addchaptertocentry{\listtablename}% Prints the list of tables
-
-    %\input{Instance/abbreviation} \addchaptertocentry{\abbrevname}
-    %\input{Instance/constant}
-    %\input{Instance/symbol}
 
 %----------------------------------------------------------------------------------------
-%	DEDICATION
+%	論文編印項目次序
+%   編排順序依照學術論文格式規範文件進行排序
 %----------------------------------------------------------------------------------------
 
-%\dedicatory{For/Dedicated to/To my\ldots}
+% ----- 封面頁 -----
+\input{Instance/thesistitle}
+\setcounter{page}{0}
 
-%----------------------------------------------------------------------------------------
-%	THESIS CONTENT - CHAPTERS
-%----------------------------------------------------------------------------------------
-    \mainmatter % Begin numeric (1,2,3...) page numbering
-    \pagestyle{thesis} % Return the page headers back to the "thesis" style
+% ----- 書名頁 -----
+\input{Instance/title}
 
-    % 本文
-    \input{Chapters/chapter1.tex}
+% ----- 博碩士論文授權書 -----
+% \includepdf[pagecommand={\thispagestyle{empty}}]{Externals/powerofattorney.pdf}
 
+% ----- 論文指導教授推薦書 -----
+% \includepdf[pagecommand={\thispagestyle{empty}}]{Externals/recommend.pdf}
 
-%----------------------------------------------------------------------------------------
-%	THESIS CONTENT - APPENDICES
-%----------------------------------------------------------------------------------------
-%\appendix % Cue to tell LaTeX that the following "chapters" are Appendices
+% 論文口試委員會審定書
+\includepdf[pagecommand={\thispagestyle{empty}}]{Externals/sign.pdf}
 
-    % Include the appendices of the thesis as separate files from the Appendices folder
-    % Uncomment the lines as you write the Appendices
+% 中英文摘要
+\input{Instance/abstract} \addchaptertocentry{\abstractname}
 
-    %\input{Appendices/AppendixA}
-    %\input{Appendices/AppendixB}
-    %\input{Appendices/AppendixC}
+% 誌謝 or 序言
+\input{Instance/acknowledgement} \addchaptertocentry{\acknowledgementname}
 
-    %----------------------------------------------------------------------------------------
-    %	BIBLIOGRAPHY
-    %----------------------------------------------------------------------------------------
-
-% \printbibliography[heading=bibintoc]
-    %\input{MyChapters/reference} \addchaptertocentry{\bibname}
-%----------------------------------------------------------------------------------------
-    %\input{Chapters/profile}
-    % \input{Chapters/profile.tex}
+% 目錄
+\tableofcontents \addchaptertocentry{\contentsname}
 \newpage
+
+% 表目錄
+\listoftables \addchaptertocentry{\listtablename}
+
+% 圖目錄
+\listoffigures \addchaptertocentry{\listfigurename}
+\newpage
+
+% 符號說明
+
+% 論文本文
+\mainmatter % Begin numeric (1,2,3...) page numbering
+\pagestyle{thesis} % Return the page headers back to the "thesis" style
+\input{Chapters/Chapter1}
+
+% 參考文獻
+\input{Chapters/reference.tex} \addchaptertocentry{\bibname}
+
+% 附錄
+% \appendix
+% \input{Appendices/AppendixA}
+
+% 自傳或簡歷 (可有可無)
+
+% 書背 (此欄為空)
+
+%----------------------------------------------------------------------------------------
+
+\clearpage
 \end{CJK}
-\end{document} 
+\end{document}
