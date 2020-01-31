@@ -14,6 +14,7 @@
 \NeedsTeXFormat{LaTeX2e}[1996/12/01]
 \ProvidesClass{NKUSTMastersThesis}[2015/06/25 v2.0 LaTeX document class]
 \providecommand{\baseclass}{book}
+\input{config.tex}
 
 \RequirePackage{etoolbox}
 \RequirePackage{xparse}
@@ -334,22 +335,22 @@
 
 	%\null\vfil
 	\begin{center}
-	{\normalsize \univname \par} % University name in capitals
+	{\normalsize \schoolenname \par} % University name in capitals
 	%\bigskip
-    {\normalsize \deptname \par} % Department name
+    {\normalsize \deptenname \par} % Department name
 	%\bigskip
-    {\normalsize \degreename \par} % Degree name
+    {\normalsize \degreeen \par} % Degree name
 	\bigskip
-    {\normalsize\bfseries \@title \par} % Thesis title
+    {\normalsize\bfseries \titleen \par} % Thesis title
 	\medskip
     \begin{minipage}{0.4\textwidth}
     \begin{flushleft}
-    \emph{Author\hspace{4mm}}{\byname{} \bfseries \authorname} % Author name - remove the \href bracket to remove the link
+    \emph{Author\hspace{4mm}}{\byname{} \bfseries \authorenname} % Author name - remove the \href bracket to remove the link
     \end{flushleft}
     \end{minipage}
     \begin{minipage}{0.5\textwidth}
     \begin{flushright}
-    \emph{Supervisor\hspace{4mm}}{\bfseries \supname}
+    \emph{Supervisor\hspace{4mm}}{\bfseries \supervisorenname}
     \end{flushright}
     \end{minipage}\\[1cm]
     %{\normalsize \byname{} \authorname \par} % Author name
@@ -376,22 +377,22 @@
 
 	%\null\vfil
 	\begin{center}
-	{\normalsize \MakeUppercase{\univname} \par} % University name in capitals
+	{\normalsize \MakeUppercase{\schooltwname} \par} % University name in capitals
 	%\bigskip
-    {\normalsize \deptname \par} % Department name
+    {\normalsize \depttwname \par} % Department name
 	%\bigskip
-    {\normalsize \degreename\par} % Degree name
+    {\normalsize \degreetw\par} % Degree name
 	\bigskip
-    {\normalsize\bfseries \@title \par} % Thesis title
+    {\normalsize\bfseries \titletw \par} % Thesis title
 	\medskip
     \begin{minipage}{0.4\textwidth}
     \begin{flushleft}
-    \emph{作者\hspace{4mm}}{\byname{} \bfseries \authorname} % Author name - remove the \href bracket to remove the link
+    \emph{作者\hspace{4mm}}{\byname{} \bfseries \authortwname} % Author name - remove the \href bracket to remove the link
     \end{flushleft}
     \end{minipage}
     \begin{minipage}{0.5\textwidth}
     \begin{flushright}
-    \emph{指導教授\hspace{4mm}}{\bfseries \supname}
+    \emph{指導教授\hspace{4mm}}{\bfseries \supervisortwname}
     \end{flushright}
     \end{minipage}\\[1cm]
     %{\normalsize \byname{} \authorname \par} % Author name
