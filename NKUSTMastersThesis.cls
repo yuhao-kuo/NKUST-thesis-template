@@ -1,12 +1,11 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Doctoral Thesis                                      %
-% Original authors : Ngoc-Tu Nguyen (Ph.D)             %
-% Department of Electronic Engineering                 %
-% National Kaohsiung University of Applied Sciences    %
-% Email : kuastu2011@gmail.com                         %
-% Website : http://203.64.101.229/ngoctu/              %
-% Version 1.0 (15/11/2015)                             %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%----------------------------------------------------------------------------------------
+% NKUST EC Master Thesis
+% Original authors : AIoRLab/NCLab/WNDCLab Thesis LaTeX Team
+% Department of Electronic Engineering
+% National Kaohsiung University of Sciences and Technology
+% GitHub : https://github.com/yuhao-kuo/NKUST-thesis-template
+% Version 1.0 (2020.01.31)
+%----------------------------------------------------------------------------------------
 
 %----------------------------------------------------------------------------------------
 %	CLASS DEFINITION AND PARAMETERS

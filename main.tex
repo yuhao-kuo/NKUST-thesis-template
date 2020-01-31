@@ -1,6 +1,6 @@
 %----------------------------------------------------------------------------------------
 % NKUST EC Master Thesis
-% Original authors : AIoRLab/NCLab/WNDCLab Thesis LateX Team
+% Original authors : AIoRLab/NCLab/WNDCLab Thesis LaTeX Team
 % Department of Electronic Engineering
 % National Kaohsiung University of Sciences and Technology
 % GitHub : https://github.com/yuhao-kuo/NKUST-thesis-template
@@ -49,8 +49,10 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 \cleardoublepage
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 
-\newwatermark[pages=2-112,fontfamily=bch,color=gray!100,scale=4,xpos=4,ypos=20]{\transparent{0.4}\includegraphics[width=1.25cm]{Figures/Logos/nkust.png}}
+\newwatermark[pages=1-112,fontfamily=bch,color=gray!100,scale=4,xpos=4,ypos=20]{\transparent{0.4}\includegraphics[width=1.25cm]{Figures/Logos/nkust.png}}
 \usepackage{pdfpages}
+
+\input{config.tex}
 
 \input{Instance/infor}
 
@@ -112,7 +114,7 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 
 % 論文本文
 \mainmatter % Begin numeric (1,2,3...) page numbering
-\pagestyle{thesis} % Return the page headers back to the "thesis" style
+% \pagestyle{thesis} % Return the page headers back to the "thesis" style
 \input{Chapters/Chapter1}
 
 % 參考文獻

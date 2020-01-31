@@ -5,3 +5,6 @@
 *.fls
 *.out
 *.xwm
+*.bbl
+*.lof
+*.lot
