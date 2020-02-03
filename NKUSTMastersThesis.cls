@@ -11,8 +11,8 @@
 %	CLASS DEFINITION AND PARAMETERS
 %----------------------------------------------------------------------------------------
 
-\NeedsTeXFormat{LaTeX2e}[1996/12/01]
-\ProvidesClass{NKUSTMastersThesis}[2015/06/25 v2.0 LaTeX document class]
+\NeedsTeXFormat{LaTeX2e}[2020/02/03]
+\ProvidesClass{NKUSTMastersThesis}[2020/02/03 v1.0 LaTeX document class]
 \providecommand{\baseclass}{book}
 \input{config.tex}
 
@@ -316,15 +316,15 @@
 
 \newcommand\dedicatory[1]{
 	\checktoopen
-\tttypeout{Dedicatory}
-\thispagestyle{plain}
-\null\vfil
-\begin{center}{\Large\slshape #1}\end{center}
-\vfil\null
+	\tttypeout{Dedicatory}
+	\thispagestyle{plain}
+	\null\vfil
+	\begin{center}{\Large\slshape #1}\end{center}
+	\vfil\null
 }
 
 %----------------------------------------------------------------------------------------
-%	ENG ABSTRACT PAGE DESIGN
+%	英文摘要樣板
 %----------------------------------------------------------------------------------------
 
 \providecaptionname{german,ngerman,austrian,naustrian}{\byname}{von}
@@ -333,12 +333,9 @@
 	\checktoopen
 	\tttypeout{\abstractname}
 
-	%\null\vfil
 	\begin{center}
-	{\normalsize \schoolenname \par} % University name in capitals
-	%\bigskip
+	{\normalsize \schoolenname \par} % 學校名稱
     {\normalsize \deptenname \par} % Department name
-	%\bigskip
     {\normalsize \degreeen \par} % Degree name
 	\bigskip
     {\normalsize\bfseries \titleen \par} % Thesis title
@@ -366,7 +363,7 @@
 }
 
 %----------------------------------------------------------------------------------------
-%	CNT ABSTRACT PAGE DESIGN
+%	中文摘要樣板
 %----------------------------------------------------------------------------------------
 
 \providecaptionname{german,ngerman,austrian,naustrian}{\byname}{von}
