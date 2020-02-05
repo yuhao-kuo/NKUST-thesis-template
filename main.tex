@@ -59,13 +59,6 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 \begin{document}
 \begin{CJK}{UTF8}{bkai}
 \CJKindent
-%------------------------------------------
-\renewcommand{\figurename}{圖}
-\renewcommand{\tablename}{表}
-\renewcommand{\contentsname}{目錄}
-\renewcommand{\listfigurename}{圖目錄}
-\renewcommand{\listtablename}{表目錄}
-%------------------------------------------
 \newcommand\n{\mbox{\qquad}}
 
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
@@ -83,12 +76,15 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 
 % ----- 書名頁 -----
 \input{Instance/title}
+\setcounter{page}{0}
 
 % ----- 博碩士論文授權書 -----
 % \includepdf[pagecommand={\thispagestyle{empty}}]{Externals/powerofattorney.pdf}
+\setcounter{page}{0}
 
 % ----- 論文指導教授推薦書 -----
 % \includepdf[pagecommand={\thispagestyle{empty}}]{Externals/recommend.pdf}
+\setcounter{page}{0}
 
 % 論文口試委員會審定書
 \includepdf[pagecommand={\thispagestyle{empty}}]{Externals/sign.pdf}
@@ -100,13 +96,18 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 \input{Instance/acknowledgement} \addchaptertocentry{\acknowledgementname}
 
 % 目錄
+\renewcommand{\contentsname}{目錄}
 \tableofcontents \addchaptertocentry{\contentsname}
 \newpage
 
 % 表目錄
+\renewcommand{\tablename}{表}
+\renewcommand{\listtablename}{表目錄}
 \listoftables \addchaptertocentry{\listtablename}
 
 % 圖目錄
+\renewcommand{\figurename}{圖}
+\renewcommand{\listfigurename}{圖目錄}
 \listoffigures \addchaptertocentry{\listfigurename}
 \newpage
 
