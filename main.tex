@@ -78,7 +78,7 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 % ----- 博碩士論文授權書 -----
 \includepdf[pagecommand={\thispagestyle{empty}}]{Externals/powerofattorney.pdf}
 
-% ----- 論文指導教授推薦書 -----
+% ----- 博士論文指導教授推薦書 (碩士可直接註解省略) -----
 % \includepdf[pagecommand={\thispagestyle{empty}}]{Externals/recommend.pdf}
 
 % 論文口試委員會審定書
@@ -92,7 +92,8 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 \setcounter{page}{1}  % 摘要為第一頁
 
 % 中英文摘要
-\input{Instance/abstract} \addchaptertocentry{\abstractname}
+\input{Instance/zhtw_abstract} \addchaptertocentry{\abstractname}
+\input{Instance/en_abstract} \addchaptertocentry{\abstractname}
 
 % 誌謝 or 序言
 \input{Instance/acknowledgement} \addchaptertocentry{\acknowledgementname}
