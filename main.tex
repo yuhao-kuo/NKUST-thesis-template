@@ -31,7 +31,6 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 \usepackage[printwatermark]{xwatermark}
 \usepackage{xcolor}
 
-
 \usepackage{lettrine}  % used for chinese bigger capital
 \usepackage{transparent}
 \usepackage{slashbox,booktabs,amsmath}
@@ -42,14 +41,14 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 \usepackage{multirow}
 %\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA)
 
-%\addbibresource{example.bib} % The filename of the bibliography
+% \addbibresource{example.bib} % The filename of the bibliography
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
 \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
 \usepackage{makecell}
 \cleardoublepage
 \usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
 
-\newwatermark[pages=3-112,fontfamily=bch,color=gray!100,scale=4,xpos=4,ypos=20]{\transparent{0.4}\includegraphics[width=1.25cm]{Figures/Logos/nkust.png}}
+% \newwatermark[pages=3-112,fontfamily=bch,color=gray!100,scale=4,xpos=4,ypos=20]{\transparent{0.4}\includegraphics[width=1.25cm]{\watermarkimage}}
 \usepackage{pdfpages}
 
 \input{config.tex}
@@ -59,13 +58,6 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 \begin{document}
 \begin{CJK}{UTF8}{bkai}
 \CJKindent
-%------------------------------------------
-\renewcommand{\figurename}{圖}
-\renewcommand{\tablename}{表}
-\renewcommand{\contentsname}{目錄}
-\renewcommand{\listfigurename}{圖目錄}
-\renewcommand{\listtablename}{表目錄}
-%------------------------------------------
 \newcommand\n{\mbox{\qquad}}
 
 \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
@@ -79,34 +71,47 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 
 % ----- 封面頁 -----
 \input{Instance/thesistitle}
-\setcounter{page}{0}
 
 % ----- 書名頁 -----
 \input{Instance/title}
 
 % ----- 博碩士論文授權書 -----
-% \includepdf[pagecommand={\thispagestyle{empty}}]{Externals/powerofattorney.pdf}
+\includepdf[pagecommand={\thispagestyle{empty}}]{Externals/powerofattorney.pdf}
 
-% ----- 論文指導教授推薦書 -----
+% ----- 博士論文指導教授推薦書 (碩士可直接註解省略) -----
 % \includepdf[pagecommand={\thispagestyle{empty}}]{Externals/recommend.pdf}
 
 % 論文口試委員會審定書
 \includepdf[pagecommand={\thispagestyle{empty}}]{Externals/sign.pdf}
 
+%----------------------------------------------------------------------------------------
+%	論文內容 由此開始
+%----------------------------------------------------------------------------------------
+% 浮水印設定
+\newwatermark[pages=1-100,fontfamily=bch,color=gray!100,scale=4,xpos=4,ypos=20]{\transparent{0.4}\includegraphics[width=1.25cm]{\watermarkimage}}
+\setcounter{page}{1}  % 摘要為第一頁
+
 % 中英文摘要
-\input{Instance/abstract} \addchaptertocentry{\abstractname}
+\input{Instance/zhtw_abstract} \addchaptertocentry{\abstractname}
+\input{Instance/en_abstract} \addchaptertocentry{\abstractname}
 
 % 誌謝 or 序言
 \input{Instance/acknowledgement} \addchaptertocentry{\acknowledgementname}
 
 % 目錄
+\renewcommand{\contentsname}{目錄}
 \tableofcontents \addchaptertocentry{\contentsname}
 \newpage
 
 % 表目錄
+\renewcommand{\tablename}{表}
+\renewcommand{\listtablename}{表目錄}
 \listoftables \addchaptertocentry{\listtablename}
+\newpage
 
 % 圖目錄
+\renewcommand{\figurename}{圖}
+\renewcommand{\listfigurename}{圖目錄}
 \listoffigures \addchaptertocentry{\listfigurename}
 \newpage
 
@@ -114,7 +119,7 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 
 % 論文本文
 \mainmatter % Begin numeric (1,2,3...) page numbering
-\input{Chapters/Chapter1}
+\input{Chapters/Chapter1.tex}
 \input{Chapters/conclusion.tex}
 
 % 參考文獻
@@ -123,6 +128,10 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 % 附錄
 % \appendix
 % \input{Appendices/AppendixA}
+
+%----------------------------------------------------------------------------------------
+%	論文內容 結束
+%----------------------------------------------------------------------------------------
 
 % 自傳或簡歷 (可有可無)
 
