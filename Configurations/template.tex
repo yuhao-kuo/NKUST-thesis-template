@@ -53,5 +53,17 @@
 \titleformat{\chapter}{\centering\Huge\bfseries}{\CJKnumber{\thechapter}\,、}{1em}{}    %設定章節樣式
 
 % \titlecontents{chapter}[0em]{}{\CJKnumber{\thecontentslabel}\quad}{}{\titlerule*[1em]{.}\contentspage}
-
-
+\makeatletter
+\def\blx@maxline{77}
+\makeatother
+% \usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage[redeflists]{IEEEtrantools}
+% \usepackage{IEEEtrantools}
+% \usepackage[hyperref=true,backend=biber,sorting=none,backref=true]{biblatex}
+\usepackage{biblatex}
+\addbibresource{References/reference.bib}
+% \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+% \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+% \usepackage{makecell}
+% \cleardoublepage
+% \usepackage[autostyle=true]{csquotes}

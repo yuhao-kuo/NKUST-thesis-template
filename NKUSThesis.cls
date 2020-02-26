@@ -128,7 +128,7 @@
 \usepackage{epstopdf}
 \usepackage{verbatim}
 \usepackage{graphicx}
-\usepackage{amsthm}
+% \usepackage{amsthm}
 \pagestyle{empty}
 \usepackage{color}
 \usepackage[Lenny]{fncychap}
@@ -198,7 +198,7 @@
 \addcontentsline{toc}{chapter}{#1}}
 
 %----------------------------------------------------------------------------------------
-%	MARGINS
+%	邊界 MARGINS
 %----------------------------------------------------------------------------------------
 
 \RequirePackage{geometry}
