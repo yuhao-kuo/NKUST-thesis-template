@@ -31,11 +31,12 @@
 \usepackage{indentfirst}
 
 \usepackage{titletoc}
-\usepackage{CJKnumb}
+\usepackage{CJKnumb}	% 阿拉伯數字轉中文字
 
-\usepackage{ifthen}
-% \usepackage{zhnumber}
-\usepackage[subpreambles]{standalone}
+\usepackage[printwatermark]{xwatermark}  % 浮水印
+
+\usepackage{ifthen} % if-else 擴充
+\usepackage[subpreambles]{standalone}  % config.tex
 
 
 % ----------------------------
@@ -52,6 +53,15 @@
 \titleformat{\chapter}{\centering\Huge\bfseries}{Chapter\,{\CJKnumber{\thechapter}}}{1em}{}
 \titleformat{\chapter}{\centering\Huge\bfseries}{\CJKnumber{\thechapter}\,、}{1em}{}    %設定章節樣式
 
-% \titlecontents{chapter}[0em]{}{\CJKnumber{\thecontentslabel}\quad}{}{\titlerule*[1em]{.}\contentspage}
+% -----------------------------------------------------------------------------------------------
 
-
+% ----------------------------
+%   Reference
+% ----------------------------
+\makeatletter
+\def\blx@maxline{77}
+\makeatother
+\usepackage[redeflists]{IEEEtrantools}
+% \usepackage[hyperref=true,backend=biber,sorting=none,backref=true]{biblatex}
+\usepackage{biblatex}
+\addbibresource{References/reference.bib}

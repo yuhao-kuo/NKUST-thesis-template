@@ -1,0 +1,25 @@
+
+
+% 目錄
+\ifthenelse{\boolean{thesiscontent}}{
+    \renewcommand{\contentsname}{目錄}
+    \tableofcontents \addchaptertocentry{\contentsname}
+    \newpage
+}{}
+
+
+% 表目錄
+\ifthenelse{\boolean{thesistable}}{
+    \renewcommand{\tablename}{表}
+    \renewcommand{\listtablename}{表目錄}
+    \listoftables \addchaptertocentry{\listtablename}
+    \newpage
+}{}
+
+% 圖目錄
+\ifthenelse{\boolean{thesisfiguretable}}{
+    \renewcommand{\figurename}{圖}
+    \renewcommand{\listfigurename}{圖目錄}
+    \listoffigures \addchaptertocentry{\listfigurename}
+    \newpage
+}{}

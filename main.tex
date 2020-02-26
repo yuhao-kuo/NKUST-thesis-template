@@ -26,8 +26,6 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 \input{Configurations/template}
 \input{config.tex}
 
-%\input{Instance/infor}
-
 \begin{document}
     \begin{CJK}{UTF8}{bkai}
         \CJKindent
@@ -43,73 +41,69 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
         %----------------------------------------------------------------------------------------
 
         % ----- 封面頁 -----
-        \input{Instance/thesistitle}
+        \ifthenelse{\boolean{isthesistitleexternal}}{
+            \input{\externalmaintitle}
+        }{
+            \input{Instance/thesistitle}
+        }
 
         % ----- 書名頁 -----
-        \input{Instance/title}
+        \ifthenelse{\boolean{isthesisbooknameexternal}}{
+            \input{\externalbooktitle}
+        }{
+            \input{Instance/title}
+        }
 
-        % ----- 博碩士論文授權書 -----
-        \IfFileExists{\thesispowerofattorney}{
-            \includepdf[pagecommand={\thispagestyle{empty}}]{\thesispowerofattorney}
-        }{}
-
-        % ----- 博士論文指導教授推薦書 (碩士可直接註解省略) -----
-        \IfFileExists{\thesisphdrecommand}{
-            \includepdf[pagecommand={\thispagestyle{empty}}]{\thesisphdrecommand}
-        }{}
-
-        % 論文口試委員會審定書
-        \IfFileExists{\thesisvalidation}{
-            \includepdf[pagecommand={\thispagestyle{empty}}]{\thesisvalidation}
+        % ----- 論文相關文件 -----
+        \IfFileExists{Instance/externals}{
+            \input{Instance/externals}
         }{}
 
         %----------------------------------------------------------------------------------------
         %	論文內容 由此開始
         %----------------------------------------------------------------------------------------
         % 浮水印設定
-        % \newwatermark[pages=1-100,fontfamily=bch,color=gray!100,scale=4,xpos=4,ypos=20]{\transparent{0.4}\includegraphics[width=1.25cm]{\watermarkimage}}
+        \newwatermark[pages=1-100,fontfamily=bch,color=gray!100,scale=4,xpos=4,ypos=20]{\transparent{0.4}\includegraphics[width=1.25cm]{\watermarkimage}}
         \setcounter{page}{1}  % 摘要為第一頁
 
         % 中英文摘要
-        \input{Instance/zhtw_abstract} \addchaptertocentry{\abstractname}
-        \input{Instance/en_abstract} \addchaptertocentry{\abstractname}
+        \IfFileExists{Instance/zhtw_abstract}{
+            \input{Instance/zhtw_abstract} \addchaptertocentry{\abstractname}
+        }{}
+        \IfFileExists{Instance/en_abstract}{
+            \input{Instance/en_abstract} \addchaptertocentry{\abstractname}
+        }{}
 
         % 誌謝 or 序言
-        \input{Instance/acknowledgement} \addchaptertocentry{\acknowledgementname}
+        \ifthenelse{\boolean{thesisacknowledgement}}{
+            \IfFileExists{Instance/acknowledgement}{
+                \input{Instance/acknowledgement} \addchaptertocentry{\acknowledgementname}
+            }{}
+        }{}
 
-        % 目錄
-        \renewcommand{\contentsname}{目錄}
-        \tableofcontents \addchaptertocentry{\contentsname}
-        \newpage
-
-        % 表目錄
-        \renewcommand{\tablename}{表}
-        \renewcommand{\listtablename}{表目錄}
-        \listoftables \addchaptertocentry{\listtablename}
-        \newpage
-
-        % 圖目錄
-        \renewcommand{\figurename}{圖}
-        \renewcommand{\listfigurename}{圖目錄}
-        \listoffigures \addchaptertocentry{\listfigurename}
-        \newpage
+        % 目錄 / 表目錄 / 圖目錄
+        \IfFileExists{Instance/contents}{
+            \input{Instance/contents}
+        }{}
 
         % 符號說明
 
         % 論文本文
-        \mainmatter % Begin numeric (1,2,3...) page numbering
-        \input{Chapters/Chapter1.tex}
-        \input{Chapters/conclusion.tex}
+        \IfFileExists{Configurations/chapter}{
+            % 論文本文的tex檔案載入請放置於 Configurations/chapter.tex 中
+            \input{Configurations/chapter}
+        }{}
 
         % 參考文獻
-        \input{Chapters/reference.tex} \addchaptertocentry{\bibname}
-        % \renewcommand{\bibname}{參考文獻}
-        % \bibliographystyle{ieeetran}
-        % \bibliography{./References/reference}
+        \IfFileExists{Instance/reference}{
+            \input{Instance/reference.tex} \addchaptertocentry{\bibname}
+        }{}
 
         % 附錄
-        % \appendix
-        % \input{Appendices/AppendixA}
+        \IfFileExists{Configurations/appendice}{
+            % 論文附錄的tex檔案載入請放置於 Configurations/appendice.tex 中
+            \input{Configurations/appendice}
+        }{}
 
         %----------------------------------------------------------------------------------------
         %	論文內容 結束
@@ -118,6 +112,7 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
         % 自傳或簡歷 (可有可無)
 
         % 書背 (此欄為空)
+        \newpage　\thispagestyle{empty} \newpage
 
         %----------------------------------------------------------------------------------------
 
