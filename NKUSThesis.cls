@@ -11,8 +11,8 @@
 %	CLASS DEFINITION AND PARAMETERS
 %----------------------------------------------------------------------------------------
 
-\NeedsTeXFormat{LaTeX2e}[2020/02/03]
-\ProvidesClass{NKUSTMastersThesis}[2020/02/03 v1.0 LaTeX document class]
+\NeedsTeXFormat{LaTeX2e}[2017/04/15]
+\ProvidesClass{NKUSThesis}[2020/02/03 v1.0 LaTeX document class]
 \providecommand{\baseclass}{book}
 \input{config.tex}
 

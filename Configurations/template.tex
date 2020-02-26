@@ -1,0 +1,57 @@
+
+
+\setcounter{secnumdepth}{6}
+\setcounter{tocdepth}{6}
+
+\usepackage{CJKutf8}
+\usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[T1]{fontenc} % Output font encoding for international characters
+\usepackage{palatino} % Use the Palatino font by default
+\usepackage{indentfirst} \setlength{\parindent}{2em}
+\usepackage{xcolor}
+
+\usepackage{lettrine}  % used for chinese bigger capital
+% \usepackage{Packages/slashbox,booktabs,amsmath}
+\usepackage{algorithm}
+\usepackage{transparent}
+
+\usepackage{enumerate}
+\usepackage{multirow}
+
+\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+\usepackage{makecell}
+\cleardoublepage
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+
+\usepackage{pdfpages}
+
+\usepackage{url}
+\usepackage[redeflists]{IEEEtrantools}
+\usepackage{indentfirst}
+
+\usepackage{titletoc}
+\usepackage{CJKnumb}
+
+\usepackage{ifthen}
+% \usepackage{zhnumber}
+\usepackage[subpreambles]{standalone}
+
+
+% ----------------------------
+%   章節
+% ----------------------------
+
+\usepackage{titlesec, titletoc}   
+\titlecontents{chapter}[0em]{}
+{\hspace{0em}\makebox[4.1em][l]
+	% {第\zhnumber{\thecontentslabel}章}}{}
+	{\CJKnumber{\thecontentslabel}、}}{}
+{\titlerule*[0.7pc]{.}\contentspage}
+
+\titleformat{\chapter}{\centering\Huge\bfseries}{Chapter\,{\CJKnumber{\thechapter}}}{1em}{}
+\titleformat{\chapter}{\centering\Huge\bfseries}{\CJKnumber{\thechapter}\,、}{1em}{}    %設定章節樣式
+
+% \titlecontents{chapter}[0em]{}{\CJKnumber{\thecontentslabel}\quad}{}{\titlerule*[1em]{.}\contentspage}
+
+

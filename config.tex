@@ -2,6 +2,8 @@
 % Thesis Defined
 %
 
+\usepackage{ifthen}
+
 \def\authortwname{王小明}  % 研究生中文名字
 \def\authorenname{Shio-Min Wang}  % 研究生英文名字
 
@@ -28,3 +30,10 @@
 
 \def\thesistitlelogo{Figures/Logos/nkust.png}  % 主頁面logo
 \def\watermarkimage{Figures/Logos/nkust.png}  % 浮水印
+
+\def\thesispowerofattorney{Externals/powerofattorney.pdf}   % 博碩士論文授權書
+\def\thesisvalidation{Externals/sign.pdf}                   % 論文口試委員會審定書
+\def\thesisphdrecommand{Externals/recommand.pdf}            % 博士論文推薦書
+
+\provideboolean{thesisdraft}
+\setboolean{thesisdraft}{true}  % 初稿, true: 初稿, false: 非初稿
