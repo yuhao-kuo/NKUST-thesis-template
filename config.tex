@@ -2,6 +2,10 @@
 % Thesis Defined
 %
 
+\usepackage{ifthen}
+
+% ------------ 作者資訊 ------------
+
 \def\authortwname{王小明}  % 研究生中文名字
 \def\authorenname{Shio-Min Wang}  % 研究生英文名字
 
@@ -26,5 +30,70 @@
 \def\dateROC{中華民國 一零九 年 六 月}  % 日期(月份)
 \def\dateen{Jun, 2020}  % 英文日期
 
-\def\thesistitlelogo{Figures/Logos/nkust.png}  % 主頁面logo
-\def\watermarkimage{Figures/Logos/nkust.png}  % 浮水印
+
+% ------------- Logo --------------
+
+\def\thesistitlelogo{Figures/Logos/nkust.png}   % 主頁面logo
+\def\watermarkimage{Figures/Logos/nkust.png}    % 浮水印
+
+
+% ------------ 論文封面 ------------
+
+\provideboolean{isthesistitleexternal}
+\provideboolean{isthesisbooknameexternal}
+
+\setboolean{isthesistitleexternal}{false}       % 封面, true: LaTeX生成, false: 匯入外部pdf
+\def\externalmaintitle{Externals/maintitle}     % 外部載入封面位置, 設定由 LaTeX 生成時, 此欄位請忽視
+
+\setboolean{isthesisbooknameexternal}{false}    % 書名頁, true: LaTeX生成, false: 匯入外部pdf
+\def\externalbooktitle{Externals/booktitle}     % 外部載入書名頁位置, 設定由 LaTeX 生成時, 此欄位請忽視
+
+\provideboolean{thesisdraft}
+\setboolean{thesisdraft}{true}  % 初稿, true: 初稿, false: 非初稿
+
+
+% ------------ 論文相關文件 ------------
+
+\provideboolean{thesisauht}
+\provideboolean{thesissign}
+\provideboolean{thesisphdrecommand}
+
+% 博碩士論文授權書
+\def\thesispowerofattorney{Externals/powerofattorney.pdf}   % 博碩士論文授權書位置
+\setboolean{thesisauht}{true}                               % 博碩士論文授權書, true: 載入, false: 不載入
+
+% 論文口試委員會審定書
+\def\thesisvalidation{Externals/sign.pdf}                   % 論文口試委員會審定書位置
+\setboolean{thesissign}{true}                               % 論文口試委員會審定書, true: 載入, false: 不載入
+
+% 博士論文推薦書
+\def\thesisphdrecommand{Externals/recommand.pdf}            % 博士論文推薦書位置
+\setboolean{thesisphdrecommand}{false}                      % 博士論文推薦書, true: 載入, false: 不載入
+
+
+% ---------- 誌謝 / 序言 ----------
+\provideboolean{thesisacknowledgement}
+
+\setboolean{thesisacknowledgement}{true}    % 誌謝 / 序言, true: 載入, false: 不載入
+
+% ---------- 目錄 -----------
+\provideboolean{thesiscontent}
+\provideboolean{thesistable}
+\provideboolean{thesisfiguretable}
+
+% 目錄
+\setboolean{thesiscontent}{true}        % 目錄, true: 載入, false: 不載入
+
+% 表目錄
+\setboolean{thesistable}{true}          % 表目錄, true: 載入, false: 不載入
+
+% 圖目錄
+\setboolean{thesisfiguretable}{true}    % 圖目錄, true: 載入, false: 不載入
+
+% ---------- 附錄 -----------
+
+\provideboolean{thesisappendix}
+
+\setboolean{thesisappendix}{false}      % 附錄, true: 載入, false: 不載入
+
+% --------------------------

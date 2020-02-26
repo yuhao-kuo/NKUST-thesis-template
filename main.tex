@@ -21,124 +21,101 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 %liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
 %toctotoc, % Uncomment to add the main table of contents to the table of contents
 %parskip, % Uncomment to add space between paragraphs
-]{NKUSTMastersThesis} % The class file specifying the document structure
+]{NKUSThesis} % The class file specifying the document structure
 
-\usepackage{CJKutf8}
-\usepackage[utf8]{inputenc} % Required for inputting international characters
-\usepackage[T1]{fontenc} % Output font encoding for international characters
-\usepackage{palatino} % Use the Palatino font by default
-\usepackage{indentfirst} \setlength{\parindent}{2em}
-\usepackage[printwatermark]{xwatermark}
-\usepackage{xcolor}
-
-\usepackage{lettrine}  % used for chinese bigger capital
-\usepackage{transparent}
-\usepackage{slashbox,booktabs,amsmath}
-\usepackage{algorithm}
-\usepackage{transparent}
-
-\usepackage{enumerate}
-\usepackage{multirow}
-%\usepackage[backend=bibtex,style=authoryear,natbib=true]{biblatex} % User the bibtex backend with the authoryear citation style (which resembles APA)
-
-% \addbibresource{example.bib} % The filename of the bibliography
-\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
-\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
-\usepackage{makecell}
-\cleardoublepage
-\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
-
-% \newwatermark[pages=3-112,fontfamily=bch,color=gray!100,scale=4,xpos=4,ypos=20]{\transparent{0.4}\includegraphics[width=1.25cm]{\watermarkimage}}
-\usepackage{pdfpages}
-
+\input{Configurations/template}
 \input{config.tex}
 
-%\input{Instance/infor}
-
 \begin{document}
-\begin{CJK}{UTF8}{bkai}
-\CJKindent
-\newcommand\n{\mbox{\qquad}}
+    \begin{CJK}{UTF8}{bkai}
+        \CJKindent
+        \newcommand\n{\mbox{\qquad}}
 
-\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
-\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+        \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+        \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
 
 
-%----------------------------------------------------------------------------------------
-%	論文編印項目次序
-%   編排順序依照學術論文格式規範文件進行排序
-%----------------------------------------------------------------------------------------
+        %----------------------------------------------------------------------------------------
+        %	論文編印項目次序
+        %   編排順序依照學術論文格式規範文件進行排序
+        %----------------------------------------------------------------------------------------
 
-% ----- 封面頁 -----
-\input{Instance/thesistitle}
+        % ----- 封面頁 -----
+        \ifthenelse{\boolean{isthesistitleexternal}}{
+            \input{\externalmaintitle}
+        }{
+            \input{Instance/thesistitle}
+        }
 
-% ----- 書名頁 -----
-\input{Instance/title}
+        % ----- 書名頁 -----
+        \ifthenelse{\boolean{isthesisbooknameexternal}}{
+            \input{\externalbooktitle}
+        }{
+            \input{Instance/title}
+        }
 
-% ----- 博碩士論文授權書 -----
-\includepdf[pagecommand={\thispagestyle{empty}}]{Externals/powerofattorney.pdf}
+        % ----- 論文相關文件 -----
+        \IfFileExists{Instance/externals}{
+            \input{Instance/externals}
+        }{}
 
-% ----- 博士論文指導教授推薦書 (碩士可直接註解省略) -----
-% \includepdf[pagecommand={\thispagestyle{empty}}]{Externals/recommend.pdf}
+        %----------------------------------------------------------------------------------------
+        %	論文內容 由此開始
+        %----------------------------------------------------------------------------------------
+        % 浮水印設定
+        \newwatermark[pages=1-100,fontfamily=bch,color=gray!100,scale=4,xpos=4,ypos=20]{\transparent{0.4}\includegraphics[width=1.25cm]{\watermarkimage}}
+        \setcounter{page}{1}  % 摘要為第一頁
 
-% 論文口試委員會審定書
-\includepdf[pagecommand={\thispagestyle{empty}}]{Externals/sign.pdf}
+        % 中英文摘要
+        \IfFileExists{Instance/zhtw_abstract}{
+            \input{Instance/zhtw_abstract} \addchaptertocentry{\abstractname}
+        }{}
+        \IfFileExists{Instance/en_abstract}{
+            \input{Instance/en_abstract} \addchaptertocentry{\abstractname}
+        }{}
 
-%----------------------------------------------------------------------------------------
-%	論文內容 由此開始
-%----------------------------------------------------------------------------------------
-% 浮水印設定
-\newwatermark[pages=1-100,fontfamily=bch,color=gray!100,scale=4,xpos=4,ypos=20]{\transparent{0.4}\includegraphics[width=1.25cm]{\watermarkimage}}
-\setcounter{page}{1}  % 摘要為第一頁
+        % 誌謝 or 序言
+        \ifthenelse{\boolean{thesisacknowledgement}}{
+            \IfFileExists{Instance/acknowledgement}{
+                \input{Instance/acknowledgement} \addchaptertocentry{\acknowledgementname}
+            }{}
+        }{}
 
-% 中英文摘要
-\input{Instance/zhtw_abstract} \addchaptertocentry{\abstractname}
-\input{Instance/en_abstract} \addchaptertocentry{\abstractname}
+        % 目錄 / 表目錄 / 圖目錄
+        \IfFileExists{Instance/contents}{
+            \input{Instance/contents}
+        }{}
 
-% 誌謝 or 序言
-\input{Instance/acknowledgement} \addchaptertocentry{\acknowledgementname}
+        % 符號說明
 
-% 目錄
-\renewcommand{\contentsname}{目錄}
-\tableofcontents \addchaptertocentry{\contentsname}
-\newpage
+        % 論文本文
+        \IfFileExists{Configurations/chapter}{
+            % 論文本文的tex檔案載入請放置於 Configurations/chapter.tex 中
+            \input{Configurations/chapter}
+        }{}
 
-% 表目錄
-\renewcommand{\tablename}{表}
-\renewcommand{\listtablename}{表目錄}
-\listoftables \addchaptertocentry{\listtablename}
-\newpage
+        % 參考文獻
+        \IfFileExists{Instance/reference}{
+            \input{Instance/reference.tex} \addchaptertocentry{\bibname}
+        }{}
 
-% 圖目錄
-\renewcommand{\figurename}{圖}
-\renewcommand{\listfigurename}{圖目錄}
-\listoffigures \addchaptertocentry{\listfigurename}
-\newpage
+        % 附錄
+        \IfFileExists{Configurations/appendice}{
+            % 論文附錄的tex檔案載入請放置於 Configurations/appendice.tex 中
+            \input{Configurations/appendice}
+        }{}
 
-% 符號說明
+        %----------------------------------------------------------------------------------------
+        %	論文內容 結束
+        %----------------------------------------------------------------------------------------
 
-% 論文本文
-\mainmatter % Begin numeric (1,2,3...) page numbering
-\input{Chapters/Chapter1.tex}
-\input{Chapters/conclusion.tex}
+        % 自傳或簡歷 (可有可無)
 
-% 參考文獻
-\input{Chapters/reference.tex} \addchaptertocentry{\bibname}
+        % 書背 (此欄為空)
+        \newpage　\thispagestyle{empty} \newpage
 
-% 附錄
-% \appendix
-% \input{Appendices/AppendixA}
+        %----------------------------------------------------------------------------------------
 
-%----------------------------------------------------------------------------------------
-%	論文內容 結束
-%----------------------------------------------------------------------------------------
-
-% 自傳或簡歷 (可有可無)
-
-% 書背 (此欄為空)
-
-%----------------------------------------------------------------------------------------
-
-\clearpage
-\end{CJK}
+        \clearpage
+    \end{CJK}
 \end{document}

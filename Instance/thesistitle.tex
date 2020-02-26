@@ -28,12 +28,16 @@
 \vspace{10mm}\\
 
 \vspace{0.5\baselineskip}
-%\LARGE  {（初稿）}
+\ifthenelse{\boolean{thesisdraft}}{
+    \LARGE  {（初稿）}
+}{
+    \LARGE  {}
+}
 \vspace{6mm}
 
 \begin{tabular}{rl}
-\large\makebox[5em][s]{研\hspace{\fill}究\hspace{\fill}生}： & \large \authortwname \\
-\large\makebox[5em][s]{指導教授}： & \large\supervisortwname \\
+\large\makebox[5em][s]{研\hspace{\fill}究\hspace{\fill}生}： & \large\authortwname \\
+\large\makebox[5em][s]{指\hspace{\fill}導\hspace{\fill}教\hspace{\fill}授}： & \large\supervisortwname \\
 \end{tabular}
 
 \vspace{20mm}
