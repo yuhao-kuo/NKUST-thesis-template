@@ -1,0 +1,121 @@
+%----------------------------------------------------------------------------------------
+% NKUST EC Master Thesis
+% Original authors : AIoRLab/NCLab/WNDCLab Thesis LaTeX Team
+% Department of Electronic Engineering
+% National Kaohsiung University of Sciences and Technology
+% GitHub : https://github.com/yuhao-kuo/NKUST-thesis-template
+% Version 1.0 (2020.01.31)
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[oneside,
+12pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+%parskip, % Uncomment to add space between paragraphs
+]{NKUSThesis} % The class file specifying the document structure
+
+\input{Configurations/template}
+\input{config.tex}
+
+\begin{document}
+    \begin{CJK}{UTF8}{bkai}
+        \CJKindent
+        \newcommand\n{\mbox{\qquad}}
+
+        \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+        \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+
+
+        %----------------------------------------------------------------------------------------
+        %	論文編印項目次序
+        %   編排順序依照學術論文格式規範文件進行排序
+        %----------------------------------------------------------------------------------------
+
+        % ----- 封面頁 -----
+        \ifthenelse{\boolean{isthesistitleexternal}}{
+            \input{\externalmaintitle}
+        }{
+            \input{Instance/thesistitle}
+        }
+
+        % ----- 書名頁 -----
+        \ifthenelse{\boolean{isthesisbooknameexternal}}{
+            \input{\externalbooktitle}
+        }{
+            \input{Instance/title}
+        }
+
+        % ----- 論文相關文件 -----
+        \IfFileExists{Instance/externals}{
+            \input{Instance/externals}
+        }{}
+
+        %----------------------------------------------------------------------------------------
+        %	論文內容 由此開始
+        %----------------------------------------------------------------------------------------
+        % 浮水印設定
+        \newwatermark[pages=1-100,fontfamily=bch,color=gray!100,scale=4,xpos=4,ypos=20]{\transparent{0.4}\includegraphics[width=1.25cm]{\watermarkimage}}
+        \setcounter{page}{1}  % 摘要為第一頁
+
+        % 中英文摘要
+        \IfFileExists{Instance/zhtw_abstract}{
+            \input{Instance/zhtw_abstract} \addchaptertocentry{\abstractname}
+        }{}
+        \IfFileExists{Instance/en_abstract}{
+            \input{Instance/en_abstract} \addchaptertocentry{\abstractname}
+        }{}
+
+        % 誌謝 or 序言
+        \ifthenelse{\boolean{thesisacknowledgement}}{
+            \IfFileExists{Instance/acknowledgement}{
+                \input{Instance/acknowledgement} \addchaptertocentry{\acknowledgementname}
+            }{}
+        }{}
+
+        % 目錄 / 表目錄 / 圖目錄
+        \IfFileExists{Instance/contents}{
+            \input{Instance/contents}
+        }{}
+
+        % 符號說明
+
+        % 論文本文
+        \IfFileExists{Configurations/chapter}{
+            % 論文本文的tex檔案載入請放置於 Configurations/chapter.tex 中
+            \input{Configurations/chapter}
+        }{}
+
+        % 參考文獻
+        \IfFileExists{Instance/reference}{
+            \input{Instance/reference.tex} \addchaptertocentry{\bibname}
+        }{}
+
+        % 附錄
+        \IfFileExists{Configurations/appendice}{
+            % 論文附錄的tex檔案載入請放置於 Configurations/appendice.tex 中
+            \input{Configurations/appendice}
+        }{}
+
+        %----------------------------------------------------------------------------------------
+        %	論文內容 結束
+        %----------------------------------------------------------------------------------------
+
+        % 自傳或簡歷 (可有可無)
+
+        % 書背 (此欄為空)
+        \newpage　\thispagestyle{empty} \newpage
+
+        %----------------------------------------------------------------------------------------
+
+        \clearpage
+    \end{CJK}
+\end{document}

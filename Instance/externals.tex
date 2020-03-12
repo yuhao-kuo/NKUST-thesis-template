@@ -1,0 +1,21 @@
+
+% ----- 博碩士論文授權書 -----
+\ifthenelse{\boolean{thesisauht}}{
+    \IfFileExists{\thesispowerofattorney}{
+        \includepdf[pagecommand={\thispagestyle{empty}}]{\thesispowerofattorney}
+    }{}
+}{}
+
+% ----- 博士論文指導教授推薦書 (碩士可直接註解省略) -----
+\ifthenelse{\boolean{thesisphdrecommand}}{
+    \IfFileExists{\thesisphdrecommand}{
+        \includepdf[pagecommand={\thispagestyle{empty}}]{\thesisphdrecommand}
+    }{}
+}{}
+
+% 論文口試委員會審定書
+\ifthenelse{\boolean{thesissign}}{
+    \IfFileExists{\thesisvalidation}{
+        \includepdf[pagecommand={\thispagestyle{empty}}]{\thesisvalidation}
+    }{}
+}{}
