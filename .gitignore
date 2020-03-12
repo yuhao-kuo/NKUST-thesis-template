@@ -11,3 +11,5 @@
 *.toc
 *.blg
 *.sta
+*.bcf
+*.run.xml
