@@ -1,63 +1,67 @@
 % \documentclass[border=5mm]{standalone}
 % \usepackage{pgfplots}
 % \begin{document}
-\begin{tikzpicture}
-\begin{axis}[
-    % title={Number of Nodes},
-    xlabel={$Number of Nodes$},
-    ylabel={$Total Weight$},
-    legend entries={$5sinks_5chargers$, $10sinks_10chargers$},
-    xmin=100, ymin=0,
-    xmax=500,
-    %ymax=120,
-    xtick={100,200,300,400,500},
-    %ytick={0,20,40,60,80,100,120},
-    legend pos=north east, %outer north east, north west, north east, south west, south east
-    ymajorgrids=true,
-    grid style=dashed, %solid, (densely, loosely) dotted, (densely, loosely) dashed, (densely, loosely) dashdotted, (densely, loosely) dashdotdotted, {color=blue, thick}
-    legend style={cells={anchor=west}},%align text left
-    % legend style={font=\large},
-    % legend style={draw=none}, without legend box
-    % legend style={legend columns=-1}, draw legend horizontally    
-    % legend style={at={(1,0.5)}, anchor=east},
-    % line width=1.0pt,
-    % mark size=2.0pt,
-]
+% \begin{center}
+\begin{figure}[htbp]
+    \centering
+        \begin{tikzpicture}
+            \begin{axis}[
+                % title={Number of Nodes},
+                xlabel={$Number of Nodes$},
+                ylabel={$Total Weight$},
+                legend entries={$5sinks_5chargers$, $10sinks_10chargers$},
+                xmin=100, ymin=0,
+                xmax=500,
+                %ymax=120,
+                xtick={100,200,300,400,500},
+                %ytick={0,20,40,60,80,100,120},
+                legend pos=north east, %outer north east, north west, north east, south west, south east
+                ymajorgrids=true,
+                grid style=dashed, %solid, (densely, loosely) dotted, (densely, loosely) dashed, (densely, loosely) dashdotted, (densely, loosely) dashdotdotted, {color=blue, thick}
+                legend style={cells={anchor=west}},%align text left
+                % legend style={font=\large},
+                % legend style={draw=none}, without legend box
+                % legend style={legend columns=-1}, draw legend horizontally    
+                % legend style={at={(1,0.5)}, anchor=east},
+                % line width=1.0pt,
+                % mark size=2.0pt,
+            ]
 
-% none
-% +, *, o, x, triangle, cube(square), star, diamond, otimes, oplus, pentagon, |, halfcircle, ball
-% triangle*, cube*, diamond*, square*, halfcircle*, halfsquare* (halfdiamond*), pentagon*, halfsquare right*, halfsquare left*
+            % none
+            % +, *, o, x, triangle, cube(square), star, diamond, otimes, oplus, pentagon, |, halfcircle, ball
+            % triangle*, cube*, diamond*, square*, halfcircle*, halfsquare* (halfdiamond*), pentagon*, halfsquare right*, halfsquare left*
 
-% red, green, blue, cyan, magenta, yellow, black,
-% gray, white, darkgray, lightgray, brown, lime,
-% olive, orange, pink, purple, teal, violet.
-% red!30!white implies that 30% of red and 70% of white
-% rgb,255:red,231;green,84;blue,121 implies that 231/255 red, 84/255 green, and 121/255
+            % red, green, blue, cyan, magenta, yellow, black,
+            % gray, white, darkgray, lightgray, brown, lime,
+            % olive, orange, pink, purple, teal, violet.
+            % red!30!white implies that 30% of red and 70% of white
+            % rgb,255:red,231;green,84;blue,121 implies that 231/255 red, 84/255 green, and 121/255
 
-%solid, (densely, loosely) dotted, (densely, loosely) dashed, (densely, loosely) dashdotted, (densely, loosely) dashdotdotted
+            %solid, (densely, loosely) dotted, (densely, loosely) dashed, (densely, loosely) dashdotted, (densely, loosely) dashdotdotted
 
-\addplot[
-    color=gray,
-    densely dashed,
-    mark=+,
-    mark options={solid},
-] table from {./Figures/Result/alpha001.txt};
+            \addplot[
+                color=gray,
+                densely dashed,
+                mark=+,
+                mark options={solid},
+            ] table from {./Figures/Result/alpha001.txt};
 
-\addplot[
-    color=red,
-    densely dotted,
-    mark=triangle*,
-    mark options={solid},
-] table from {./Figures/Result/alpha010.txt};
+            \addplot[
+                color=red,
+                densely dotted,
+                mark=triangle*,
+                mark options={solid},
+            ] table from {./Figures/Result/alpha010.txt};
 
-% \addplot[
-%     color=blue!50,
-%     solid,
-%     mark=o,
-%     mark options={solid},
-% ] table {alpha100.txt};
-
-
-\end{axis}
-\end{tikzpicture}
+            % \addplot[
+            %     color=blue!50,
+            %     solid,
+            %     mark=o,
+            %     mark options={solid},
+            % ] table {alpha100.txt};
+            \end{axis}
+        \end{tikzpicture}
+    \caption{figure 1.1}
+\end{figure}
+% \end{center}
 % \end{document} 

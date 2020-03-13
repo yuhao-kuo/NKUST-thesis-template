@@ -121,6 +121,7 @@
 
 \usepackage{amscd}
 \usepackage{amsmath}
+\numberwithin{figure}{section}
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{CJKutf8}
