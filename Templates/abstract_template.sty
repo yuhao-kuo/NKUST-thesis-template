@@ -1,0 +1,71 @@
+
+% 英文摘要
+\providecaptionname{german,ngerman,austrian,naustrian}{\byname}{von}
+\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\byname}{}
+\newenvironment{engabstract}{
+	\checktoopen
+	\tttypeout{\abstractname}
+
+	\begin{center}
+	{\normalsize \schoolenname \par} % 學校名稱
+    {\normalsize \deptenname \par} % Department name
+    {\normalsize \degreeen \par} % Degree name
+	\bigskip
+    {\normalsize\bfseries \titleen \par} % Thesis title
+	\medskip
+    \begin{minipage}{0.4\textwidth}
+    \begin{flushleft}
+    \emph{Author\hspace{4mm}}{\byname{} \bfseries \authorenname} % Author name - remove the \href bracket to remove the link
+    \end{flushleft}
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+    \begin{flushright}
+    \emph{Supervisor\hspace{4mm}}{\bfseries \supervisorenname}
+    \end{flushright}
+    \end{minipage}\\[1cm]
+    %{\normalsize \byname{} \authorname \par} % Author name
+	%\medskip
+    %\ifbool{listtoc}{\addchap{\abstractname}}{\addchap*{\abstractname}}
+	{\huge\textit{\abstractname} \par}
+	\bigskip
+	%{\normalsize \facname \par} % Faculty name
+	\end{center}
+}
+{
+  \vfil\vfil\vfil\null
+}
+
+% 中文摘要
+
+\providecaptionname{german,ngerman,austrian,naustrian}{\byname}{von}
+\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\byname}{}
+\newenvironment{cntabstract}{
+	\checktoopen
+	\tttypeout{\abstractname}
+
+	\begin{center}
+	{\normalsize \MakeUppercase{\schooltwname} \par} % University name in capitals
+
+    {\normalsize \depttwname \par} % Department name
+	%\bigskip
+    {\normalsize \degreetw\par} % Degree name
+	\bigskip
+    {\normalsize\bfseries \titletw \par} % Thesis title
+	\medskip
+    \begin{minipage}{0.4\textwidth}
+    \begin{flushleft}
+    \emph{作者\hspace{4mm}}{\byname{} \bfseries \authortwname} % Author name - remove the \href bracket to remove the link
+    \end{flushleft}
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+    \begin{flushright}
+    \emph{指導教授\hspace{4mm}}{\bfseries \supervisortwname}
+    \end{flushright}
+    \end{minipage}\\[1cm]
+	{\huge\textit{\abstractname} \par}
+	\bigskip
+	\end{center}
+}
+{
+  \vfil\vfil\vfil\null
+}
