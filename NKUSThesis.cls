@@ -14,7 +14,6 @@
 \NeedsTeXFormat{LaTeX2e}[2017/04/15]
 \ProvidesClass{NKUSThesis}[2020/02/03 v1.0 LaTeX document class]
 \providecommand{\baseclass}{book}
-\input{config.tex}
 
 \RequirePackage{etoolbox}
 \RequirePackage{xparse}
@@ -124,19 +123,18 @@
 \numberwithin{figure}{section}
 \usepackage{amssymb}
 \usepackage{amsthm}
-\usepackage{CJKutf8}
+% \usepackage{CJKutf8}
 \usepackage{epsfig}
 \usepackage{epstopdf}
 \usepackage{verbatim}
 \usepackage{graphicx}
-% \usepackage{amsthm}
 \pagestyle{empty}
-\usepackage{color}
+% \usepackage{color}
 \usepackage[Lenny]{fncychap}
 
 \usepackage[tight,TABTOPCAP]{subfigure}
 
-\usepackage{algorithm}
+% \usepackage{algorithm}
 \usepackage{algorithmicx}
 \usepackage{algpseudocode}
 
@@ -228,40 +226,6 @@
 \interfootnotelinepenalty=9999 % Almost never break footnotes
 
 %----------------------------------------------------------------------------------------
-%	HEADERS AND FOOTERS
-%----------------------------------------------------------------------------------------
-
-\RequirePackage{fancyhdr} % Required to customise headers and footers
-\providecommand{\MakeMarkcase}{} % Add \MakeUppercase to make header text all capitals
-\fancyhead{} % Erase the default headers and footers style to replace with our own
-\fancyfoot{} % Erase the default headers and footers style to replace with our own
-\if@twoside % If we are in two sided mode, print alternating page headers
-\fancypagestyle{thesis}{%
-	\fancyhead[LE,RO]{\rmfamily\thepage}%
-	%\fancyhead[RE,LO]{\slshape\MakeMarkcase{\rightmark}}%
-    \fancyhead[RE,LO]{\bfseries\nouppercase{\rightmark}}%
-}
-\else % If we are in one sided, print the headers on the same positions on all pages
-	\fancypagestyle{thesis}{%
-	%\lhead{\slshape\MakeMarkcase{\rightmark}}% The left top header
-    %\lhead{\bfseries\nouppercase{\rightmark}}% The left top header bold italic uppercase
-	\rhead{\rmfamily\thepage}% The right top header
-}
-\fi
-%\pagestyle{thesis}
-\pagestyle{headings}
-
-
-\renewcommand{\chaptermark}[1]{\tttypeout{\thechapter.\space #1}\markboth{\@chapapp\ \thechapter.\ #1}{\@chapapp\ \thechapter.\ #1}} % Define what is in the header and in what order
-\renewcommand{\sectionmark}[1]{}
-\renewcommand{\subsectionmark}[1]{}
-\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
-\hbox{}
-\thispagestyle{empty}
-\newpage
-\if@twocolumn\hbox{}\newpage\fi\fi\fi}
-
-%----------------------------------------------------------------------------------------
 %	REFERENCING DOCUMENT ELEMENTS
 %----------------------------------------------------------------------------------------
 
@@ -293,218 +257,6 @@
 \newcommand*{\subject}[1]{\def\subjectname{#1}}
 \newcommand*{\keywords}[1]{\def\keywordnames{#1}}
 \renewcommand{\thefootnote}{\Alph{footnote}}
-%----------------------------------------------------------------------------------------
-%	DECLARATION PAGE DESIGN
-%----------------------------------------------------------------------------------------
-
-
-\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\authorshipname}{Declaration of Authorship} % Declaration of Authorship text for English countries
-\providecaptionname{german,ngerman,austrian,naustrian}{\authorshipname}{Eidesstattliche Erkl\"arung} % Declaration of Authorship text for Germanic countries
-
-\newenvironment{declaration}{
-
-	\checktoopen
-	\tttypeout{\authorshipname}
-	\thispagestyle{plain}
-	%\null\vfil
-    \ifbool{listtoc}{\addchap{\authorshipname}}{\addchap*{\authorshipname}}
-	%{\noindent\huge\bfseries\authorshipname\par\vspace{10pt}}
-}{}
-
-%----------------------------------------------------------------------------------------
-%	DEDICATION PAGE DESIGN
-%----------------------------------------------------------------------------------------
-
-\newcommand\dedicatory[1]{
-	\checktoopen
-	\tttypeout{Dedicatory}
-	\thispagestyle{plain}
-	\null\vfil
-	\begin{center}{\Large\slshape #1}\end{center}
-	\vfil\null
-}
-
-%----------------------------------------------------------------------------------------
-%	英文摘要樣板
-%----------------------------------------------------------------------------------------
-
-\providecaptionname{german,ngerman,austrian,naustrian}{\byname}{von}
-\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\byname}{}
-\newenvironment{engabstract}{
-	\checktoopen
-	\tttypeout{\abstractname}
-
-	\begin{center}
-	{\normalsize \schoolenname \par} % 學校名稱
-    {\normalsize \deptenname \par} % Department name
-    {\normalsize \degreeen \par} % Degree name
-	\bigskip
-    {\normalsize\bfseries \titleen \par} % Thesis title
-	\medskip
-    \begin{minipage}{0.4\textwidth}
-    \begin{flushleft}
-    \emph{Author\hspace{4mm}}{\byname{} \bfseries \authorenname} % Author name - remove the \href bracket to remove the link
-    \end{flushleft}
-    \end{minipage}
-    \begin{minipage}{0.5\textwidth}
-    \begin{flushright}
-    \emph{Supervisor\hspace{4mm}}{\bfseries \supervisorenname}
-    \end{flushright}
-    \end{minipage}\\[1cm]
-    %{\normalsize \byname{} \authorname \par} % Author name
-	%\medskip
-    %\ifbool{listtoc}{\addchap{\abstractname}}{\addchap*{\abstractname}}
-	{\huge\textit{\abstractname} \par}
-	\bigskip
-	%{\normalsize \facname \par} % Faculty name
-	\end{center}
-}
-{
-  \vfil\vfil\vfil\null
-}
-
-%----------------------------------------------------------------------------------------
-%	中文摘要樣板
-%----------------------------------------------------------------------------------------
-
-\providecaptionname{german,ngerman,austrian,naustrian}{\byname}{von}
-\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\byname}{}
-\newenvironment{cntabstract}{
-	\checktoopen
-	\tttypeout{\abstractname}
-
-	%\null\vfil
-	\begin{center}
-	{\normalsize \MakeUppercase{\schooltwname} \par} % University name in capitals
-	%\bigskip
-    {\normalsize \depttwname \par} % Department name
-	%\bigskip
-    {\normalsize \degreetw\par} % Degree name
-	\bigskip
-    {\normalsize\bfseries \titletw \par} % Thesis title
-	\medskip
-    \begin{minipage}{0.4\textwidth}
-    \begin{flushleft}
-    \emph{作者\hspace{4mm}}{\byname{} \bfseries \authortwname} % Author name - remove the \href bracket to remove the link
-    \end{flushleft}
-    \end{minipage}
-    \begin{minipage}{0.5\textwidth}
-    \begin{flushright}
-    \emph{指導教授\hspace{4mm}}{\bfseries \supervisortwname}
-    \end{flushright}
-    \end{minipage}\\[1cm]
-    %{\normalsize \byname{} \authorname \par} % Author name
-	%\medskip
-    %\ifbool{listtoc}{\addchap{\abstractname}}{\addchap*{\abstractname}}
-	{\huge\textit{\abstractname} \par}
-	\bigskip
-	%{\normalsize \facname \par} % Faculty name
-	\end{center}
-}
-{
-  \vfil\vfil\vfil\null
-}
-
-%----------------------------------------------------------------------------------------
-%	PUBLICATION DESIGN
-%----------------------------------------------------------------------------------------
-
-\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\publicationname}{Publications} % Declaration of Authorship text for English countries
-\providecaptionname{german,ngerman,austrian,naustrian}{\publicationname}{Eidesstattliche Erkl\"arung} % Declaration of Authorship text for Germanic countries
-
-\newenvironment{publication}{
-
-	\checktoopen
-	\tttypeout{\publicationname}
-	\thispagestyle{plain}
-    %\null\vfil
-    \ifbool{listtoc}{\addchap{\publicationname}}{\addchap*{\publicationname}}
-	
-}{}
-
-
-
-
-%----------------------------------------------------------------------------------------
-%	ABBREVIATIONS PAGE DESIGN
-%----------------------------------------------------------------------------------------
-
-\providecaptionname{english,british,american}{\abbrevname}{List of Abbreviations}
-\providecaptionname{ngerman,german,austrian,naustrian}{\abbrevname}{Abk\"urzungsverzeichnis}
-\NewDocumentEnvironment{abbreviations}{ m }{%
-	\ifbool{nolistspace}{\begingroup\singlespacing}{}
-	\ifbool{listtoc}{\addchap{\abbrevname}}{\addchap*{\abbrevname}}
-	\begin{longtable}{#1}
-}{%
-\end{longtable}
-\ifbool{nolistspace}{\endgroup}{}
-}
-
-%----------------------------------------------------------------------------------------
-%	PHYSICAL CONSTANTS PAGE DESIGN
-%----------------------------------------------------------------------------------------
-
-\providecaptionname{english,british,american}{\constantsname}{Physical Constants}
-\providecaptionname{ngerman,german,austrian,naustrian}{\constantsname}{Physikalische Konstanten}
-
-\NewDocumentEnvironment{constants}{ m }{%
-	\ifbool{nolistspace}{\begingroup\singlespacing}{}
-	\ifbool{listtoc}{\addchap{\constantsname}}{\addchap*{\constantsname}}
-	\begin{longtable}{#1}
-}{%
-\end{longtable}
-\ifbool{nolistspace}{\endgroup}{}
-}
-
-%----------------------------------------------------------------------------------------
-%	SYMBOLS PAGE DESIGN
-%----------------------------------------------------------------------------------------
-
-\providecaptionname{english,british,american}{\symbolsname}{List of Symbols}
-\providecaptionname{ngerman,german,austrian,naustrian}{\symbolsname}{Symbolverzeichnis}
-
-\NewDocumentEnvironment{symbols}{ m }{%
-	\ifbool{nolistspace}{\begingroup\singlespacing}{}
-	\ifbool{listtoc}{\addchap{\symbolsname}}{\addchap*{\symbolsname}}
-	\begin{longtable}{#1}
-}{%
-\end{longtable}
-\ifbool{nolistspace}{\endgroup}{}
-}
-
-%----------------------------------------------------------------------------------------
-%	ACKNOWLEDGEMENTS PAGE DESIGN
-%----------------------------------------------------------------------------------------
-
-\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish} {\acknowledgementname}{Acknowledgements} % Acknowledgement text for English countries
-\providecaptionname{german,ngerman,austrian,naustrian}{\acknowledgementname}{Danksagung} % Acknowledgement text for Germanic countries
-
-\NewDocumentEnvironment{acknowledgements}{}{%
-\checktoopen
-\tttypeout{\acknowledgementname}
-\thispagestyle{plain}
-\begin{center}{\huge\textit{\acknowledgementname}\par}\end{center}
-\bigskip
-\vspace{11mm}
-}
-{
-\vfil\vfil\null
-}
-
-%----------------------------------------------------------------------------------------
-%	REFERENCE DESIGN
-%----------------------------------------------------------------------------------------
-
-\providecaptionname{english,british,american}{\referencename}{References}
-\providecaptionname{ngerman,german,austrian,naustrian}{\referencename}{Abk\"References}
-\NewDocumentEnvironment{References}{ m }{%
-	\ifbool{nolistspace}{\begingroup\singlespacing}{}
-	\ifbool{listtoc}{\addchap{\referencename}}{\addchap*{\referencename}}
-	\begin{longtable}{#1}
-}{%
-\end{longtable}
-\ifbool{nolistspace}{\endgroup}{}
-}
 
 %----------------------------------------------------------------------------------------
 
