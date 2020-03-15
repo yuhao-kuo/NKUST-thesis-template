@@ -27,8 +27,8 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 \input{config.tex}
 
 \begin{document}
-    \begin{CJK}{UTF8}{bkai}
-        \CJKindent
+    % \begin{CJK}{UTF8}{bkai}
+    %     \CJKindent
         \newcommand\n{\mbox{\qquad}}
 
         \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
@@ -63,7 +63,7 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
         %	論文內容 由此開始
         %----------------------------------------------------------------------------------------
         % 浮水印設定
-        \newwatermark[pages=1-100,fontfamily=bch,color=gray!100,scale=4,xpos=4,ypos=20]{\transparent{0.4}\includegraphics[width=1.25cm]{\watermarkimage}}
+        \NTUSTwatermark
         \setcounter{page}{1}  % 摘要為第一頁
 
         % 中英文摘要
@@ -117,5 +117,5 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
         %----------------------------------------------------------------------------------------
 
         \clearpage
-    \end{CJK}
+    % \end{CJK}
 \end{document}
