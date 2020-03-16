@@ -9,12 +9,12 @@ buildpdflatex:
 	pdflatex -synctex=1 -interaction=nonstopmode -file-line-error --output-directory=${OUTDIR} ${DOC}
 
 buildxelatex:
-	xelatex -synctex=1 -interaction=nonstopmode -file-line-error --output-directory=${OUTDIR} ${DOC}
+	xelatex  -synctex=1 -interaction=nonstopmode -file-line-error --output-directory=${OUTDIR} ${DOC}
 
 buildpbpp:
-	@make distclean
+	# @make distclean
 	@mkdir -p ${OUTDIR}
-	@make buildpdflatex
+	@make buildxelatex
 	@make buildbiber
-	@make buildpdflatex
-	@make buildpdflatex
+	@make buildxelatex
+	@make buildxelatex
