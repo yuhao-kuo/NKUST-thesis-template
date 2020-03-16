@@ -2,19 +2,18 @@
 DOC=${DOCNAME}.tex
 DOCFILE=${DOCNAME}
 
-buildbiber:
-	biber --output-directory=${OUTDIR} ${DOCFILE}
+LATEXARGS=-synctex=1 -interaction=nonstopmode -file-line-error --output-directory=${OUTDIR}
+BIBARGS=--output-directory=${OUTDIR}
 
-buildpdflatex:
-	pdflatex -synctex=1 -interaction=nonstopmode -file-line-error --output-directory=${OUTDIR} ${DOC}
+buildlatex:
+	${LATEXCOMPILE} ${LATEXARGS} ${DOC}
 
-buildxelatex:
-	xelatex  -synctex=1 -interaction=nonstopmode -file-line-error --output-directory=${OUTDIR} ${DOC}
+buildbib:
+	${BIBCOMPILE} ${BIBARGS} ${DOCFILE}
 
-buildpbpp:
-	# @make distclean
+buildlbll:
 	@mkdir -p ${OUTDIR}
-	@make buildxelatex
-	@make buildbiber
-	@make buildxelatex
-	@make buildxelatex
+	@make buildlatex
+	@make buildbib
+	@make buildlatex
+	@make buildlatex
