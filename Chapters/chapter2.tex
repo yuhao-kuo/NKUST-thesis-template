@@ -1,0 +1,146 @@
+\chapter{內文} \label{ch_content}
+參考資料：\cite{latex_basic}, \cite{latex_fbox}
+\section{字體}
+\subsection{類型}
+文字特效, Hello world!      \\
+{\LARGE
+\textbf{Hello world!, bold face, 粗體} \\
+\textit{Hello world!, italic, 斜體} \\
+\textsl{Hello world!, slanted, 傾斜} \\
+\underline{Hello world!, underline, 底線} \\
+}
+
+文字家族, Hello world!      \\
+{\LARGE
+\textrm{Hello world!, roman, 羅馬} \\
+\texttt{Hello world!, typewriter, 等寬} \\
+\textsf{Hello world!, sans serif} \\
+\textsc{Hello world!, Small Caps} \\
+}
+
+\emph{強調}(Emphasized)，自動調整字體，使之相對醒目，在不同狀況下有不同效果。
+
+Some of the greatest \emph{discoveries} 
+in science 
+were made by accident.
+
+\textit{Some of the greatest \emph{discoveries} 
+in science 
+were made by accident.}
+
+\textbf{Some of the greatest \emph{discoveries} 
+in science 
+were made by accident.}
+
+\subsection{大小}
+文字大小範例, Font Size.\\
+{\tiny 文字大小範例, Font Size.}\\
+{\scriptsize 文字大小範例, Font Size.}\\
+{\footnotesize 文字大小範例, Font Size.}\\
+{\small 文字大小範例, Font Size.}\\
+{\normalsize 文字大小範例, Font Size.}\\
+{\large 文字大小範例, Font Size.}\\
+{\Large 文字大小範例, Font Size.}\\
+{\LARGE 文字大小範例, Font Size.}\\
+{\huge 文字大小範例, Font Size.} \\
+{\Huge 文字大小範例, Font Size.}
+
+
+\section{列表} \label{sec_item}
+
+\begin{description} \item[第1項] 這邊是第1大項
+    \item[第2項] 這邊是第2大項
+        \begin{description}
+            \item[小項] 這邊是第1小項
+            \item[小項] 這邊是第2小項
+        \end{description}
+    \item[第3項] 這邊是第3大項
+\end{description}
+
+\begin{itemize}
+    \item 這邊是第1大項
+    \item 這邊是第2大項
+        \begin{itemize}
+            \item 這邊是第1小項
+            \item 這邊是第2小項
+        \end{itemize}
+    \item 這邊是第3大項
+\end{itemize}
+
+\begin{enumerate}
+    \item 這邊是第1大項
+    \item 這邊是第2大項
+        \begin{enumerate}
+            \item[*] 這邊是第1小項
+            \item 這邊是第2小項
+            \item 這邊是第3小項
+        \end{enumerate}
+    \item 這邊是第3大項
+\end{enumerate}
+
+\newpage
+
+\section{對齊}
+\begin{flushleft}
+    本段落\\
+    向左對齊
+\end{flushleft}
+
+\begin{flushright}
+    本段落\\
+    向右對齊
+\end{flushright}
+
+\begin{center}
+    本段落\\
+    置中對齊
+\end{center}
+
+\section{引用}
+\subsection{摘寫}\label{ssec_qute}
+正文
+\begin{quote}
+    LATEX 中有三種引用方法:quote、quotation、verse。
+    quote：雙邊縮排。
+    quotation:雙邊縮排，且句首縮排。
+    verse：雙邊縮排，且第二行後縮排。
+\end{quote}
+正文
+\begin{quotation}
+    LATEX 中有三種引用方法:quote、quotation、verse。
+    quote：雙邊縮排。
+    quotation:雙邊縮排，且句首縮排。
+    verse：雙邊縮排，且第二行後縮排。
+\end{quotation}
+正文
+\begin{verse}
+    LATEX 中有三種引用方法:quote、quotation、verse。
+    quote：雙邊縮排。
+    quotation:雙邊縮排，且句首縮排。
+    verse：雙邊縮排，且第二行後縮排。
+\end{verse}
+
+\subsection{交叉引用，引用本文章之內文}
+我們寫論文時常需要引用文中section、subsection、figure、table等等內容。此時我們只需要在需要引用的地方加上marker，並使用ref引用標記目標，或使用pageref引用標記處的頁碼。
+
+寫內文可以參考\ref{ch_content}、列表可參考\ref{sec_item}、引文可參考\ref{ssec_qute}、圖表可參考圖\ref{fig_good}
+
+\newpage
+\section{盒子}
+Latex排板小到一個字母，大到一個段落，都可以視為一個矩型盒子（box），就像html一樣。
+
+mbox:
+\mbox{只是一個句子 被組合成盒子 的句子}
+
+fbox:
+\fbox{只是一個句子 被組合成盒子 但是有外框 的句子}
+
+makebox/framebox:可加上一些設定的盒子
+
+%語法:[寬][對齊]{內容}
+\makebox[\textwidth][c]{只是一個句子 被組合成盒子 的句子}
+
+\framebox[0.5\textwidth][r]{被組合成盒子 但是有外框 的句子 還不夠寬}
+
+
+\newpage
