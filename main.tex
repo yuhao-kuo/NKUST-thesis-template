@@ -68,16 +68,19 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 
         % 中英文摘要
         \IfFileExists{Instance/zhtw_abstract}{
-            \input{Instance/zhtw_abstract} \addchaptertocentry{\abstractname}
+            \input{Instance/zhtw_abstract}
+            \addchaptertocentry{\abstractname}
         }{}
         \IfFileExists{Instance/en_abstract}{
-            \input{Instance/en_abstract} \addchaptertocentry{\abstractname}
+            \input{Instance/en_abstract}
+            \addchaptertocentry{\abstractname}
         }{}
 
         % 誌謝 or 序言
         \ifthenelse{\boolean{thesisacknowledgement}}{
             \IfFileExists{Instance/acknowledgement}{
-                \input{Instance/acknowledgement} \addchaptertocentry{\acknowledgementname}
+                \input{Instance/acknowledgement}
+                \addchaptertocentry{\acknowledgementname}
             }{}
         }{}
 
@@ -96,7 +99,8 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 
         % 參考文獻
         \IfFileExists{Instance/reference}{
-            \input{Instance/reference.tex} \addchaptertocentry{\bibname}
+            \input{Instance/reference.tex}
+            \addchaptertocentry{\bibname}
         }{}
 
         % 附錄
