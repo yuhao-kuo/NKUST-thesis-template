@@ -27,99 +27,93 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 \input{config.tex}
 
 \begin{document}
-    % \begin{CJK}{UTF8}{bkai}
-    %     \CJKindent
-        \newcommand\n{\mbox{\qquad}}
+    \newcommand\n{\mbox{\qquad}}
 
-        \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
-        \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
+    \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
+    \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
 
 
-        %----------------------------------------------------------------------------------------
-        %	論文編印項目次序
-        %   編排順序依照學術論文格式規範文件進行排序
-        %----------------------------------------------------------------------------------------
+    %----------------------------------------------------------------------------------------
+    %	論文編印項目次序
+    %   編排順序依照學術論文格式規範文件進行排序
+    %----------------------------------------------------------------------------------------
 
-        % ----- 封面頁 -----
-        \ifthenelse{\boolean{isthesistitleexternal}}{
-            \input{\externalmaintitle}
-        }{
-            \input{Instance/thesistitle}
-        }
+    % ----- 封面頁 -----
+    \ifthenelse{\boolean{isthesistitleexternal}}{
+        \input{\externalmaintitle}
+    }{
+        \input{Instance/thesistitle}
+    }
 
-        % ----- 書名頁 -----
-        \ifthenelse{\boolean{isthesisbooknameexternal}}{
-            \input{\externalbooktitle}
-        }{
-            \input{Instance/title}
-        }
+    % ----- 書名頁 -----
+    \ifthenelse{\boolean{isthesisbooknameexternal}}{
+        \input{\externalbooktitle}
+    }{
+        \input{Instance/title}
+    }
 
-        % ----- 論文相關文件 -----
-        \IfFileExists{Instance/externals}{
-            \input{Instance/externals}
+    % ----- 論文相關文件 -----
+    \IfFileExists{Instance/externals}{
+        \input{Instance/externals}
+    }{}
+
+    %----------------------------------------------------------------------------------------
+    %	論文內容 由此開始
+    %----------------------------------------------------------------------------------------
+    % 浮水印設定
+    \NTUSTwatermark
+    \setcounter{page}{1}  % 摘要為第一頁
+
+    % 中英文摘要
+    \IfFileExists{Instance/zhtw_abstract}{
+        \input{Instance/zhtw_abstract}
+    }{}
+    \IfFileExists{Instance/en_abstract}{
+        \input{Instance/en_abstract}
+    }{}
+
+    % 誌謝 or 序言
+    \ifthenelse{\boolean{thesisacknowledgement}}{
+        \IfFileExists{Instance/acknowledgement}{
+            \input{Instance/acknowledgement}
         }{}
+    }{}
 
-        %----------------------------------------------------------------------------------------
-        %	論文內容 由此開始
-        %----------------------------------------------------------------------------------------
-        % 浮水印設定
-        \NTUSTwatermark
-        \setcounter{page}{1}  % 摘要為第一頁
+    % 目錄 / 表目錄 / 圖目錄
+    \IfFileExists{Instance/contents}{
+        \input{Instance/contents}
+    }{}
 
-        % 中英文摘要
-        \IfFileExists{Instance/zhtw_abstract}{
-            \input{Instance/zhtw_abstract}
-            \addchaptertocentry{\abstractname}
-        }{}
-        \IfFileExists{Instance/en_abstract}{
-            \input{Instance/en_abstract}
-            \addchaptertocentry{\abstractname}
-        }{}
+    % 符號說明
 
-        % 誌謝 or 序言
-        \ifthenelse{\boolean{thesisacknowledgement}}{
-            \IfFileExists{Instance/acknowledgement}{
-                \input{Instance/acknowledgement}
-                \addchaptertocentry{\acknowledgementname}
-            }{}
-        }{}
+    % 論文本文
+    \IfFileExists{Configurations/chapter}{
+        % 論文本文的tex檔案載入請放置於 Configurations/chapter.tex 中
+        \input{Configurations/chapter}
+    }{}
 
-        % 目錄 / 表目錄 / 圖目錄
-        \IfFileExists{Instance/contents}{
-            \input{Instance/contents}
-        }{}
+    % 參考文獻
+    \IfFileExists{Instance/reference}{
+        \input{Instance/reference.tex}
+        
+    }{}
 
-        % 符號說明
+    % 附錄
+    \IfFileExists{Configurations/appendice}{
+        % 論文附錄的tex檔案載入請放置於 Configurations/appendice.tex 中
+        \input{Configurations/appendice}
+    }{}
 
-        % 論文本文
-        \IfFileExists{Configurations/chapter}{
-            % 論文本文的tex檔案載入請放置於 Configurations/chapter.tex 中
-            \input{Configurations/chapter}
-        }{}
+    %----------------------------------------------------------------------------------------
+    %	論文內容 結束
+    %----------------------------------------------------------------------------------------
 
-        % 參考文獻
-        \IfFileExists{Instance/reference}{
-            \input{Instance/reference.tex}
-            \addchaptertocentry{\bibname}
-        }{}
+    % 自傳或簡歷 (可有可無)
 
-        % 附錄
-        \IfFileExists{Configurations/appendice}{
-            % 論文附錄的tex檔案載入請放置於 Configurations/appendice.tex 中
-            \input{Configurations/appendice}
-        }{}
+    % 書背 (此欄為空)
+    \newpage　\thispagestyle{empty} \newpage
 
-        %----------------------------------------------------------------------------------------
-        %	論文內容 結束
-        %----------------------------------------------------------------------------------------
+    %----------------------------------------------------------------------------------------
 
-        % 自傳或簡歷 (可有可無)
-
-        % 書背 (此欄為空)
-        \newpage　\thispagestyle{empty} \newpage
-
-        %----------------------------------------------------------------------------------------
-
-        \clearpage
-    % \end{CJK}
+    \clearpage
 \end{document}
