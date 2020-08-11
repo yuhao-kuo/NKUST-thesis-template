@@ -3,14 +3,10 @@
 \setcounter{secnumdepth}{6}
 \setcounter{tocdepth}{6}
 
-% \usepackage{CJKutf8}
-% \usepackage{CJKspace}
-% \usepackage{atbegshi}
 % xelatex 中文套件設定
 \usepackage{xeCJK}
 \usepackage{lipsum}
 \usepackage{fontspec}
-% \usepackage{type1ec,type1cm}
 \defaultfontfeatures{AutoFakeBold=2.5,AutoFakeSlant=.2}
 \setmainfont[Path=\string./Fonts/]{times}[        %預設英文字體
 	Extension      = .ttf,
@@ -56,19 +52,23 @@
 \usepackage{titletoc}
 \usepackage{CJKnumb}	% 阿拉伯數字轉中文字
 
-\usepackage[printwatermark]{xwatermark}  % 浮水印
+\usepackage{hyperref}
+
 \usepackage{tikz}
 \usepackage{eso-pic,picture}
 \usepackage{wallpaper}
 \usepackage[contents=]{background} %如果沒有給 contest空白會自動加上 draft 浮水印字樣
 
 \newcommand\NTUSTwatermark {
-	\backgroundsetup{contents={\includegraphics[width=1cm]{\watermarkimage}},angle=0,opacity=0.2}
-	% \begin{tikzpicture}[remember picture, overlay]
-	% 	\node [opacity=.2] at (current page.center) %頁面中心
-	% 		{\includegraphics[width=6.25cm]{\watermarkimage}};
-	% \end{tikzpicture}
-}	
+	\backgroundsetup{
+		contents={\includegraphics{\watermarkimage}},
+		angle=0,
+		opacity=0.2,
+		hshift = 0mm,
+		vshift = 0mm,
+		scale=0.5
+	}
+}
 
 \usepackage{ifthen} % if-else 擴充
 \usepackage[subpreambles]{standalone}  % config.tex
@@ -87,7 +87,8 @@
 %   章節
 % ----------------------------
 
-\usepackage{titlesec, titletoc}  
+\usepackage{titlesec}
+\usepackage{titletoc}
 \usepackage{zhnumber} 
 \titlecontents{chapter}[0em]{}
 {\hspace{0em}\makebox[4.1em][l]
@@ -102,10 +103,6 @@
 % ----------------------------
 %   Reference
 % ----------------------------
-\makeatletter
-\def\blx@maxline{77}
-\makeatother
 \usepackage[redeflists]{IEEEtrantools}
-% \usepackage[hyperref=true,backend=biber,sorting=none,backref=true]{biblatex}
-\usepackage{biblatex}
+\usepackage[hyperref=true,backend=biber,sorting=none,backref=true]{biblatex}
 \addbibresource{References/reference.bib}
