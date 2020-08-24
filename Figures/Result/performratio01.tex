@@ -6,16 +6,17 @@
     \centering
         \begin{tikzpicture}
             \begin{axis}[
+                tick scale binop=\times,
                 % title={Number of Nodes},
                 xlabel={$Number of Nodes$},
                 ylabel={$Total Weight$},
-                legend entries={$5sinks_5chargers$, $10sinks_10chargers$},
+                legend entries={$a$, $b$},
                 xmin=100, ymin=0,
                 xmax=500,
                 %ymax=120,
                 xtick={100,200,300,400,500},
                 %ytick={0,20,40,60,80,100,120},
-                legend pos=north east, %outer north east, north west, north east, south west, south east
+                legend pos=outer north east, %outer north east, north west, north east, south west, south east
                 ymajorgrids=true,
                 grid style=dashed, %solid, (densely, loosely) dotted, (densely, loosely) dashed, (densely, loosely) dashdotted, (densely, loosely) dashdotdotted, {color=blue, thick}
                 legend style={cells={anchor=west}},%align text left
