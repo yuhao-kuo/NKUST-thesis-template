@@ -19,3 +19,10 @@
         \includepdf[pagecommand={\thispagestyle{empty}}]{\thesisvalidation}
     }{}
 }{}
+
+% 論文口試委員會英文審定書
+\ifthenelse{\boolean{thesissign_en}}{
+    \IfFileExists{\thesisvalidationen}{
+        \includepdf[pagecommand={\thispagestyle{empty}}]{\thesisvalidationen}
+    }{}
+}{}
