@@ -15,7 +15,7 @@
 \def\schooltwname{國立高雄科技大學}
 \def\schoolenname{National Kaohsiung University of Science and Technology}
 \def\schoolenlocation{Kaohsiung, Taiwan, Republic of China}
-\def\schoolenoldname{National Kaohsiung University of Applied Sciences} % 國立高雄科技大學由"國立高雄應用科技大學/國立高雄第一科技大學/國立高雄海洋科技大學"三所科大學合併而成，此欄位請填入原先校區所屬學校英文名稱。
+\def\schoolenoldname{National Kaohsiung University of Applied Sciences} % 國立高雄科技大學由"國立高雄應用科技大學/國立高雄第一科技大學/國立高雄海洋科技大學"三所科技大學合併而成，此欄位請填入原先校區所屬學校英文名稱。
 
 \def\majortwname{Electronic Engineering}  % 主修項目
 \def\depttwname{電子工程系}  % 系所中文名稱
@@ -55,17 +55,17 @@
 % ------------ 論文相關文件 ------------
 
 \provideboolean{thesisauht}
-\provideboolean{thesissign}
+\provideboolean{thesissign_zhtw}
 \provideboolean{thesissign_en}
 \provideboolean{thesisphdrecommand}
 
 % 博碩士論文授權書
 \def\thesispowerofattorney{Externals/powerofattorney.pdf}   % 博碩士論文授權書位置
-\setboolean{thesisauht}{true}                               % 博碩士論文授權書, true: 載入, false: 不載入
+\setboolean{thesisauht}{false}                               % 博碩士論文授權書, true: 載入, false: 不載入
 
 % 論文口試委員會審定書
-\def\thesisvalidation{Externals/sign.pdf}                   % 論文口試委員會審定書位置
-\setboolean{thesissign}{true}                               % 論文口試委員會審定書, true: 載入, false: 不載入
+\def\thesisvalidationzhtw{Externals/sign.pdf}                   % 論文口試委員會審定書位置
+\setboolean{thesissign_zhtw}{true}                               % 論文口試委員會審定書, true: 載入, false: 不載入
 
 % 論文口試委員會英文審定書
 \def\thesisvalidationen{Externals/sign_en.pdf}                   % 論文口試委員會審定書位置
