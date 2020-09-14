@@ -4,35 +4,35 @@
 \setcounter{tocdepth}{6}
 
 % xelatex 中文套件設定
-\usepackage{xeCJK}
+\usepackage[SlantFont]{xeCJK}
 \usepackage{lipsum}
 \usepackage{fontspec}
 \defaultfontfeatures{AutoFakeBold=2.5,AutoFakeSlant=.2}
-\setmainfont[Path=\string./Fonts/]{times}[        %預設英文字體
+
+\setmainfont[Path=./Fonts/]{times}[        %預設英文字體
 	Extension      = .ttf,
 	BoldFont       = *bd,
 	ItalicFont     = *i,
 	BoldItalicFont = *bi
 	]
+\setmonofont[Path=./Fonts/]{times}
+\setsansfont[Path=./Fonts/]{times} 		 %使用目錄底下指定字體
 
-\setsansfont[Path=\string./Fonts/]{times} 		 %使用目錄底下指定字體
+\setCJKmainfont[Path=./Fonts/]{ukai}
+\setCJKmonofont[Path=./Fonts/]{edukai-4.0}
+\setCJKfamilyfont{edukai-4.0}[Path=./Fonts/]{edukai-4.0}       %教育部楷書
 
-\setCJKmainfont[Path=\string./Fonts/]{ukai}
-\setCJKmonofont[Path=\string./Fonts/]{edukai-4.0}
-\setCJKfamilyfont{edukai-4.0}[Path=\string./Fonts/]{edukai-4.0}       %教育部楷書
 \newcommand{\edukai}{\CJKfamily{edukai-4.0}}
 
+\newcommand\n{\mbox{\qquad}}
 
-% \usepackage[utf8]{inputenc} % Required for inputting international characters
 \usepackage[LGR,OT1]{fontenc} % Output font encoding for international characters
 \usepackage{palatino} % Use the Palatino font by default
 \usepackage{indentfirst} \setlength{\parindent}{2em}
 \usepackage{xcolor}
 
 \usepackage{lettrine}  % used for chinese bigger capital
-% \usepackage{Packages/slashbox,booktabs,amsmath}
 \usepackage{algorithm}
-\usepackage{transparent}
 
 \usepackage{enumerate}
 \usepackage{multirow}
@@ -79,31 +79,16 @@
 
 \usepackage{threeparttable}
 
+% ----------------------------
+%   導入版型設定
+% ----------------------------
 
 \usepackage{Templates/abstract_template}
 \usepackage{Templates/acknowledgements_template}
+\usepackage{Templates/reference_template}
+\usepackage{Templates/chapter_template}
 
-% ----------------------------
-%   章節
-% ----------------------------
-
-\usepackage{titlesec}
-\usepackage{titletoc}
-\usepackage{zhnumber} 
-\titlecontents{chapter}[0em]{}
-{\hspace{0em}\makebox[4.1em][l]
-	{第\zhnumber{\thecontentslabel}章}}{}
-{\titlerule*[0.7pc]{.}\contentspage}
-
-\titleformat{\chapter}{\centering\Huge\bfseries}{Chapter\,{\CJKnumber{\thechapter}}}{1em}{}
-\titleformat{\chapter}{\centering\Huge\bfseries}{\CJKnumber{\thechapter}\,、}{1em}{}    %設定章節樣式
 
 % -----------------------------------------------------------------------------------------------
 
-% ----------------------------
-%   Reference
-% ----------------------------
-\usepackage[redeflists]{IEEEtrantools}
-% \usepackage[hyperref=true,backend=biber,sorting=none,backref=true]{biblatex}
-\usepackage[backend=biber,sorting=none,style=ieee]{biblatex}
-\addbibresource{References/reference.bib}
+
