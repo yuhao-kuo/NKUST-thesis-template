@@ -123,18 +123,14 @@
 \numberwithin{figure}{section}
 \usepackage{amssymb}
 \usepackage{amsthm}
-% \usepackage{CJKutf8}
 \usepackage{epsfig}
-\usepackage{epstopdf}
 \usepackage{verbatim}
 \usepackage{graphicx}
 \pagestyle{empty}
-% \usepackage{color}
 \usepackage[Lenny]{fncychap}
 
 \usepackage[tight,TABTOPCAP]{subfigure}
 
-% \usepackage{algorithm}
 \usepackage{algorithmicx}
 \usepackage{algpseudocode}
 
@@ -175,7 +171,8 @@
 
 \usepackage{booktabs} % Required for better table rules
 
-\RequirePackage[centerlast,small,sc]{caption} % Required for customising the captions
+\usepackage{caption}
+\captionsetup[centerlast,small,n]{caption} % setting caption
 \setlength{\captionmargin}{50pt}
 
 %----------------------------------------------------------------------------------------

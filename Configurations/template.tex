@@ -5,30 +5,30 @@
 
 % xelatex 中文套件設定
 \usepackage[SlantFont]{xeCJK}
-\usepackage{lipsum}
-\usepackage{fontspec}
-\defaultfontfeatures{AutoFakeBold=2.5,AutoFakeSlant=.2}
-
-\setmainfont[Path=./Fonts/]{times}[        %預設英文字體
-	Extension      = .ttf,
-	BoldFont       = *bd,
-	ItalicFont     = *i,
-	BoldItalicFont = *bi
-	]
-\setmonofont[Path=./Fonts/]{times}
-\setsansfont[Path=./Fonts/]{times} 		 %使用目錄底下指定字體
-
-\setCJKmainfont[Path=./Fonts/]{ukai}
-\setCJKmonofont[Path=./Fonts/]{edukai-4.0}
-\setCJKfamilyfont{edukai-4.0}[Path=./Fonts/]{edukai-4.0}       %教育部楷書
-
-\newcommand{\edukai}{\CJKfamily{edukai-4.0}}
-
-\newcommand\n{\mbox{\qquad}}
-
 \usepackage[LGR,OT1]{fontenc} % Output font encoding for international characters
 \usepackage{palatino} % Use the Palatino font by default
 \usepackage{indentfirst} \setlength{\parindent}{2em}
+\usepackage{lipsum}
+\usepackage{fontspec}
+
+\defaultfontfeatures{AutoFakeBold=2.5,AutoFakeSlant=.2}
+
+% 英文字體設定(使用系統字型)
+\setmainfont{TeX Gyre Termes}
+\setmonofont{DejaVu Sans Mono}
+\setsansfont{EB Garamond}
+
+% 中文字體設定(使用系統字型/教育部標準字體)
+\setCJKmainfont{TW-MOE-Std-Kai}
+\setCJKmonofont{TW-MOE-Std-Kai}
+
+\setCJKfamilyfont{ukai}{TW-MOE-Std-Kai}       % 楷書
+\setCJKfamilyfont{song}{MOESongUN}            % 宋體
+\setCJKfamilyfont{li}{TW-MOE-Li}              % 隸書
+
+% 換行指令定義
+\newcommand\n{\mbox{\qquad}}
+
 \usepackage{xcolor}
 
 \usepackage{lettrine}  % used for chinese bigger capital
