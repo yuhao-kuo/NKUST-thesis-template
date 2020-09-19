@@ -3,6 +3,10 @@
 \setcounter{secnumdepth}{6}
 \setcounter{tocdepth}{6}
 
+% ----------------------------
+%   文字字型設定
+% ----------------------------
+
 % xelatex 中文套件設定
 \usepackage[SlantFont]{xeCJK}
 \usepackage[LGR,OT1]{fontenc} % Output font encoding for international characters
@@ -26,39 +30,70 @@
 \setCJKfamilyfont{song}{MOESongUN}            % 宋體
 \setCJKfamilyfont{li}{TW-MOE-Li}              % 隸書
 
-% 換行指令定義
-\newcommand\n{\mbox{\qquad}}
+% ----------------------------
+%   排版擴充
+% ----------------------------
+\newcommand\n{\mbox{\qquad}} % 換行指令
+\usepackage{xcolor}	% 字體顏色
+\usepackage{lettrine}  % 空白間距
+\usepackage[autostyle=true]{csquotes} % 引號排版
+\usepackage{indentfirst} % 首行縮排
+\usepackage{Templates/nkusthesis_layout} % 版面排版
 
-\usepackage{xcolor}
-
-\usepackage{lettrine}  % used for chinese bigger capital
+% ----------------------------
+%   演算法虛擬碼
+% ----------------------------
 \usepackage{algorithm}
 
+% ----------------------------
+%   條列式清單
+% ----------------------------
 \usepackage{enumerate}
+
+% ----------------------------
+%   表格
+% ----------------------------
 \usepackage{multirow}
-
-\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
-\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
 \usepackage{makecell}
-\cleardoublepage
-\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+\usepackage{threeparttable}
 
+% ----------------------------
+%   外部PDF
+% ----------------------------
 \usepackage{pdfpages}
 
-\usepackage{url}
-\usepackage[redeflists]{IEEEtrantools}
-\usepackage{indentfirst}
-
+% ----------------------------
+%   章節
+% ----------------------------
+\usepackage{titlesec}
 \usepackage{titletoc}
+\usepackage{zhnumber}
 \usepackage{CJKnumb}	% 阿拉伯數字轉中文字
 
+% ----------------------------
+%   超連結
+% ----------------------------
 \usepackage{hyperref}
+\usepackage{url}
 
+% ----------------------------
+%   繪圖
+% ----------------------------
 \usepackage{tikz}
-\usepackage{eso-pic,picture}
+\usepackage{pgfplots}
+\usepgfplotslibrary{colorbrewer}
+\pgfplotsset{compat=newest,compat/show suggested version=false}
+\usepackage[subpreambles]{standalone}
+
+% ----------------------------
+%   浮水印及圖片
+% ----------------------------
+\usepackage{eso-pic}
+\usepackage{picture}
 \usepackage{wallpaper}
 \usepackage[contents=]{background} %如果沒有給 contest空白會自動加上 draft 浮水印字樣
 
+% 浮水印參數定義
 \newcommand\NTUSTwatermark {
 	\backgroundsetup{
 		contents={\includegraphics{\watermarkimage}},
@@ -70,19 +105,14 @@
 	}
 }
 
+% ----------------------------
+%   其他擴充功能
+% ----------------------------
 \usepackage{ifthen} % if-else 擴充
-\usepackage[subpreambles]{standalone}  % config.tex
-
-\usepackage{pgfplots}
-\usepgfplotslibrary{colorbrewer}
-\pgfplotsset{compat=newest,compat/show suggested version=false}
-
-\usepackage{threeparttable}
 
 % ----------------------------
-%   導入版型設定
+%   導入NKUSThesis版型設定
 % ----------------------------
-
 \usepackage{Templates/abstract_template}
 \usepackage{Templates/acknowledgements_template}
 \usepackage{Templates/reference_template}

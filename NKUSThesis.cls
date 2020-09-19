@@ -197,18 +197,7 @@
 %	邊界 MARGINS
 %----------------------------------------------------------------------------------------
 
-\RequirePackage{geometry}
-\geometry{
-	paper=a4paper, % Default paper size, change to "letterpaper" for US Letter (you'll need to adjust margins after)
-	inner=1.5in, % The inner margin (beside binding)
-	outer=1in, % The outer margin (opposite binding)
-	top=.6in, % Top margin
-	bottom=.8in, % bottom margin
-	headheight=20pt, % Header height
-	headsep=.25in, % Header separation
-	includehead,
-	includefoot
-}
+% \usepackage[paper=a4paper, inner=1.5in, outer=1in, top=.6in, bottom=.8in, headheight=20pt, headsep=.25in, includehead,includefoot]{geometry}
 
 \raggedbottom
 
@@ -240,20 +229,6 @@
 %----------------------------------------------------------------------------------------
 %	DEFINE CUSTOM THESIS INFORMATION COMMANDS
 %----------------------------------------------------------------------------------------
-
-\newcommand*{\supervisor}[1]{\def\supname{#1}}
-\newcommand*{\thesistitle}[1]{\def\@title{#1}\def\ttitle{#1}}
-\newcommand*{\examiner}[1]{\def\examname{#1}}
-\newcommand*{\degree}[1]{\def\degreename{#1}}
-\renewcommand*{\author}[1]{\def\authorname{#1}}
-\newcommand*{\addresses}[1]{\def\addressname{#1}}
-\newcommand*{\university}[1]{\def\univname{#1}}
-\newcommand*{\department}[1]{\def\deptname{#1}}
-\newcommand*{\group}[1]{\def\groupname{#1}}
-\newcommand*{\faculty}[1]{\def\facname{#1}}
-\newcommand*{\subject}[1]{\def\subjectname{#1}}
-\newcommand*{\keywords}[1]{\def\keywordnames{#1}}
-\renewcommand{\thefootnote}{\arabic{footnote}}
 
 %----------------------------------------------------------------------------------------
 
