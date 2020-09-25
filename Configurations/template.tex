@@ -8,12 +8,13 @@
 % ----------------------------
 
 % xelatex 中文套件設定
-\usepackage[SlantFont]{xeCJK}
+\usepackage[SlantFont]{xeCJK} % 中文字體支援(xelatex)
 \usepackage[LGR,OT1]{fontenc} % Output font encoding for international characters
 \usepackage{palatino} % Use the Palatino font by default
 \usepackage{indentfirst} \setlength{\parindent}{2em}
 \usepackage{lipsum}
 \usepackage{fontspec}
+\usepackage{babel} % 外國語系字母支援
 
 \defaultfontfeatures{AutoFakeBold=2.5,AutoFakeSlant=.2}
 
@@ -38,29 +39,31 @@
 \usepackage{lettrine}  % 空白間距
 \usepackage[autostyle=true]{csquotes} % 引號排版
 \usepackage{indentfirst} % 首行縮排
+\usepackage{setspace} % 行距
+\usepackage{scrbase}
+\usepackage{scrhack}
 \usepackage{Templates/nkusthesis_layout} % 版面排版
 
 % ----------------------------
-%   演算法虛擬碼
+%   排序
 % ----------------------------
-\usepackage{algorithm}
+\usepackage{amsmath}
 
-% ----------------------------
-%   條列式清單
-% ----------------------------
-\usepackage{enumerate}
+\numberwithin{figure}{section}
 
-% ----------------------------
-%   表格
-% ----------------------------
-\usepackage{multirow}
-\usepackage{makecell}
-\usepackage{threeparttable}
+\newtheorem{definition}{Definition}
+\newtheorem{problem}{Problem}
 
-% ----------------------------
-%   外部PDF
-% ----------------------------
-\usepackage{pdfpages}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{note}[theorem]{Note}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{prop}[theorem]{Proposition}
+
+\newtheorem{thm}{Theorem}%[section]
+\newtheorem{lma}{Lemma}%[theorem]
+\newtheorem{defi}{Definition}
+\newtheorem{rul}{Rule}
 
 % ----------------------------
 %   章節
@@ -76,21 +79,84 @@
 \usepackage{hyperref}
 \usepackage{url}
 
+\hypersetup{pdfpagemode={UseOutlines},
+	linktocpage,
+	bookmarksopen=true,
+	bookmarksopenlevel=0,
+	hypertexnames=false,
+	colorlinks=true, % Set to false to disable coloring links
+	citecolor=red, % The color of citations
+	linkcolor=blue, % The color of references to document elements (sections, figures, etc)
+	urlcolor=magenta, % The color of hyperlinks (URLs)
+	pdfstartview={FitV},
+	unicode,
+	breaklinks=true,
+	}
+
+\pdfstringdefDisableCommands{ % If there is an explicit linebreak in a section heading (or anything printed to the pdf-bookmarks), it is replaced by a space
+	\let\\\space
+}
+
 % ----------------------------
-%   繪圖
+%   內文排版
 % ----------------------------
+
+%   演算法虛擬碼
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+%   小圖
+\usepackage{subfigure}
+
+%   原文顯示支援
+\usepackage{verbatim}
+\usepackage{moreverb}
+
+%   條列式清單
+\usepackage{enumerate}
+
+%   表格
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{threeparttable}
+\usepackage{longtable}
+\usepackage{booktabs}
+
+%   外部PDF導入
+\usepackage{pdfpages}
+
+% 曲線繪圖
 \usepackage{tikz}
+
+% 資料繪圖
 \usepackage{pgfplots}
 \usepgfplotslibrary{colorbrewer}
 \pgfplotsset{compat=newest,compat/show suggested version=false}
 \usepackage[subpreambles]{standalone}
 
-% ----------------------------
-%   浮水印及圖片
-% ----------------------------
+% 繪圖
+\usepackage{graphicx} % Required to include images
+\graphicspath{{Figures/}{./}} % Specifies where to look for included images
+
+% 流程狀態圖繪圖
+\usepackage{amscd}
+
+% 數學符號擴充
+\usepackage{amssymb}
+
+% 數學公式擴充
+\usepackage{amsthm}
+
+% 符號擴充
+\usepackage{siunitx}
+
+% 圖片
 \usepackage{eso-pic}
 \usepackage{picture}
 \usepackage{wallpaper}
+
+% 浮水印
 \usepackage[contents=]{background} %如果沒有給 contest空白會自動加上 draft 浮水印字樣
 
 % 浮水印參數定義
@@ -105,10 +171,63 @@
 	}
 }
 
+% 章節
+\usepackage{caption}
+\captionsetup[centerlast,small,n]{caption} % setting caption
+\setlength{\captionmargin}{50pt}
+
+% ----------------------------
+%   頁首頁尾
+% ----------------------------
+\usepackage[Lenny]{fncychap}
+\pagestyle{empty}
+
 % ----------------------------
 %   其他擴充功能
 % ----------------------------
-\usepackage{ifthen} % if-else 擴充
+
+%   if-else 擴充
+\usepackage{ifthen}
+
+% ----------------------------
+%   其他定義
+% ----------------------------
+
+% Other
+\newcommand{\checktoopen}{% New command to move content to the next page which prints to the next odd page if twosided mode is active
+\if@openright\cleardoublepage\else\clearpage\fi
+}
+
+\newcommand\bhrule{\typeout{--------------------}}
+\newcommand\tttypeout[1]{\bhrule\typeout{\space #1}\bhrule}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % New command to make the lines in the title page
+\newcommand{\decoRule}{\rule{.8\textwidth}{.4pt}} % New command for a rule to be used under figures
+
+\renewcommand{\abovechapterspace}{\vspace*{10pt}} % Reduce the whitespace above a chapter heading
+
+\setcounter{tocdepth}{3} % The depth to which the document sections are printed to the table of contents
+\providecommand\addchaptertocentry[1]{%
+\addcontentsline{toc}{chapter}{#1}}
+
+% Penalties
+\doublehyphendemerits=10000 % No consecutive line hyphens
+\brokenpenalty=10000 % No broken words across columns/pages
+\widowpenalty=9999 % Almost no widows at bottom of page
+\clubpenalty=9999 % Almost no orphans at top of page
+\interfootnotelinepenalty=9999 % Almost never break footnotes
+
+% 參考文獻
+\newcommand{\fref}[1]{\figurename~\ref{#1}}
+\newcommand{\tref}[1]{\tablename~\ref{#1}}
+\providecaptionname{german,ngerman,austrian,naustrian}{\equationnamenname}{Formel}
+\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\equationnamenname}{Equation}
+\newcommand{\eref}[1]{\equationname~\ref{#1}}
+\newcommand{\cref}[1]{\chaptername~\ref{#1}}
+\newcommand{\sref}[1]{\sectionname~\ref{#1}}
+\providecaptionname{german,ngerman,austrian,naustrian}{\sectionname}{Abschnitt}
+\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\sectionname}{Section}
+\newcommand{\aref}[1]{\appendixname~\ref{#1}}
 
 % ----------------------------
 %   導入NKUSThesis版型設定

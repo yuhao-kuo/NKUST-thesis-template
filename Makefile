@@ -4,6 +4,8 @@
 DOCNAME=main
 # 輸出檔案存放位置(預設為build)
 OUTDIR=build
+# 封面頁
+TITLEPAGE=titlepage
 
 # LaTeX Compile
 LATEXCOMPILE=xelatex
@@ -17,5 +19,9 @@ SHELL:=/bin/bash
 include Scripts/clean.mk
 include Scripts/build.mk
 
+title:
+	@make buildtitle
+
 all:
 	@make buildlbll
+

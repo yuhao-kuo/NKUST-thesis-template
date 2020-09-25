@@ -1,0 +1,36 @@
+%----------------------------------------------------------------------------------------
+% NKUST EC Master Thesis
+% Original authors : AIoRLab/NCLab/WNDCLab Thesis LaTeX Team
+% Department of Electronic Engineering
+% National Kaohsiung University of Sciences and Technology
+% GitHub : https://github.com/yuhao-kuo/NKUST-thesis-template
+% Version 1.0 (2020.01.31)
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[oneside,
+12pt, % The default document font size, options: 10pt, 11pt, 12pt
+%oneside, % Two side (alternating margins) for binding by default, uncomment to switch to one side
+english, % ngerman for German
+onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespacing
+%draft, % Uncomment to enable draft mode (no pictures, no links, overfull hboxes indicated)
+%nolistspacing, % If the document is onehalfspacing or doublespacing, uncomment this to set spacing in lists to single
+%liststotoc, % Uncomment to add the list of figures/tables/etc to the table of contents
+%toctotoc, % Uncomment to add the main table of contents to the table of contents
+%parskip, % Uncomment to add space between paragraphs
+]{NKUSThesis} % The class file specifying the document structure
+
+\def\isatitlepage{true}
+\input{Configurations/template}
+\input{config.tex}
+
+\begin{document}
+    \ifthenelse{\boolean{isthesistitleexternal}}{
+        \input{\externalmaintitle}
+    }{
+        \input{Instance/thesistitle}
+    }
+\end{document}
