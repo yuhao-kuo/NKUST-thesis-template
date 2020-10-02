@@ -2,7 +2,7 @@
 參考資料：\cite{latex_basic}, \cite{latex_fbox}
 \section{字體}
 \subsection{類型}
-文字特效, Hello world!      \\
+文字特效, Hello world! \\
 {\LARGE
 \textbf{Hello world!, bold face, 粗體} \\
 \textit{Hello world!, italic, 斜體} \\
@@ -10,7 +10,7 @@
 \underline{Hello world!, underline, 底線} \\
 }
 
-文字家族, Hello world!      \\
+英文文字家族，Hello world!\\
 {\LARGE
 \textrm{Hello world!, roman, 羅馬} \\
 \texttt{Hello world!, typewriter, 等寬} \\
@@ -123,7 +123,7 @@ were made by accident.}
 \subsection{交叉引用，引用本文章之內文}
 我們寫論文時常需要引用文中section、subsection、figure、table等等內容。此時我們只需要在需要引用的地方加上marker，並使用ref引用標記目標，或使用pageref引用標記處的頁碼。
 
-寫內文可以參考\ref{ch_content}、列表可參考\ref{sec_item}、引文可參考\ref{ssec_qute}、圖表可參考圖\ref{fig_good}
+寫內文可以參考\ref{ch_content}、列表可參考\ref{sec_item}、引文可參考\ref{ssec_qute}、圖表可參考圖\ref{fig_tikzpicture_demo}
 
 \newpage
 \section{盒子}
@@ -147,3 +147,29 @@ makebox/framebox:可加上一些設定的盒子
 這是註腳的教學\footnote{附註 (footnote) 是一個脆弱 (fragile) 指令； 意思是說，它不能隨便放到各種環境中執行。 最好只在正常的文章中使用附註，或者在 title 與 author 中使用。}
 在版面的下方，LaTeX 會畫一條短線，並在短線上方多留一些空白， 並且用比較小的字型將附註的編號和內容安排在短線之下。
 \newpage
+
+\section{公式}
+
+歐姆定律(Ohm's law)，如式\ref{eq_ohm_v}所示，$V$是電壓，$I$是電流，比例常數$R$是電阻。
+
+\begin{equation}\label{eq_ohm_v}
+    \begin{split}
+        V = I \cdot R
+    \end{split}
+\end{equation}
+
+電路分析串聯電阻電路，串聯電阻的總電阻等於各個電阻之和，以方程式表示如式\ref{eq_ohm_rn}。其中$R_{n}$是第$n$個電阻，$R_{total}$是總電阻。
+
+\begin{equation}\label{eq_ohm_rn}
+    \begin{split}
+        R_{total} = R_{1} + R_{2} + \cdot\cdot\cdot + R_{n}
+    \end{split}
+\end{equation}
+
+並聯電阻電路，其總電阻的倒數等於其每個電阻的倒數和，以方程式表示如式\ref{eq_ohm_rnd1}。假設電路二端的電壓為$V$，則通過的電流為 $I = V / R_{total}$。
+
+\begin{equation}\label{eq_ohm_rnd1}
+    \begin{split}
+        \frac{1}{R_{total}} = \frac{1}{R_{1}} + \frac{1}{R_{2}} + \cdot\cdot\cdot + \frac{1}{R_{n}}
+    \end{split}
+\end{equation}

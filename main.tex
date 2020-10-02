@@ -27,7 +27,6 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
 \input{config.tex}
 
 \begin{document}
-    \newcommand\n{\mbox{\qquad}}
 
     \frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
     \pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
@@ -95,7 +94,6 @@ onehalfspacing, % Single line spacing, alternatives: onehalfspacing or doublespa
     % 參考文獻
     \IfFileExists{Instance/reference}{
         \input{Instance/reference.tex}
-        
     }{}
 
     % 附錄

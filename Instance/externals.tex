@@ -14,9 +14,9 @@
 }{}
 
 % 論文口試委員會審定書
-\ifthenelse{\boolean{thesissign}}{
-    \IfFileExists{\thesisvalidation}{
-        \includepdf[pagecommand={\thispagestyle{empty}}]{\thesisvalidation}
+\ifthenelse{\boolean{thesissign_zhtw}}{
+    \IfFileExists{\thesisvalidationzhtw}{
+        \includepdf[pagecommand={\thispagestyle{empty}}]{\thesisvalidationzhtw}
     }{}
 }{}
 
