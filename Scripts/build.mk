@@ -3,17 +3,23 @@ DOC=${DOCNAME}.tex
 DOCFILE=${DOCNAME}
 TITLEPAGEDOC=${TITLEPAGE}.tex
 
-LATEXARGS=-synctex=1 -interaction=nonstopmode -file-line-error --output-directory=${OUTDIR}
-BIBARGS=--output-directory=${OUTDIR}
+LATEXARGS=-synctex=1 -interaction=nonstopmode -file-line-error
+BIBARGS=
+
+LATEX_OUTDIR=${OUTDIR}/${DOCNAME}
+TITLE_OUTDIR=${OUTDIR}/${TITLEPAGE}
 
 buildtitle:
-	${LATEXCOMPILE} ${LATEXARGS} ${TITLEPAGEDOC}
+	@mkdir -p ${TITLE_OUTDIR}
+	${LATEXCOMPILE} ${LATEXARGS} --output-directory=${TITLE_OUTDIR} ${TITLEPAGEDOC}
 
 buildlatex:
-	${LATEXCOMPILE} ${LATEXARGS} ${DOC}
+	@mkdir -p ${LATEX_OUTDIR}
+	${LATEXCOMPILE} ${LATEXARGS} --output-directory=${LATEX_OUTDIR} ${DOC}
 
 buildbib:
-	${BIBCOMPILE} ${BIBARGS} ${DOCFILE}
+	@mkdir -p ${LATEX_OUTDIR}
+	${BIBCOMPILE} ${BIBARGS} --output-directory=${LATEX_OUTDIR} ${DOCFILE}
 
 buildlbll:
 	@mkdir -p ${OUTDIR}
