@@ -16,8 +16,9 @@ BIBCOMPILE=biber
 SHELL:=/bin/bash
 
 # include make script
-include Scripts/clean.mk
 include Scripts/build.mk
+include Scripts/clean.mk
+
 
 title:
 	@make buildtitle
