@@ -14,4 +14,7 @@ endif
 ifeq ($(shell [ -e $(TITLE_OUTDIR)/ -o -d $(TITLE_OUTDIR) ] && echo "1" || echo "0"), 1)
 	@$(shell rm -rf `ls ${TITLE_OUTDIR} | grep -v .pdf | awk '{print "${TITLE_OUTDIR}/"$$1}'`)
 endif
+ifeq ($(shell [ -e $(THESIS_OUTDIR)/ -o -d $(THESIS_OUTDIR) ] && echo "1" || echo "0"), 1)
+	@$(shell rm -rf `ls ${THESIS_OUTDIR} | grep -v .pdf | awk '{print "${THESIS_OUTDIR}/"$$1}'`)
+endif
 	@echo -n ""
