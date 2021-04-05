@@ -3,7 +3,7 @@
     "latex-workshop.latex.rootFile.doNotPrompt": false,
     "latex-workshop.latex.rootFile.useSubFile": false,
     "latex-workshop.latex.external.build.command": "make",
-    "latex-workshop.latex.external.build.args": ["all"],
+    "latex-workshop.latex.external.build.args": ["content"],
     "latex-workshop.view.pdf.viewer": "tab",
     "latex-workshop.latex.clean.fileTypes": [
         "*.aux",

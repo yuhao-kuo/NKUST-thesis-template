@@ -31,6 +31,12 @@ thesis:
 title:
 	@make buildtitle
 
-all:
+content:
 	@make buildlbll
+
+all:
+	@make content
+	@make buildtitle
+	@make buildthesis
+	@make clean
 
