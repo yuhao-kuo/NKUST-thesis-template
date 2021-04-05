@@ -154,11 +154,11 @@ $ make distclean
 $ make all
 ```
 
-### 提醒
+## 提醒
 
 如使用 GitHub、GitLab、Bitbucket 等程式碼代管服務，請注意遠端儲存庫 (Remote Repository) 的存取權限，知識內容請設為私密，以避免防資料外洩等安全性問題。
 
-### 鳴謝
+## 鳴謝
 
 感謝參與這個專案的[貢獻者](https://github.com/yuhao-kuo/NKUST-thesis-template/graphs/contributors)以及前輩們！
 
