@@ -1,42 +1,43 @@
-
-
 # 論文內文文件名稱, 不包含封面頁(不需加入副檔名)
 DOCNAME=main
-# 輸出檔案存放位置(預設為build)
-OUTDIR=build
 # 論文封面頁文件名稱, 不包含內文(不需加入副檔名)
 TITLEPAGE=titlepage
-# 完整論文文件名稱, 此文件包含論文內文及論文封面頁, 此文件由腳本產生
-THESIS=thesis
+# 輸出檔案存放位置
+OUTDIR=build
 
 # LaTeX Compile
 LATEXCOMPILE=xelatex
+LATEXARGS=-synctex=1 -interaction=nonstopmode -file-line-error
+
 # bib Compile
 BIBCOMPILE=biber
+BIBARGS=
 
-# shell
-SHELL:=/bin/bash
-PY:=/usr/bin/python3
+TARGET=${OUTDIR}/${DOCNAME}.pdf
+.PHONY: all clean distclean
 
-# directory
-TOP := $(shell pwd -L)
+all: ${TARGET}
 
-# include make script
-include Scripts/build.mk
-include Scripts/clean.mk
+${TARGET}: ${TITLEPAGE}.pdf
+	make latex
+	make bib
+	make latex
+	make latex
+	cp ${OUTDIR}/cache/${DOCNAME}.pdf ${OUTDIR}
 
-thesis:
-	@make buildthesis
+${TITLEPAGE}.pdf:
+	mkdir -p ${OUTDIR}/cache
+	${LATEXCOMPILE} ${LATEXARGS} --output-directory=${OUTDIR}/cache ${TITLEPAGE}.tex
+	cp ${OUTDIR}/cache/${TITLEPAGE}.pdf ${OUTDIR}
 
-title:
-	@make buildtitle
+latex:
+	${LATEXCOMPILE} ${LATEXARGS} --output-directory=${OUTDIR}/cache ${DOCNAME}.tex
 
-content:
-	@make buildlbll
+bib:
+	${BIBCOMPILE} ${BIBARGS} --output-directory=${OUTDIR}/cache ${DOCNAME}
 
-all:
-	@make content
-	@make buildtitle
-	@make buildthesis
-	@make clean
+distclean:
+	-rm -rf ${OUTDIR}
 
+clean:
+	-rm -rf ${OUTDIR}/cache
