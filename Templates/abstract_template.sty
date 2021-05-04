@@ -15,20 +15,12 @@
 	\medskip
     \begin{minipage}{0.4\textwidth}
     \begin{flushleft}
-    \ifthenelse{\boolean{multiplesupervisor}}{
-        \emph{Author\hspace{4mm}}{\byname{} \bfseries \authorenname\\　}
-    }{
-        \emph{Author\hspace{4mm}}{\byname{} \bfseries \authorenname}
-    }% Author name - remove the \href bracket to remove the link
+    \emph{Author\hspace{4mm}}{\byname{} \bfseries \authorenname} % Author name - remove the \href bracket to remove the link
     \end{flushleft}
     \end{minipage}
     \begin{minipage}{0.5\textwidth}
     \begin{flushright}
-    \ifthenelse{\boolean{multiplesupervisor}}{
-        \emph{Supervisor\hspace{4mm}}{\makebox[8em][l]{\bfseries \supervisorenname\hspace{\fill}}\\\makebox[8em][l]{\bfseries \cosupervisorenname\hspace{\fill}}}
-    }{
-        \emph{Supervisor\hspace{4mm}}{\bfseries \supervisorenname}
-    }
+    \emph{Supervisor\hspace{4mm}}{\bfseries \supervisorenname}
     \end{flushright}
     \end{minipage}\\[1cm]
 	{\huge\textit{\abstractname} \par}
@@ -58,20 +50,12 @@
 	\medskip
     \begin{minipage}{0.4\textwidth}
     \begin{flushleft}
-    \ifthenelse{\boolean{multiplesupervisor}}{
-        \emph{作者\hspace{4mm}}{\byname{} \bfseries \authortwname\\　}
-    }{
-        \emph{作者\hspace{4mm}}{\byname{} \bfseries \authortwname}
-    } % Author name - remove the \href bracket to remove the link
+    \emph{作者\hspace{4mm}}{\byname{} \bfseries \authortwname} % Author name - remove the \href bracket to remove the link
     \end{flushleft}
     \end{minipage}
     \begin{minipage}{0.5\textwidth}
     \begin{flushright}
-    \ifthenelse{\boolean{multiplesupervisor}}{
-        \emph{指導教授\hspace{4mm}}{\bfseries \supervisortwname\\\bfseries \cosupervisortwname}
-    }{
-        \emph{指導教授\hspace{4mm}}{\bfseries \supervisortwname}
-    }
+    \emph{指導教授\hspace{4mm}}{\bfseries \supervisortwname}
     \end{flushright}
     \end{minipage}\\[1cm]
 	{\huge\textit{\abstractname} \par}
