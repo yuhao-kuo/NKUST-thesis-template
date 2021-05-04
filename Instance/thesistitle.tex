@@ -36,11 +36,20 @@
 \vspace{6mm}
 
 \begin{tabular}{rl}
-\large\makebox[5em][s]{研\hspace{\fill}究\hspace{\fill}生}： & \large\authortwname \\
-\large\makebox[5em][s]{指\hspace{\fill}導\hspace{\fill}教\hspace{\fill}授}： & \large\supervisortwname \\
+    \large\makebox[5em][s]{研\hspace{\fill}究\hspace{\fill}生}： & 
+    \def\arraystretch{1}
+    \begin{tabular}[t]{l}
+        \large\authortwname
+    \end{tabular}\\
+    \large\makebox[5em][s]{指\hspace{\fill}導\hspace{\fill}教\hspace{\fill}授}：& 
+    \def\arraystretch{0.5}
+    \begin{tabular}[t]{l}
+        \large\supervisortwname\\ 
+        \ifthenelse{\boolean{multiplesupervisor}}{\large\cosupervisortwname }{\ }
+    \end{tabular}\\
 \end{tabular}
 
-\vspace{20mm}
+\vspace{16mm} 
 \fontsize{14pt}{0pt}{\dateROC }
 \vspace{15mm}
 \end{center}
