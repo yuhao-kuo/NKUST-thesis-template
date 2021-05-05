@@ -37,7 +37,7 @@ bib:
 	${BIBCOMPILE} ${BIBARGS} --output-directory=${OUTDIR}/cache ${DOCNAME}
 
 distclean:
-	-rm -rf ${OUTDIR}
+	@-rm -rf ${OUTDIR}
 
 clean:
-	-rm -rf ${OUTDIR}/cache
+	@-rm -rf ${OUTDIR}/cache
