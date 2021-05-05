@@ -13,3 +13,4 @@
 *.sta
 *.bcf
 *.run.xml
+cache/
