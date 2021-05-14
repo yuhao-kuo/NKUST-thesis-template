@@ -1,8 +1,17 @@
 \chapter{文字範例} \label{ch_content}
 參考資料：\cite{latex_basic}, \cite{latex_fbox}
+
+本專案中文字體採用 xeCJK 套件，字體套件設定請至 Configurtaions/template.tex 進行修改。
+專案中中文字體預載的套件是教育部發布的 eduKai，英文字體預載的套件是 DejaVuSerif。
+Path 是字體檔案的所在目錄，大括號中填入字體檔案名稱。
+\begin{lstlisting}[language=TeX]
+    \setCJKmainfont[Path=./Fonts/]{edukai-4.0}
+    \setmainfont[Path=./Fonts/]{DejaVuSerif}
+\end{lstlisting}
+
 \section{字體}
-\subsection{類型}
-文字特效, Hello world! \\
+\subsection{文字特效}
+中文文字特效, Hello world!\\
 {\LARGE
 \textbf{Hello world!, bold face, 粗體} \\
 \textit{Hello world!, italic, 斜體} \\
@@ -32,7 +41,7 @@ were made by accident.}
 in science 
 were made by accident.}
 
-\subsection{大小}
+\subsection{文字大小}
 文字大小範例, Font Size.\\
 {\tiny 文字大小範例, Font Size.}\\
 {\scriptsize 文字大小範例, Font Size.}\\
@@ -45,6 +54,7 @@ were made by accident.}
 {\huge 文字大小範例, Font Size.} \\
 {\Huge 文字大小範例, Font Size.}
 
+\newpage
 
 \section{列表} \label{sec_item}
 
