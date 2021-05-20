@@ -1,0 +1,117 @@
+\chapter{版型設定} \label{ch_tmp_config}
+
+本章包含論文資訊、論文Logo、封面、相關文件引入以及版型微調等。
+用於此版型的 config.tex 以及 Configurations 中的 tex 檔案。
+
+\section{論文資訊}
+
+論文資訊主要和論文作者、指導教授、學校等不變的訊息，其設定位於 config.tex 中。
+設定中如有碰到 zhtw、tw 或 en 表示這個項目有區分中英文的。
+
+\begin{lstlisting}[language=TeX]
+    \def\authortwname{王小明}
+    \def\authorenname{Shio-Min Wang}
+\end{lstlisting}
+
+目前規範中有一個項目需特別注意，因本校是由三所科技大學合併而成，因此論文需加入原本所屬學校的英文名稱。
+下方為原校英文名稱的欄位，請依原校英文名進行修改。
+
+\begin{lstlisting}[language=TeX]
+    \def\schoolenoldname{National Kaohsiung University of Applied Sciences}
+\end{lstlisting}
+
+\section{初稿與正式版}
+
+給予口試委員的論文為初稿。因此需要封面加入初稿字樣，可透過 config.tex 進行設定。
+當設定為 ture 時會產生初稿字樣，設定為 false 表示為正式版初稿字樣將會被隱藏。
+
+\begin{lstlisting}[language=TeX]
+    \setboolean{thesisdraft}{true}
+    \setboolean{thesisdraft}{false}
+\end{lstlisting}
+
+\section{外部檔案匯入與啟用設定}
+
+論文中的封面、書名頁皆可透過 LaTeX 產生，當您已經額外製作封面與書名頁時，可透過外部匯入的方式來取代。
+另外博碩士論文授權書、論文口試委員會審定書、論文口試委員會英文審定書、博士論文推薦書皆由外部匯入，論文內無法自動產生。
+
+\subsection*{封面}
+
+封面要使用外部檔案時請將參數 isthesistitleexternal 設定為 true，
+並將 externalmaintitle 參數導向至您放置 pdf 檔案的位置。
+
+\begin{lstlisting}[language=TeX]
+    \setboolean{isthesistitleexternal}{false}
+    \def\externalmaintitle{Externals/maintitle}
+\end{lstlisting}
+
+\subsection*{書名頁}
+書名頁與封面相同，預設為使用 LaTeX 產生，如需使用外部匯入，請修改 isthesisbooknameexternal 為 true，
+並將 externalbooktitle 參數導向至您放置 pdf 檔案的位置。
+
+\begin{lstlisting}[language=TeX]
+    \setboolean{isthesisbooknameexternal}{false}
+    \def\externalbooktitle{Externals/booktitle}
+\end{lstlisting}
+
+\subsection*{授權書與審定書}
+
+授權書、審定書以及英文審定書皆由國家圖書館與學校提供，LaTeX 不提供此版型，因此需額外匯入，
+請在匯入時注意修改的規範。載入請設定為 true，不載入請設定為 false。並依照該欄位說明填入指定的 pdf 檔案路徑。
+
+碩博士論文授權書，由國家圖書館發布，依照規定正本應繳回圖書館，
+此文件是否需放入論文中尚無定論，端看老師與系辦是否要求，
+如需插入本頁文件，應當由您列印文件後簽署，再將簽署好的文件掃描插入此頁中。
+\begin{lstlisting}[language=TeX]
+    \def\thesispowerofattorney{Externals/powerofattorney.pdf}
+    \setboolean{thesisauht}{false}
+\end{lstlisting}
+
+當您的論文口試委員審定書使用正本則請忽略此頁，如使用掃描檔案插入則請開啟此頁。
+審定書有分中英文，故此將二個項目分開。此文件請由 https://acad.nkust.edu.tw/p/412-1004-2503.php?Lang=zh-tw 進行下載，
+下載前建議您先確認本年度是否依然使用此份文件。
+
+\begin{lstlisting}[language=TeX]
+    \def\thesisvalidationzhtw{Externals/sign.pdf}
+    \setboolean{thesissign_zhtw}{true}
+    \def\thesisvalidationen{Externals/sign_en.pdf}
+    \setboolean{thesissign_en}{true}
+\end{lstlisting}
+
+\subsection*{博士論文推薦書}
+碩士不需要使用博士論文推薦書，此項目操作手法與審定書等相同。
+\begin{lstlisting}[language=TeX]
+    \def\thesisphdrecommand{Externals/recommand.pdf}
+    \setboolean{thesisphdrecommand}{false}
+\end{lstlisting}
+
+\section{LaTeX 文件啟用與關閉}
+
+\subsection*{誌謝與序言}
+
+誌謝與序言在本專案中被視為相同的文件，載入該文件使用將 thesisacknowledgement 參數設為 true，反之則設為 false。
+如您需要修改內容，請由 Instance/acknowledgement.tex 進行編輯。
+
+\begin{lstlisting}[language=TeX]
+    \setboolean{thesisacknowledgement}{true}
+\end{lstlisting}
+
+\subsection*{目錄列表}
+
+論文中包含了 3 種目錄，文件目錄、圖目錄、表目錄，當您論文沒有使用到圖片或表格時，將會產生多餘的頁數，
+因此提供使用者手動屏蔽該頁的功能，載入目錄使用 ture，屏蔽目錄則使用 false。
+
+\begin{lstlisting}[language=TeX]
+    \setboolean{thesiscontent}{true}
+    \setboolean{thesistable}{true}
+    \setboolean{thesisfiguretable}{true}
+\end{lstlisting}
+
+\subsection*{附錄}
+
+附錄是論文的附加文件，在本專案的 3 個實驗室中，皆無附加附錄的功能。
+因此此欄位預設為關閉狀態，如需啟用請自行在 Configurations/appendice.tex 中加入該附錄內容，如何修改此內容將於下一章節進行說明。
+
+\begin{lstlisting}[language=TeX]
+    \setboolean{thesisappendix}{false}
+\end{lstlisting}

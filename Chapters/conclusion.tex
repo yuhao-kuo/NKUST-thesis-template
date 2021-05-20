@@ -1,11 +1,33 @@
 
 \chapter{結論} \label{conclusion_and_future}
 
-
 \section{研究結論}
 
-嗯 結論
+\subsection*{產生論文}
+
+經過開發者討論後，決議將論文與封面產生皆由 all 指令產生。
+
+\begin{lstlisting}[language=bash]
+    make all
+\end{lstlisting}
+
+\subsection*{清除暫存}
+
+暫存檔案檔案是由 xelatex 編譯時所產生，使用此指令清除暫存並不會將 PDF 檔案清除。
+
+\begin{lstlisting}[language=bash]
+    make clean
+\end{lstlisting}
+
+\subsection*{完整清除}
+
+完整清除檔案會將所有由 xelatex 編譯產生的檔案完整清除，包含論文與封面的 PDF 檔案。
+
+\begin{lstlisting}[language=bash]
+    make distclean
+\end{lstlisting}
 
 \section{未來展望}
 
-未來這個東西能幹嘛阿？ 要做什麼應用阿？之類的
+未來，我們也不知道能持續維護多久，只要有人使用，我們就會盡力維護下去。
+目前僅支援 Linux，未來將會盡量朝向支援 Windows，讓更多人能使用此專案。

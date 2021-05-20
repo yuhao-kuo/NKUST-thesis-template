@@ -1,0 +1,59 @@
+\chapter{圖表與圖片}\label{Experimental_picture}
+
+
+\section{圖表}
+
+圖\ref{fig_tikzpicture_demo}為透過 $LaTeX$ 套件 tikzpicture 繪製出的圖形。圖\ref{fig_nkust} 為 JPEG 格式之圖片。圖\ref{fig_taiwan_symbol} 為去背的 PNG 格式圖案，圖\ref{fig_nkust}\cite{nkust_jpg}與圖\ref{fig_taiwan_symbol}\cite{taiwan_symbol}資料來源為中文維基百科。
+
+\input{./Figures/Result/performratio01.tex}
+
+\begin{figure}[H] 
+    \centering 
+    \includegraphics[width=0.5\textwidth]{./Figures/ImageTest/NKUST.jpg} 
+    \caption{NKUST 校門口}
+    \label{fig_nkust}
+\end{figure}
+
+\begin{figure}[H] 
+    \centering 
+    \includegraphics[width=0.7\textwidth]{./Figures/ImageTest/Taiwan_symbol.png} 
+    \caption{Taiwan symbol}
+    \label{fig_taiwan_symbol}
+\end{figure}
+
+圖\ref{fig_nkust_logo}為國立高雄科技大學校徽集，圖\ref{fig_nkust_logo_1}與圖\ref{fig_nkust_logo_4}為外加方格的校徽，圖\ref{fig_nkust_logo_2}與圖\ref{fig_nkust_logo_3}為無外加方框的校徽，圖片來源來自於 NKUST 形象識別系統(校徽)\cite{logo}。
+
+\begin{figure}[H]
+    \centering 
+    \subfigure[校徽]{
+        \setlength{\fboxrule}{0.5pt}
+        \fbox{\includegraphics[width=5.5cm]{./Figures/ImageTest/f4.png}}
+        \label{fig_nkust_logo_1}
+    }
+    \quad
+    \subfigure[校徽特別範例]{
+        \setlength{\fboxrule}{0.5pt}
+        \includegraphics[width=5.5cm]{./Figures/ImageTest/f5.png}
+        \label{fig_nkust_logo_2}
+    }
+    \quad
+    \subfigure[英文簡稱/上下組合]{
+        \setlength{\fboxrule}{0.5pt}
+        \includegraphics[width=5.5cm]{./Figures/ImageTest/f6.png}
+        \label{fig_nkust_logo_3}
+    }
+    \quad
+    \subfigure[中文全銜、英文簡稱/上下組合]{
+        \setlength{\fboxrule}{0.5pt}
+        \fbox{\includegraphics[width=5.5cm]{./Figures/ImageTest/f7.png}}
+        \label{fig_nkust_logo_4}
+    }
+    \caption{NKUST Logo}
+    \label{fig_nkust_logo}
+\end{figure}
+
+
+\section{表格測試}
+\input{./Tables/table1.tex}
+
+% \newpage
