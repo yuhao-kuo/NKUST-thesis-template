@@ -12,6 +12,7 @@
 5. ***Templates***
 6. ***NKUSThesis.cls***
 7. ***main.tex***
+8. ***titlepage.tex***
 
 下列資料更新大多會產生衝突，因此建議使用者要注意此位置中的檔案變更。
 
@@ -20,7 +21,8 @@
 3. ***Figures***
 4. ***Instance***
 5. ***References***
-6. ***build***
+6. ***Tables***
+7. ***build***
 
 #### Git 建議流程
 
