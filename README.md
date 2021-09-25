@@ -22,6 +22,8 @@
 
 ## 如何開始使用這個模板
 
+> 使用 docker 請參考 [docker support](Docs/docker.md)
+
 首先感謝您的使用，希望您在有餘力之時為我們提供意見回饋，為我們提供寶貴的建議。
 
 此模板使用 Linux 系作業系統進行開發，主體仍相依於 Linux 上，目前已知此模板能在 `Ubuntu`、`Debian`、`Arch Linux ` 等多個 Linux 發行版中使用。未來期待有人能向我們提供 Windows WSL、MSYS、Git Bash 等支援的相關建議，作為 v2.1 版本的改善依據。
