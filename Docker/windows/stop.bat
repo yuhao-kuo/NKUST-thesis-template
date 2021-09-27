@@ -1,0 +1,3 @@
+
+docker stop latex-srv
+
