@@ -3,11 +3,11 @@ FROM texlive/texlive:latest
 ARG USER
 ARG USERID
 ARG GROUPID
-ARG PROJECT=/home/thesis
+ARG PROJECT=/home/$USER/thesis
 
 # user configuration
 RUN groupadd -g $GROUPID docker-user
-RUN useradd -M -s /bin/bash -u $USERID -g $GROUPID $USER
+RUN useradd -m -s /bin/bash -u $USERID -g $GROUPID $USER
 RUN echo $USER:1234 | chpasswd
 RUN adduser $USER sudo
 RUN HOME=$PROJECT

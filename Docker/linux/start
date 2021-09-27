@@ -8,6 +8,7 @@ if [ -n "$CONTAINER_ID" ]; then
 fi
 
 PROJECT_DIR=`cd $(dirname $0)/../..; pwd`
+USER=`whoami`
 
-docker run --name latex-srv -it --rm -w /home/thesis -v $PROJECT_DIR:/home/thesis -d nkusthesis
+docker run --name latex-srv -it --rm -w /home/$USER/thesis -v $PROJECT_DIR:/home/$USER/thesis -d nkusthesis
 

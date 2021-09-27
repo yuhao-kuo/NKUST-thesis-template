@@ -1,0 +1,3 @@
+
+docker attach latex-srv
+
