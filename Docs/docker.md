@@ -40,19 +40,22 @@ $ ./Docker/linux/stop
 
 > 適用於 Windows 10
 
-* 編譯 docker image，客制化使用者開發環境參數，基底源自 [texlive](https://hub.docker.com/r/texlive/texlive)。
+本節說明的檔案位於專案中的 `Docker/windows` 中。
+![圖片](images/docker/docker_windows.png)
+
+* 編譯 docker image，客制化使用者開發環境參數，基底源自 [texlive](https://hub.docker.com/r/texlive/texlive)，可使用滑鼠雙擊 build.bat 或使用 cmd / powershell 執行。
 ```
 > ./Docker/windows/build.bat
 ```
-* 啟動 latex-srv，使用腳本會運作於背景中。
+* 啟動 latex-srv，使用腳本會運作於背景中，可使用滑鼠雙擊 build.bat 或使用 cmd / powershell 執行。
 ```
 > ./Docker/windows/start.bat
 ```
-如須進入到環境的 bash 中，可以透過 attach 進入環境。如果要離開環境請用 `ctrl+p` + `ctrl+q`，如使用 `exit` 將會關閉該 container。
+如須進入到環境的 bash 中，可以透過 attach 進入環境。如果要離開環境請用 `ctrl+p` + `ctrl+q`，如使用 `exit` 將會關閉該 container，可使用滑鼠雙擊 build.bat 或使用 cmd / powershell 執行。
 ```
 > ./Docker/windows/attach.bat
 ```
-* 關閉 latex-srv，關閉運作於背景的 container。
+* 關閉 latex-srv，關閉運作於背景的 container，可使用滑鼠雙擊 build.bat 或使用 cmd / powershell 執行。
 ```
 > ./Docker/windows/stop.bat
 ```
@@ -61,8 +64,30 @@ $ ./Docker/linux/stop
 
 透過 vscode remote extension 進行連線操作，支援 Docker 目錄中所有工具。
 
-1. 安裝 remote extension
-2. `ctrl+p` 呼叫命令工具，找到 `> Remote-Containers: Attach to Running container ...`，點擊後選擇 *latex-srv* 即可進入開發環境。
-3. 開啟資料夾，論文目錄預設掛載在 `/home/<使用者名稱>/thesis` 中。
+1. 編譯 image，可雙擊檔案或以 terminal 於專案目錄中執行編譯指令，在此之前請安裝完 docker。
+    * Linux / Mac
+    ```
+    $ ./Docker/linux/build
+    ```
+    * Windows
+    ```
+    > ./Docker/windows/build.bat
+    ```
+2. 安裝 remote extension
+![](images/docker/vscode_remote_extension.png)
+3. 啟動 container 進行服務可雙擊檔案或以 terminal 於專案目錄中執行啟動指令。如果正常運作執行後終端機將會自動關閉。
+    * Linux / Mac
+    ```
+    $ ./Docker/linux/start
+    ```
+    * Windows
+    ```
+    > ./Docker/windows/start.bat
+    ```
+4. `ctrl+p` 呼叫命令工具，找到(可直接輸入) `> Remote-Container: Attach to Running container ...`，點擊後選擇 *latex-srv* 即可進入開發環境。
+![](images/docker/vscode_attach_container.png)
+![](images/docker/vscode_select_container.png)
+5. 開啟資料夾，論文目錄預設掛載在 `/home/<使用者名稱>/thesis` 中。
+![](images/docker/vscode_finish.png)
 
 
