@@ -2,7 +2,7 @@
 
 ![](https://www.nkust.edu.tw/var/file/0/1000/img/513/182513897.png)
 
-本專案為**國立高雄科技大學研究所論文 LaTex 模板**，依照[國立高雄科技大學學位論文格式規範](https://ceed.nkust.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV3TDNCMFlWOHhPRFEzWHpJMk5qRXhNakJmTVRZMk9EVXVjR1Jt&fname=WSGGTSB00010A1KK50LKRKHGSTTW25B1RKFG40NPQPRLFG40ROFCLL54WWOODGOK44CCIH15A404GDJGVWPKTS14B0MOGCHCCC35DCTSZWB030FC145424DCGCLK0115JCLKSXHGTWFGSWHCUS30A110)及建工校區電子工程系網路計算實驗室(`WNDCLab`、`NCLab`、`AIoRLab`)實驗室論文格式標準進行編排。其內容排列順序依序為：
+本專案為**國立高雄科技大學研究所論文 LaTex 模板**，依照[國立高雄科技大學學位論文格式規範](https://ceed.nkust.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV3TDNCMFlWOHhPRFEzWHpJMk5qRXhNakJmTVRZMk9EVXVjR1Jt&fname=WSGGTSB00010A1KK50LKRKHGSTTW25B1RKFG40NPQPRLFG40ROFCLL54WWOODGOK44CCIH15A404GDJGVWPKTS14B0MOGCHCCC35DCTSZWB030FC145424DCGCLK0115JCLKSXHGTWFGSWHCUS30A110)及建工校區電子工程系網路計算實驗室(`WNDCLab`、`NCLab`、`AIoRLab`)之論文格式標準進行編排。其內容排列順序依序為：
 
 1. 封面
 2. 書名頁
@@ -22,19 +22,23 @@
 
 ## 如何開始使用這個模板
 
-> 使用 docker 請參考 [docker support](Docs/docker.md)
+此模板使用 Linux 系作業系統進行開發，主體仍相依於 Linux 上，目前已知此模板能在 `Ubuntu`、`Debian`、`Arch Linux ` 等多個 Linux 發行版中使用。如果您是 Windows 使用者或不想佈署環境的用戶可使用 [docker](Docs/docker.md) 方案進行使用。
 
-首先感謝您的使用，希望您在有餘力之時為我們提供意見回饋，為我們提供寶貴的建議。
-
-此模板使用 Linux 系作業系統進行開發，主體仍相依於 Linux 上，目前已知此模板能在 `Ubuntu`、`Debian`、`Arch Linux ` 等多個 Linux 發行版中使用。未來期待有人能向我們提供 Windows WSL、MSYS、Git Bash 等支援的相關建議，作為 v2.1 版本的改善依據。
-
-後續文件僅以 Linux 作說明，內容依序為**安裝工具**、**取得**與**使用**等三大部份。
+後續文件內容依序為**安裝工具**、**取得**與**使用**等三大部份。
 
 ### 安裝工具
 
-專案推薦使用編輯器 **Visual Studio Code**，使用 **make** 與 **texlive** 套件包進行文件的編譯移除等相關操作，另外我們推薦使用 **Git** 管理版本來預防資料遺失及損毀等災難。
+專案推薦使用編輯器 **Visual Studio Code**，使用 **make** 與 **texlive** 套件包進行文件的編譯移除等相關操作，另外我們推薦使用 **Git** 管理版本，預防資料遺失及損毀等災難。
+
+#### **[Docker](https://www.docker.com/)**
+
+> 如**已有開發環境**者，此工具不須安裝。
+
+適用於 Windows 用戶、Mac 用戶、不想建立環境的用戶，安裝文件請見 [官方文件](https://docs.docker.com/engine/install/)。
 
 #### **[Visual Studio Code](https://code.visualstudio.com/)**
+
+> 推薦安裝
 
 Visual Studio Code 下面簡稱為 VSCode，由 Microsoft 釋出的開源開發工具，可提供 SSH 遠端連線與 WSL 開發的功能，提供研究生可以不用在電腦端也能連接上遠端進行論文的撰寫工作。下列是我們撰寫論文時經常使用的模組。
 
@@ -55,6 +59,8 @@ $ sudo dpkg -i vscode.deb
 
 #### **[Make](https://www.gnu.org/software/make/)**
 
+> Docker 方案的使用者，此工具不須安裝。
+
 GNU 提供的工具，下列為安裝指令。雖然 make 工具有提供 Windows 的版本，但因本專案中使用了部分 Linux 語法，因此無法於 Windows CMD / PowerShell 中使用，目前已知可於 WSL、MSYS、Git Bash 中使用。
 
 ```
@@ -63,6 +69,8 @@ $ sudo apt-get install make
 ```
 
 #### **[Git](http://git-scm.com/)**
+
+> 建議安裝，非必要。
 
 是否安裝 Git 並不影響您使用此模板，但我們極度推薦安裝這個工具。Git 是當前最主流的版本控制軟體，可以提供版本控制的功能，讓您能紀錄您再哪個時候修改了什麼，也能利用免費的遠端儲存庫([GitHub](https://github.com/)、[GitLab](https://gitlab.com/)、[bitbucket](https://bitbucket.org/))製作多個異地備份，保障您的論文安全。
 
@@ -74,6 +82,16 @@ $ sudo apt-get install git-core
 ```
 
 Windows 7/8/10 則需要手動安裝，請[由此](https://git-scm.com/downloads)下載。
+
+#### **[texlive](https://tug.org/texlive/)**
+
+> Docker 方案的使用者，此工具不須安裝。
+
+LeTeX 文件編譯工具。
+
+```
+$ sudo apt install texlive-full
+```
 
 ### 取得
 
