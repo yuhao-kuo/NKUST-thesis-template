@@ -4,7 +4,7 @@ docker ps | find "latex-srv" > docker.stat
 set /p STAT=<docker.stat
 del "docker.stat"
 
-if ["%STAT"] == [""] (
+if not ["%STAT"] == [""] (
 	echo "[msg] latex-srv is running!"
 	pause
 	exit
