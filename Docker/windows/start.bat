@@ -8,12 +8,6 @@ if NOT "%STAT%" == "" (
 	echo "[msg] latex-srv is running!"
 	pause
 ) else (
-	set "BATPATH=%CD%"
-	cd %CD%\..\..
-	set "PROJECT_DIR=%CD%"
-	cd %BATPATH%
-
-	docker run --name latex-srv -it --rm -w /home/%UserName%/thesis -v %PROJECT_DIR%:/home/%UserName%/thesis -d nkusthesis
+	docker run --name latex-srv -it --rm -w /home/%UserName%/thesis -v %CD:\Docker\windows=%:/home/%UserName%/thesis -d nkusthesis
 )
-
 
