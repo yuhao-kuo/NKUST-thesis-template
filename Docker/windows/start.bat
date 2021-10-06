@@ -4,16 +4,16 @@ docker ps | find "latex-srv" > docker.stat
 set /p STAT=<docker.stat
 del "docker.stat"
 
-if not ["%STAT"] == [""] (
+if NOT "%STAT%" == "" (
 	echo "[msg] latex-srv is running!"
 	pause
-	exit
+) else (
+	set "BATPATH=%CD%"
+	cd %CD%\..\..
+	set "PROJECT_DIR=%CD%"
+	cd %BATPATH%
+
+	docker run --name latex-srv -it --rm -w /home/%UserName%/thesis -v %PROJECT_DIR%:/home/%UserName%/thesis -d nkusthesis
 )
 
-set "BATPATH=%CD%"
-cd %CD%\..\..
-set "PROJECT_DIR=%CD%"
-cd %BATPATH%
-
-docker run --name latex-srv -it --rm -w /home/%UserName%/thesis -v %PROJECT_DIR%:/home/%UserName%/thesis -d nkusthesis
 
