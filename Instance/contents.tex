@@ -2,7 +2,7 @@
 
 % 目錄
 \ifthenelse{\boolean{thesiscontent}}{
-    \renewcommand{\contentsname}{目錄}
+    \renewcommand{\contentsname}{目錄}  % 目錄頁標題顯示名稱
     \clearpage
     \phantomsection
     \addchaptertocentry{\contentsname}
@@ -13,10 +13,10 @@
 
 % 表目錄
 \ifthenelse{\boolean{thesistable}}{
-    \renewcommand{\tablename}{表}
-    \renewcommand{\listtablename}{表目錄}
-    \newcommand{\lotlabel}{表}
-    \renewcommand{\numberline}[1]{\lotlabel~#1\hspace*{2em}}
+    \newcommand{\lotlabel}{表}  % 表目錄中編號前方的標頭字，如右方範例 --> <表> 1.2  範例表 ....
+    \renewcommand{\tablename}{\lotlabel}  % 正文中表格說明標頭字，如右方範例 --> <表> 1.2: 範例表
+    \renewcommand{\listtablename}{表目錄}  % 表目錄頁中標頭字
+    \renewcommand{\numberline}[1]{\lotlabel~#1\hspace*{2em}}  % 2em 為表目錄頁數字與文字描述間隔，請依需求進行調整
     \clearpage
     \phantomsection
     \addchaptertocentry{\listtablename}
@@ -26,10 +26,10 @@
 
 % 圖目錄
 \ifthenelse{\boolean{thesisfiguretable}}{
-    \renewcommand{\figurename}{圖}
-    \renewcommand{\listfigurename}{圖目錄}
-    \newcommand{\loflabel}{圖}
-    \renewcommand{\numberline}[1]{\loflabel~#1\hspace*{2em}}
+    \newcommand{\loflabel}{圖}  % 圖目錄中編號前方的標頭字，如右方範例 --> 圖 1.2.3  範例圖 ....
+    \renewcommand{\figurename}{\loflabel}  % 正文中圖片欄位標頭字，如右方範例 --> <圖> 1.2.3: 範例圖
+    \renewcommand{\listfigurename}{圖目錄}  % 圖目錄頁中標頭字
+    \renewcommand{\numberline}[1]{\loflabel~#1\hspace*{2em}}  % 2em 為圖目錄頁數字與文字描述間隔，請依需求進行調整
     \clearpage
     \phantomsection
     \addchaptertocentry{\listfigurename}
