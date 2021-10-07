@@ -15,6 +15,8 @@
 \ifthenelse{\boolean{thesistable}}{
     \renewcommand{\tablename}{表}
     \renewcommand{\listtablename}{表目錄}
+    \newcommand{\lotlabel}{表}
+    \renewcommand{\numberline}[1]{\lotlabel~#1\hspace*{2em}}
     \clearpage
     \phantomsection
     \addchaptertocentry{\listtablename}
@@ -26,6 +28,8 @@
 \ifthenelse{\boolean{thesisfiguretable}}{
     \renewcommand{\figurename}{圖}
     \renewcommand{\listfigurename}{圖目錄}
+    \newcommand{\loflabel}{圖}
+    \renewcommand{\numberline}[1]{\loflabel~#1\hspace*{2em}}
     \clearpage
     \phantomsection
     \addchaptertocentry{\listfigurename}
