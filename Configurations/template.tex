@@ -3,107 +3,273 @@
 \setcounter{secnumdepth}{6}
 \setcounter{tocdepth}{6}
 
-% \usepackage{CJKutf8}
-% \usepackage{CJKspace}
-% \usepackage{atbegshi}
+% ----------------------------
+%   文字字型設定
+% ----------------------------
+
 % xelatex 中文套件設定
-\usepackage{xeCJK}
-\usepackage{lipsum}
-\usepackage{fontspec}
-% \usepackage{type1ec,type1cm}
-\defaultfontfeatures{AutoFakeBold=2.5,AutoFakeSlant=.2}
-\setmainfont[Path=\string./fonts/]{times}[        %預設英文字體
-	Extension      = .ttf,
-	BoldFont       = *bd,
-	ItalicFont     = *i,
-	BoldItalicFont = *bi
-	]
-
-\setsansfont[Path=\string./fonts/]{times} 		 %使用目錄底下指定字體
-
-\setCJKmainfont[Path=\string./fonts/]{ukai}
-\setCJKmonofont[Path=\string./fonts/]{edukai-4.0}
-\setCJKfamilyfont{edukai-4.0}[Path=\string./fonts/]{edukai-4.0}       %教育部楷書
-\newcommand{\edukai}{\CJKfamily{edukai-4.0}}
-
-
-% \usepackage[utf8]{inputenc} % Required for inputting international characters
+\usepackage[SlantFont]{xeCJK} % 中文字體支援(xelatex)
 \usepackage[LGR,OT1]{fontenc} % Output font encoding for international characters
 \usepackage{palatino} % Use the Palatino font by default
 \usepackage{indentfirst} \setlength{\parindent}{2em}
-\usepackage{xcolor}
+\usepackage{lipsum}
+\usepackage{fontspec}
+\usepackage[english]{babel} % 外國語系字母支援
 
-\usepackage{lettrine}  % used for chinese bigger capital
-% \usepackage{Packages/slashbox,booktabs,amsmath}
-\usepackage{algorithm}
-\usepackage{transparent}
+\defaultfontfeatures{AutoFakeBold=2.5,AutoFakeSlant=.2}
 
-\usepackage{enumerate}
-\usepackage{multirow}
+% 英文字體設定(可自行更改)
+\setmainfont[Path=./Fonts/]{DejaVuSerif}
 
-\frontmatter % Use roman page numbering style (i, ii, iii, iv...) for the pre-content pages
-\pagestyle{plain} % Default to the plain heading style until the thesis style is called for the body content
-\usepackage{makecell}
-\cleardoublepage
-\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+% 英文字家族範例
+\newcommand*{\edukai}{\CJKfamily{edukai-4.0}}
+\renewcommand*{\rmdefault}{lmr}
+\renewcommand*{\sfdefault}{lmss}
+\renewcommand*{\ttdefault}{lmtt}
 
-\usepackage{pdfpages}
+% 中文字體設定(教育部標準字體)
+\setCJKmainfont[Path=./Fonts/]{edukai-4.0}
+\setCJKmonofont[Path=./Fonts/]{edukai-4.0}
+\setCJKsansfont[Path=./Fonts/]{edukai-4.0}
 
-\usepackage{url}
-\usepackage[redeflists]{IEEEtrantools}
-\usepackage{indentfirst}
+% ----------------------------
+%   排版擴充
+% ----------------------------
+\newcommand\n{\mbox{\qquad}} % 換行指令
+\usepackage{xcolor}	% 字體顏色
+\usepackage{lettrine}  % 空白間距
+\usepackage[autostyle=true]{csquotes} % 引號排版
+\usepackage{indentfirst} % 首行縮排
+\usepackage{setspace} % 行距
+\usepackage{scrbase}
+\usepackage{scrhack}
+\usepackage{Templates/nkusthesis_layout} % 版面排版
 
-\usepackage{titletoc}
-\usepackage{CJKnumb}	% 阿拉伯數字轉中文字
+% ----------------------------
+%   排序
+% ----------------------------
+\usepackage{amsmath}
 
-\usepackage[printwatermark]{xwatermark}  % 浮水印
-\usepackage{tikz}
-\usepackage{eso-pic,picture}
-\usepackage{wallpaper}
-\usepackage[contents=]{background} %如果沒有給 contest空白會自動加上 draft 浮水印字樣
+\numberwithin{figure}{section}
 
-\newcommand\NTUSTwatermark {
-	\backgroundsetup{contents={\includegraphics[width=1cm]{\watermarkimage}},angle=0,opacity=0.2}
-	% \begin{tikzpicture}[remember picture, overlay]
-	% 	\node [opacity=.2] at (current page.center) %頁面中心
-	% 		{\includegraphics[width=6.25cm]{\watermarkimage}};
-	% \end{tikzpicture}
-}	
+\newtheorem{definition}{Definition}
+\newtheorem{problem}{Problem}
 
-\usepackage{ifthen} % if-else 擴充
-\usepackage[subpreambles]{standalone}  % config.tex
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{note}[theorem]{Note}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{prop}[theorem]{Proposition}
 
-\usepackage{pgfplots}
-\usepgfplotslibrary{colorbrewer}
-\pgfplotsset{compat=newest,compat/show suggested version=false}
-
-
-\usepackage{Templates/abstract_template}
-\usepackage{Templates/acknowledgements_template}
+\newtheorem{thm}{Theorem}%[section]
+\newtheorem{lma}{Lemma}%[theorem]
+\newtheorem{defi}{Definition}
+\newtheorem{rul}{Rule}
 
 % ----------------------------
 %   章節
 % ----------------------------
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{zhnumber}
+\usepackage{CJKnumb}	% 阿拉伯數字轉中文字
 
-\usepackage{titlesec, titletoc}  
-\usepackage{zhnumber} 
-\titlecontents{chapter}[0em]{}
-{\hspace{0em}\makebox[4.1em][l]
-	{第\zhnumber{\thecontentslabel}章}}{}
-{\titlerule*[0.7pc]{.}\contentspage}
+% ----------------------------
+%   超連結
+% ----------------------------
+\usepackage{hyperref}
+\usepackage{url}
 
-\titleformat{\chapter}{\centering\Huge\bfseries}{Chapter\,{\CJKnumber{\thechapter}}}{1em}{}
-\titleformat{\chapter}{\centering\Huge\bfseries}{\CJKnumber{\thechapter}\,、}{1em}{}    %設定章節樣式
+\hypersetup{pdfpagemode={UseOutlines},
+	linktocpage,		% 
+	bookmarksopen=true,
+	bookmarksopenlevel=0,
+	hypertexnames=false,
+	colorlinks=true, % Set to false to disable coloring links
+	citecolor=red, % The color of citations
+	linkcolor=blue, % The color of references to document elements (sections, figures, etc)
+	urlcolor=magenta, % The color of hyperlinks (URLs)
+	pdfstartview={FitV},
+	unicode,
+	breaklinks=true,
+	}
+
+\pdfstringdefDisableCommands{ % If there is an explicit linebreak in a section heading (or anything printed to the pdf-bookmarks), it is replaced by a space
+	\let\\\space
+}
+
+% ----------------------------
+%   內文排版
+% ----------------------------
+
+%   程式碼區塊
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+\lstdefinestyle{codestyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\textrm\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=none,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=codestyle}
+
+%   演算法虛擬碼
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+%   小圖
+\usepackage{subfigure}
+
+%   原文顯示支援
+\usepackage{verbatim}
+\usepackage{moreverb}
+
+
+
+%   表格
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{threeparttable}
+\usepackage{longtable}
+\usepackage{booktabs}
+
+%   外部PDF導入
+\usepackage{pdfpages}
+
+% 曲線繪圖
+\usepackage{tikz}
+
+% 資料繪圖
+\usepackage{pgfplots}
+\usepgfplotslibrary{colorbrewer}
+\pgfplotsset{compat=newest,compat/show suggested version=false}
+\usepackage[subpreambles]{standalone}
+
+% 繪圖
+\usepackage{graphicx} % Required to include images
+\graphicspath{{Figures/}{./}} % Specifies where to look for included images
+
+% 流程狀態圖繪圖
+\usepackage{amscd}
+
+% 數學符號擴充
+\usepackage{amssymb}
+
+% 數學公式擴充
+\usepackage{amsthm}
+
+% 符號擴充
+\usepackage{siunitx}
+
+% 圖片
+\usepackage{eso-pic}
+\usepackage{picture}
+\usepackage{wallpaper}
+
+% 浮水印
+\usepackage[contents=]{background} %如果沒有給 contest空白會自動加上 draft 浮水印字樣
+
+% 浮水印參數定義
+\newcommand\NTUSTwatermark {
+	\backgroundsetup{
+		contents={\includegraphics{\watermarkimage}},
+		angle=0,
+		opacity=0.2,
+		hshift = 0mm,
+		vshift = 0mm,
+		scale=0.5
+	}
+}
+
+% 章節
+\usepackage{caption}
+\captionsetup[centerlast,small,n]{name=caption} % setting caption
+\setlength{\captionmargin}{50pt}
+
+% ----------------------------
+%   頁首頁尾
+% ----------------------------
+\usepackage[Lenny]{fncychap}
+\pagestyle{empty}
+
+% ----------------------------
+%   其他擴充功能
+% ----------------------------
+
+%   if-else 擴充
+\usepackage{ifthen}
+
+% ----------------------------
+%   其他定義
+% ----------------------------
+
+% Other
+\newcommand{\checktoopen}{% New command to move content to the next page which prints to the next odd page if twosided mode is active
+\if@openright\cleardoublepage\else\clearpage\fi
+}
+
+\newcommand\bhrule{\typeout{--------------------}}
+\newcommand\tttypeout[1]{\bhrule\typeout{\space #1}\bhrule}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % New command to make the lines in the title page
+\newcommand{\decoRule}{\rule{.8\textwidth}{.4pt}} % New command for a rule to be used under figures
+
+\renewcommand{\abovechapterspace}{\vspace*{10pt}} % Reduce the whitespace above a chapter heading
+
+\setcounter{tocdepth}{3} % The depth to which the document sections are printed to the table of contents
+\providecommand\addchaptertocentry[1]{%
+\addcontentsline{toc}{chapter}{#1}}
+
+% Penalties
+\doublehyphendemerits=10000 % No consecutive line hyphens
+\brokenpenalty=10000 % No broken words across columns/pages
+\widowpenalty=9999 % Almost no widows at bottom of page
+\clubpenalty=9999 % Almost no orphans at top of page
+\interfootnotelinepenalty=9999 % Almost never break footnotes
+
+% 參考文獻
+\newcommand{\fref}[1]{\figurename~\ref{#1}}
+\newcommand{\tref}[1]{\tablename~\ref{#1}}
+\providecaptionname{german,ngerman,austrian,naustrian}{\equationnamenname}{Formel}
+\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\equationnamenname}{Equation}
+\newcommand{\eref}[1]{\equationname~\ref{#1}}
+\newcommand{\cref}[1]{\chaptername~\ref{#1}}
+\newcommand{\sref}[1]{\sectionname~\ref{#1}}
+\providecaptionname{german,ngerman,austrian,naustrian}{\sectionname}{Abschnitt}
+\providecaptionname{american,australian,british,canadian,english,newzealand,UKenglish,USenglish}{\sectionname}{Section}
+\newcommand{\aref}[1]{\appendixname~\ref{#1}}
+
+% ----------------------------
+%   導入NKUSThesis版型設定
+% ----------------------------
+\usepackage{Templates/abstract_template}
+\usepackage{Templates/acknowledgements_template}
+\usepackage{Templates/reference_template}
+\usepackage{Templates/chapter_template}
+
+%   條列式清單
+\usepackage{enumerate}
+\usepackage{enumitem}
 
 % -----------------------------------------------------------------------------------------------
 
-% ----------------------------
-%   Reference
-% ----------------------------
-\makeatletter
-\def\blx@maxline{77}
-\makeatother
-\usepackage[redeflists]{IEEEtrantools}
-% \usepackage[hyperref=true,backend=biber,sorting=none,backref=true]{biblatex}
-\usepackage{biblatex}
-\addbibresource{References/reference.bib}
+

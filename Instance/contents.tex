@@ -3,7 +3,10 @@
 % 目錄
 \ifthenelse{\boolean{thesiscontent}}{
     \renewcommand{\contentsname}{目錄}
-    \tableofcontents \addchaptertocentry{\contentsname}
+    \clearpage
+    \phantomsection
+    \addchaptertocentry{\contentsname}
+    \tableofcontents
     \newpage
 }{}
 
@@ -12,7 +15,10 @@
 \ifthenelse{\boolean{thesistable}}{
     \renewcommand{\tablename}{表}
     \renewcommand{\listtablename}{表目錄}
-    \listoftables \addchaptertocentry{\listtablename}
+    \clearpage
+    \phantomsection
+    \addchaptertocentry{\listtablename}
+    \listoftables
     \newpage
 }{}
 
@@ -20,6 +26,9 @@
 \ifthenelse{\boolean{thesisfiguretable}}{
     \renewcommand{\figurename}{圖}
     \renewcommand{\listfigurename}{圖目錄}
-    \listoffigures \addchaptertocentry{\listfigurename}
+    \clearpage
+    \phantomsection
+    \addchaptertocentry{\listfigurename}
+    \listoffigures
     \newpage
 }{}

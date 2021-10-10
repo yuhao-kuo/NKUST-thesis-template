@@ -12,10 +12,12 @@
 {\LARGE  \titleen}
 \vspace{15mm}
 
-{\large\bfseries{研究生：}\large\authortwname\\
-\large\bfseries{指導教授：}\large\supervisortwname}
+{ \large\bfseries {研究生：} \large\authortwname \\
+    \makebox [25mm][l]{ \large\bfseries {指導教授：}} \large\supervisortwname \\
+    \makebox [25mm][l]{ \large\bfseries { }} 
+    \ifthenelse{\boolean {multiplesupervisor}}{\large\cosupervisortwname}{} }
 
-\vspace{15mm}
+\vspace{7mm}
 {\Large\bfseries{\schooltwname}\\
 \vspace{4.5mm}
 \Large\bfseries{\depttwname{\degreetw 班}}\\
@@ -27,7 +29,7 @@
 A Thesis Submitted to \deptenname\\
 \schoolenname\\
 in Partial Fulfillment of the Requirements\\
-for the Degree of \degreeen of Engineering\\
+for the Degree of \degreeen \,of Engineering\\
 in \majortwname
 
 \vspace{15mm}
@@ -35,9 +37,9 @@ in \majortwname
 \schoolenlocation
 
 \vspace{10mm}
-\schoolenoldname is the predecessor of\\
-National Kaohsiung University\\
-of Science and Technology (renamed on Feb. 1, 2018)
+\schoolenoldname \,is the predecessor of
+National Kaohsiung University of
+Science and Technology (renamed on Feb. 1, 2018)
 
 \vspace{10mm}
 % {\large\bfseries{\dateROC}}

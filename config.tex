@@ -2,20 +2,22 @@
 % Thesis Defined
 %
 
-\usepackage{ifthen}
-
 % ------------ 作者資訊 ------------
 
 \def\authortwname{王小明}  % 研究生中文名字
 \def\authorenname{Shio-Min Wang}  % 研究生英文名字
 
-\def\supervisortwname{謝慶發 博士}  % 指導教授中文名字
-\def\supervisorenname{Chin-Fa Hsieh Ph.D.}  % 指導教授英文名字
+\def\supervisortwname{孫思邈 博士}  % 指導教授中文名字
+\def\supervisorenname{Si-Miao Sun Ph.D.}  % 指導教授英文名字
+\def\cosupervisortwname{李時珍 博士}  % 共同指導教授中文名字
+\def\cosupervisorenname{Shi-Zhen Li Ph.D.}  % 共同指導教授英文名字
+\provideboolean{multiplesupervisor}
+\setboolean{multiplesupervisor}{true} % 是否有共同指導教授,true: 兩位指導教授, false: 一位指導教授
 
 \def\schooltwname{國立高雄科技大學}
-\def\schoolenname{National Kaohsiung University of Sciences and Technology}
+\def\schoolenname{National Kaohsiung University of Science and Technology}
 \def\schoolenlocation{Kaohsiung, Taiwan, Republic of China}
-\def\schoolenoldname{National Kaohsiung University of Applied Sciences} % 國立高雄科技大學由"國立高雄應用科技大學/國立高雄第一科技大學/國立高雄海洋科技大學"三所科大學合併而成，此欄位請填入原先校區所屬學校英文名稱。
+\def\schoolenoldname{National Kaohsiung University of Applied Sciences} % 國立高雄科技大學由"國立高雄應用科技大學/國立高雄第一科技大學/國立高雄海洋科技大學"三所科技大學合併而成，此欄位請填入原先校區所屬學校英文名稱。
 
 \def\majortwname{Electronic Engineering}  % 主修項目
 \def\depttwname{電子工程系}  % 系所中文名稱
@@ -42,10 +44,10 @@
 \provideboolean{isthesistitleexternal}
 \provideboolean{isthesisbooknameexternal}
 
-\setboolean{isthesistitleexternal}{false}       % 封面, true: LaTeX生成, false: 匯入外部pdf
+\setboolean{isthesistitleexternal}{false}       % 封面, false: LaTeX生成, true: 匯入外部pdf
 \def\externalmaintitle{Externals/maintitle}     % 外部載入封面位置, 設定由 LaTeX 生成時, 此欄位請忽視
 
-\setboolean{isthesisbooknameexternal}{false}    % 書名頁, true: LaTeX生成, false: 匯入外部pdf
+\setboolean{isthesisbooknameexternal}{false}    % 書名頁, false: LaTeX生成, true: 匯入外部pdf
 \def\externalbooktitle{Externals/booktitle}     % 外部載入書名頁位置, 設定由 LaTeX 生成時, 此欄位請忽視
 
 \provideboolean{thesisdraft}
@@ -55,16 +57,21 @@
 % ------------ 論文相關文件 ------------
 
 \provideboolean{thesisauht}
-\provideboolean{thesissign}
+\provideboolean{thesissign_zhtw}
+\provideboolean{thesissign_en}
 \provideboolean{thesisphdrecommand}
 
 % 博碩士論文授權書
 \def\thesispowerofattorney{Externals/powerofattorney.pdf}   % 博碩士論文授權書位置
-\setboolean{thesisauht}{true}                               % 博碩士論文授權書, true: 載入, false: 不載入
+\setboolean{thesisauht}{false}                               % 博碩士論文授權書, true: 載入, false: 不載入
 
 % 論文口試委員會審定書
-\def\thesisvalidation{Externals/sign.pdf}                   % 論文口試委員會審定書位置
-\setboolean{thesissign}{true}                               % 論文口試委員會審定書, true: 載入, false: 不載入
+\def\thesisvalidationzhtw{Externals/sign.pdf}                   % 論文口試委員會審定書位置
+\setboolean{thesissign_zhtw}{true}                               % 論文口試委員會審定書, true: 載入, false: 不載入
+
+% 論文口試委員會英文審定書
+\def\thesisvalidationen{Externals/sign_en.pdf}                   % 論文口試委員會審定書位置
+\setboolean{thesissign_en}{true}                                  % 論文口試委員會審定書, true: 載入, false: 不載入
 
 % 博士論文推薦書
 \def\thesisphdrecommand{Externals/recommand.pdf}            % 博士論文推薦書位置
