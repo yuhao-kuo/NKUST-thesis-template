@@ -11,20 +11,20 @@ Path 是字體檔案的所在目錄，大括號中填入字體檔案名稱。
 
 \section{字體}
 \subsection{文字特效}
-中文文字特效, Hello world!\\
+\hbox{中文文字特效, Hello world!}
 {\LARGE
-\textbf{Hello world!, bold face, 粗體} \\
-\textit{Hello world!, italic, 斜體} \\
-\textsl{Hello world!, slanted, 傾斜} \\
-\underline{Hello world!, underline, 底線} \\
+\hbox{\textbf{Hello world!, bold face, 粗體}}
+\hbox{\textit{Hello world!, italic, 斜體}}
+\hbox{\textsl{Hello world!, slanted, 傾斜}}
+\hbox{\underline{Hello world!, underline, 底線}}
 }
 
-英文文字家族，Hello world!\\
+\hbox{英文文字家族，Hello world!}
 {\LARGE
-\textrm{Hello world!, roman, 羅馬} \\
-\texttt{Hello world!, typewriter, 等寬} \\
-\textsf{Hello world!, sans serif} \\
-\textsc{Hello world!, Small Caps} \\
+\hbox{\textrm{Hello world!, roman, 羅馬}}
+\hbox{\texttt{Hello world!, typewriter, 等寬}}
+\hbox{\textsf{Hello world!, sans serif}}
+\hbox{\textsc{Hello world!, Small Caps}}
 }
 
 \emph{強調}(Emphasized)，自動調整字體，使之相對醒目，在不同狀況下有不同效果。
@@ -58,13 +58,14 @@ were made by accident.}
 
 \section{列表} \label{sec_item}
 
-\begin{description} \item[第1項] 這邊是第1大項
-    \item[第2項] 這邊是第2大項
+\begin{description}
+    \item[第一項] 這邊是第１大項
+    \item[第二項] 這邊是第２大項
         \begin{description}
             \item[小項] 這邊是第1小項
             \item[小項] 這邊是第2小項
         \end{description}
-    \item[第3項] 這邊是第3大項
+    \item[第三項] 這邊是第３大項
 \end{description}
 
 \begin{itemize}
@@ -148,7 +149,7 @@ fbox:
 makebox/framebox:可加上一些設定的盒子
 
 %語法:[寬][對齊]{內容}
-\makebox[\textwidth][c]{只是一個句子 被組合成盒子 的句子}
+\hbox{\makebox[\textwidth][c]{只是一個句子 被組合成盒子 的句子}}
 
 \framebox[0.5\textwidth][r]{被組合成盒子 但是有外框 的句子 還不夠寬}
 
