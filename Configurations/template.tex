@@ -14,21 +14,23 @@
 \usepackage{indentfirst} \setlength{\parindent}{2em}
 \usepackage{lipsum}
 \usepackage{fontspec}
-\usepackage{babel} % 外國語系字母支援
+\usepackage[english]{babel} % 外國語系字母支援
 
 \defaultfontfeatures{AutoFakeBold=2.5,AutoFakeSlant=.2}
 
 % 英文字體設定(可自行更改)
 \setmainfont[Path=./Fonts/]{DejaVuSerif}
 
-% 中文字體設定(教育部標準字體)
-\setCJKmainfont[Path=./Fonts/]{edukai-4.0}
-
-% 修正英文字家族範例
+% 英文字家族範例
 \newcommand*{\edukai}{\CJKfamily{edukai-4.0}}
 \renewcommand*{\rmdefault}{lmr}
 \renewcommand*{\sfdefault}{lmss}
 \renewcommand*{\ttdefault}{lmtt}
+
+% 中文字體設定(教育部標準字體)
+\setCJKmainfont[Path=./Fonts/]{edukai-4.0}
+\setCJKmonofont[Path=./Fonts/]{edukai-4.0}
+\setCJKsansfont[Path=./Fonts/]{edukai-4.0}
 
 % ----------------------------
 %   排版擴充
@@ -79,7 +81,7 @@
 \usepackage{url}
 
 \hypersetup{pdfpagemode={UseOutlines},
-	linktocpage,
+	linktocpage,		% 
 	bookmarksopen=true,
 	bookmarksopenlevel=0,
 	hypertexnames=false,
@@ -141,8 +143,7 @@
 \usepackage{verbatim}
 \usepackage{moreverb}
 
-%   條列式清單
-\usepackage{enumerate}
+
 
 %   表格
 \usepackage{multirow}
@@ -265,6 +266,9 @@
 \usepackage{Templates/reference_template}
 \usepackage{Templates/chapter_template}
 
+%   條列式清單
+\usepackage{enumerate}
+\usepackage{enumitem}
 
 % -----------------------------------------------------------------------------------------------
 
