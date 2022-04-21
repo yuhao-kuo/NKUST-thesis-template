@@ -64,7 +64,7 @@ $ ./Docker/linux/stop
 
 透過 vscode remote extension 進行連線操作，支援 Docker 目錄中所有工具。
 
-1. 編譯 image，可雙擊檔案或以 terminal 於專案目錄中執行編譯指令，在此之前請安裝完 docker。
+1. 編譯 image，可雙擊檔案或以 terminal 於專案目錄中執行編譯指令，在此之前請安裝完 docker。如果發生 Image 中已有與您相同名稱使用者，請直接修改 build 來指定 USER / USERID 等資訊。務必注意，修改使用者資訊意味著您在非 docker 的環境中時，檔案會有操作權限的問題。
     * Linux / Mac
     ```
     $ ./Docker/linux/build
