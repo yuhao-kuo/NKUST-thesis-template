@@ -45,7 +45,7 @@
     \def\arraystretch{0.5}
     \begin{tabular}[t]{l}
         \large\supervisortwname\\ 
-        \ifthenelse{\boolean{multiplesupervisor}}{\large\cosupervisortwname }{}
+        \ifdefempty{\cosupervisortwname}{}{\large\cosupervisortwname }
     \end{tabular}\\
 \end{tabular}
 

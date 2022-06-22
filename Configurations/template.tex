@@ -92,7 +92,13 @@
 	pdfstartview={FitV},
 	unicode,
 	breaklinks=true,
-	}
+	pdfcreator={NKUST LaTeX Template Groups},
+	pdfproducer={NKUST LaTeX template build on XeLaTeX},
+	pdftitle={\titletw\ \titleen},						% 文件標題
+	pdfsubject={\authorenname, \degreeen\ thesis - \titleen},	% 文件主旨
+	pdfauthor={\authorenname \ \authortwname},					% 擁有者
+	pdfkeywords={\thesiskeywords},	% 關鍵字
+}
 
 \pdfstringdefDisableCommands{ % If there is an explicit linebreak in a section heading (or anything printed to the pdf-bookmarks), it is replaced by a space
 	\let\\\space
@@ -217,6 +223,9 @@
 
 %   if-else 擴充
 \usepackage{ifthen}
+
+%   variable checked
+\usepackage{etoolbox}
 
 % ----------------------------
 %   其他定義
