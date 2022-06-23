@@ -45,17 +45,7 @@ clean:
 
 pdfprocessing:
 ifneq ("$(wildcard ${OUTDIR}/${DOCNAME}.pdf)", "")
-	@-ghostscript -sDEVICE=pdfwrite \
-        -dCompatibilityLevel=1.4 \
-        -dBATCH -dNOPROMPT -dNOPAUSE \
-        -dPDFSETTINGS=/ebook \
-		-dNoOutputFonts	\
-        -dCompressFonts=true \
-        -dEmbedAllFonts=true \
-        -dSubsetFonts=true \
-        -dPrinted=false \
-        -dAutoFilterColorImages=false \
-        -dDownsampleColorImages=true \
+	@-ghostscript -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dNoOutputFonts \
         -sOutputFile=${OUTDIR}/${DOCNAME}_encpy.pdf ${OUTDIR}/${DOCNAME}.pdf
 	@-echo "\n\033[33m[Tool]: \033[32mPDF block copy execution ends, exit.\033[0m\n"
 else
