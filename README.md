@@ -28,9 +28,9 @@
 
 ## 開發環境
 
-![OS - Ubuntu](https://img.shields.io/badge/Ubuntu-yellow?logo=ubuntu&logoColor=white)
-![OS - Debian](https://img.shields.io/badge/Debian-yellow?logo=debian&logoColor=white)
-![OS - Arch Linux](https://img.shields.io/badge/Arch_Linux-yellow?logo=linux&logoColor=white)
+![OS - Ubuntu](https://img.shields.io/badge/Ubuntu-orange?logo=ubuntu&logoColor=white)
+![OS - Arch Linux](https://img.shields.io/badge/Arch_Linux-blue?logo=linux&logoColor=white)
+![OS - Debian](https://img.shields.io/badge/Debian-red?logo=debian&logoColor=white)
 
 ![OS - Windows](https://img.shields.io/badge/Windows_WSL-blue?logo=windows&logoColor=white)
 ![OS - MacOS](https://img.shields.io/badge/Apple_MacOS-orange?logo=apple&logoColor=white)
@@ -183,7 +183,7 @@ $ make distclean
 #### 檔案防拷處理
 
 因有論文 PDF 加入防拷處理的需求，故新增 `pdfprocessing`，此功能依賴外部工具 **ghostscript**。
-此命令僅對 `main.pdf` 進行防拷，執行此命令時 `main.pdf` 必須存在。
+該命令僅對 `main.pdf` 進行防拷，執行此命令時 `main.pdf` 必須存在。
 
 ```
 $ make pdfprocessing

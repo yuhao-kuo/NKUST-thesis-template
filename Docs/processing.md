@@ -10,7 +10,7 @@
 $ make pdfprocessing
 ```
 
-`make pdfprocessing` 依賴 `build/main.pdf` 作為加工來源，因此當 `build/main.pdf` 導致無法編譯時，先執行 `make all` 來產生必要的檔案。
+`make pdfprocessing` 依賴 `build/main.pdf` 作為加工來源，因此當 `build/main.pdf` 不存在導致無法編譯時，先執行 `make all` 來產生檔案。
 
 ## 客製化加工
 
