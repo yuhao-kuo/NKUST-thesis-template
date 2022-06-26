@@ -1,14 +1,14 @@
 # NKUST Thesis LaTeX
 
 [![yuhao-kuo - NKUST-thesis-template](https://img.shields.io/static/v1?label=&message=NKUST-thesis-template&color=gray&logo=github)](https://github.com/yuhao-kuo/NKUST-thesis-template)
-[![License](https://img.shields.io/badge/License-CC_BY_SA_3.0_TW-blue)](http://creativecommons.org/licenses/by-sa/3.0/tw/ "創用 CC 姓名標示-相同方式分享 3.0 台灣 授權條款")
+[![License](https://img.shields.io/badge/License-CC_BY--SA_3.0_TW-blue)](http://creativecommons.org/licenses/by-sa/3.0/tw/ "創用 CC 姓名標示-相同方式分享 3.0 台灣 授權條款")
 [![forks - NKUST-thesis-template](https://img.shields.io/github/forks/yuhao-kuo/NKUST-thesis-template?style=social)](https://github.com/yuhao-kuo/NKUST-thesis-template/fork)
 [![stars - NKUST-thesis-template](https://img.shields.io/github/stars/yuhao-kuo/NKUST-thesis-template?style=social)](https://github.com/login?return_to=%2Fyuhao-kuo%2FNKUST-thesis-template)
 
 
 ![](https://www.nkust.edu.tw/var/file/0/1000/img/513/182513897.png)
 
-本專案為**國立高雄科技大學研究所論文 LaTex 模板**，依照[國立高雄科技大學學位論文格式規範](https://ceed.nkust.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV3TDNCMFlWOHhPRFEzWHpJMk5qRXhNakJmTVRZMk9EVXVjR1Jt&fname=WSGGTSB00010A1KK50LKRKHGSTTW25B1RKFG40NPQPRLFG40ROFCLL54WWOODGOK44CCIH15A404GDJGVWPKTS14B0MOGCHCCC35DCTSZWB030FC145424DCGCLK0115JCLKSXHGTWFGSWHCUS30A110)及建工校區電子工程系網路計算實驗室(`WNDCLab`、`NCLab`、`AIoRLab`)之論文格式標準進行編排。其內容排列順序依序為：
+本專案為**國立高雄科技大學研究所論文 LaTex 模板**，一個以開源軟體為基礎的環境，內文依照[國立高雄科技大學學位論文格式規範](https://ceed.nkust.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV3TDNCMFlWOHhPRFEzWHpJMk5qRXhNakJmTVRZMk9EVXVjR1Jt&fname=WSGGTSB00010A1KK50LKRKHGSTTW25B1RKFG40NPQPRLFG40ROFCLL54WWOODGOK44CCIH15A404GDJGVWPKTS14B0MOGCHCCC35DCTSZWB030FC145424DCGCLK0115JCLKSXHGTWFGSWHCUS30A110)及建工校區電子工程系網路計算實驗室(`WNDCLab`、`NCLab`、`AIoRLab`)之論文格式標準進行編排。其內容排列順序依序為：
 
 1. 封面
 2. 書名頁
@@ -28,15 +28,14 @@
 
 ## 開發環境
 
-![OS - Ubuntu](https://img.shields.io/badge/Ubuntu-orange?logo=ubuntu&logoColor=white)
-![OS - Arch Linux](https://img.shields.io/badge/Arch_Linux-blue?logo=linux&logoColor=white)
-![OS - Debian](https://img.shields.io/badge/Debian-red?logo=debian&logoColor=white)
+![OS - Ubuntu](https://img.shields.io/badge/Ubuntu-white?logo=ubuntu&logoColor=orange)
+![OS - Arch Linux](https://img.shields.io/badge/Arch_Linux-white?logo=archlinux&logoColor=blue)
+![OS - Debian](https://img.shields.io/badge/Debian-white?logo=debian&logoColor=red)
+![OS - Windows](https://img.shields.io/badge/Windows_WSL-white?logo=windows&logoColor=blue)
+![OS - MacOS](https://img.shields.io/badge/Apple_MacOS-white?logo=apple&logoColor=gray)
+![Container - Docker](https://img.shields.io/badge/Docker-white?logo=Docker&logoColor=blue)
 
-![OS - Windows](https://img.shields.io/badge/Windows_WSL-blue?logo=windows&logoColor=white)
-![OS - MacOS](https://img.shields.io/badge/Apple_MacOS-orange?logo=apple&logoColor=white)
-![Container - Docker](https://img.shields.io/badge/Docker-green?logo=Docker&logoColor=white)
-
-此模板使用 Linux 系作業系統進行開發，主體仍相依於 Linux 上，目前已知此模板能在 `Ubuntu`、`Debian`、`Arch Linux ` 等多個 Linux 發行版中使用。如果您是 Windows 使用者或不想佈署環境的用戶可使用 [docker](Docs/docker.md) 方案進行使用。
+此模板開發初期使用 Linux 系作業系統進行開發，主體仍相依於 Linux 環境上，目前已知此模板能在 `Ubuntu`、`Arch Linux `、`Debian` 等多個 Linux 發行版中使用。如果您是 Windows 使用者或不想佈署環境的用戶可使用 [docker](Docs/docker.md) 方案進行使用。
 
 後續文件內容依序為**安裝工具**、**取得**與**使用**等三大部份。
 
@@ -203,6 +202,8 @@ $ make pdfprocessing
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/tw/"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/tw/88x31.png" /></a><br />本著作係採用<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/tw/">創用 CC 姓名標示-相同方式分享 3.0 台灣 授權條款</a>授權.
 
-專案的貢獻者大多已畢業，故不提供任何論文格式保證，若引用此專案造成一切損失，本專案之貢獻者不承擔任何責任。如有格式錯誤，歡迎提交 Issue 告知。
+因專案的貢獻者大多已畢業，使用前請務必檢視版型是否符合現行規範。若引用此專案造成一切損失，本專案之貢獻者不承擔任何責任。
+
+如有發現格式問題錯誤，歡迎提交 Issue 告知。
 
 
