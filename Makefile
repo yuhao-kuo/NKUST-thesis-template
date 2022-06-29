@@ -23,7 +23,8 @@ ${TARGET}: ${TITLEPAGE}.pdf
 	make bib
 	make latex
 	make latex
-	cp ${OUTDIR}/cache/${DOCNAME}.pdf ${OUTDIR}
+	@-cp ${OUTDIR}/cache/${DOCNAME}.pdf ${OUTDIR}
+	@-echo "\n\033[33m[Tool]: \033[32mPDF build execution ends, exit.\033[0m\n"
 
 ${TITLEPAGE}.pdf:
 	mkdir -p ${OUTDIR}/cache
@@ -41,3 +42,12 @@ distclean:
 
 clean:
 	@-rm -rf ${OUTDIR}/cache
+
+pdfprocessing:
+ifneq ("$(wildcard ${OUTDIR}/${DOCNAME}.pdf)", "")
+	@-ghostscript -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -dNoOutputFonts \
+        -sOutputFile=${OUTDIR}/${DOCNAME}_encpy.pdf ${OUTDIR}/${DOCNAME}.pdf
+	@-echo "\n\033[33m[Tool]: \033[32mPDF block copy execution ends, exit.\033[0m\n"
+else
+	@-echo "\n\033[33m[Tool]: \033[31mPDF ${OUTDIR}/${DOCNAME}.pdf not found.\033[0m\n"
+endif

@@ -1,7 +1,7 @@
 
 \chapter{結論} \label{conclusion_and_future}
 
-\section{研究結論}
+\section{命令總結}
 
 \subsection*{產生論文}
 
@@ -27,7 +27,20 @@
     make distclean
 \end{lstlisting}
 
-\section{未來展望}
+\subsection*{PDF防拷加工}
+
+透過 ghostscript\cite{ghostscript} 為 PDF 提供防拷功能，其指令如下。
+
+\begin{lstlisting}[language=bash]
+    make pdfprocessing
+\end{lstlisting}
+
+此功能依賴 build/main.pdf 作為加工來源，因此當 build/main.pdf 不存在導致無法執行此命令時，請先執行 make all 來產生檔案。
+
+\section{結語}
 
 未來，我們也不知道能持續維護多久，只要有人使用，我們就會盡力維護下去。
 目前僅支援 Linux，未來將會盡量朝向支援 Windows，讓更多人能使用此專案。
+
+如果這個專案給您提供了幫助，請給我們 GitHub Repository\cite{github-repo} 一個 Star 讓我們知道。
+最後祝福您順利畢業！

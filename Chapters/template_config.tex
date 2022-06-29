@@ -1,11 +1,11 @@
 \chapter{版型設定} \label{ch_tmp_config}
 
-本章包含論文資訊、論文Logo、封面、相關文件引入以及版型微調等。
-用於此版型的 config.tex 以及 Configurations 中的 tex 檔案。
+本章內容包含論文資訊、論文Logo、封面、相關文件引入以及版型微調等。
+章節內使用到的檔案有 config.tex、thesisinfo.tex 以及 Configurations 中的 tex 檔案。
 
 \section{論文資訊}
 
-論文資訊主要和論文作者、指導教授、學校等不變的訊息，其設定位於 config.tex 中。
+論文作者、指導教授、學校等不變的訊息，其設定位於 thesisinfo.tex 中。
 設定中如有碰到 zhtw、tw 或 en 表示這個項目有區分中英文的。
 
 \begin{lstlisting}[language=TeX]
@@ -19,6 +19,8 @@
 \begin{lstlisting}[language=TeX]
     \def\schoolenoldname{National Kaohsiung University of Applied Sciences}
 \end{lstlisting}
+
+此欄位在未來如果被取消，請發個 Issue 通知我們，謝謝！
 
 \section{初稿與正式版}
 

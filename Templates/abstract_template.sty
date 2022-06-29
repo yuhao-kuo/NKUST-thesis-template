@@ -7,28 +7,28 @@
 	\tttypeout{\abstractname}
 
 	\begin{center}
-	{\normalsize \schoolenname \par} % 學校名稱
-    {\normalsize \deptenname \par} % Department name
-    {\normalsize \degreeen \par} % Degree name
-	\bigskip
-    {\normalsize\bfseries \titleen \par} % Thesis title
-	\medskip
-    \begin{minipage}{0.4\textwidth}
-    \begin{flushleft}
-    \emph{Author\hspace{4mm}}{\byname{} \bfseries \authorenname \ifthenelse { \boolean {multiplesupervisor}}{\\　}{} } % Author name - remove the \href bracket to remove the link
-    \end{flushleft}
-    \end{minipage}
-    \begin{minipage}{0.5\textwidth}
-    \begin{flushright}
-    \ifthenelse { \boolean {multiplesupervisor}}{
-        \emph { Supervisor \hspace {4mm} }{ \makebox [8em][l]{ \bfseries  \supervisorenname\hspace { \fill }} \\ \makebox [8em][l]{ \bfseries  \cosupervisorenname\hspace { \fill }}}
-    }{
-        \emph { Supervisor \hspace {4mm} }{ \bfseries  \supervisorenname }
-    }
-    \end{flushright}
-    \end{minipage}\\[1cm]
-	{\huge\textit{\abstractname} \par}
-	\bigskip
+        {\normalsize \schoolenname \par} % 學校名稱
+        {\normalsize \deptenname \par} % Department name
+        {\normalsize \degreeen \par} % Degree name
+        \bigskip
+        {\normalsize\bfseries \titleen \par} % Thesis title
+        \medskip
+        \begin{minipage}{0.4\textwidth}
+            \begin{flushleft}
+                \emph{Author\hspace{4mm}}{\byname{} \bfseries \authorenname \ifdefempty{\cosupervisortwname}{}{\\　} }
+            \end{flushleft}
+        \end{minipage}
+        \begin{minipage}{0.5\textwidth}
+            \begin{flushright}
+                \ifdefempty{\cosupervisorenname}{
+                    \emph { Supervisor \hspace {4mm} }{ \bfseries  \supervisorenname }
+                }{
+                    \emph { Supervisor \hspace {4mm} }{ \makebox [8em][l]{ \bfseries  \supervisorenname\hspace { \fill }} \\ \makebox [8em][l]{ \bfseries  \cosupervisorenname\hspace { \fill }}}
+                }
+            \end{flushright}
+        \end{minipage}\\[1cm]
+        {\huge\textit{\abstractname} \par}
+        \bigskip
 	\end{center}
 }
 {
@@ -44,26 +44,26 @@
 	\tttypeout{\abstractname}
 
 	\begin{center}
-	{\normalsize \MakeUppercase{\schooltwname} \par} % University name in capitals
+        {\normalsize \MakeUppercase{\schooltwname} \par} % University name in capitals
 
-    {\normalsize \depttwname \par} % Department name
-	%\bigskip
-    {\normalsize \degreetw\par} % Degree name
-	\bigskip
-    {\normalsize\bfseries \titletw \par} % Thesis title
-	\medskip
-    \begin{minipage}{0.4\textwidth}
-    \begin{flushleft}
-    \emph{作者\hspace{4mm}}{\byname{} \bfseries \authortwname \ifthenelse { \boolean {multiplesupervisor}}{\\　}{}} % Author name - remove the \href bracket to remove the link
-    \end{flushleft}
-    \end{minipage}
-    \begin{minipage}{0.5\textwidth}
-    \begin{flushright}
-    \emph{指導教授\hspace{4mm}}{\bfseries \supervisortwname \ifthenelse { \boolean {multiplesupervisor}}{\\ \bfseries  \cosupervisortwname}{} }
-    \end{flushright}
-    \end{minipage}\\[1cm]
-	{\huge\textit{\abstractname} \par}
-	\bigskip
+        {\normalsize \depttwname \par} % Department name
+        %\bigskip
+        {\normalsize \degreetw\par} % Degree name
+        \bigskip
+        {\normalsize\bfseries \titletw \par} % Thesis title
+        \medskip
+        \begin{minipage}{0.4\textwidth}
+            \begin{flushleft}
+                \emph{作者\hspace{4mm}}{\byname{} \bfseries \authortwname \ifdefempty{\cosupervisortwname}{}{\\　}} % Author name - remove the \href bracket to remove the link
+            \end{flushleft}
+        \end{minipage}
+        \begin{minipage}{0.5\textwidth}
+            \begin{flushright}
+                \emph{指導教授\hspace{4mm}}{\bfseries \supervisortwname \ifdefempty{\cosupervisortwname}{}{\\ \bfseries  \cosupervisortwname} }
+            \end{flushright}
+        \end{minipage}\\[1cm]
+        {\huge\textit{\abstractname} \par}
+        \bigskip
 	\end{center}
 }
 {
