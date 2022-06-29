@@ -8,7 +8,7 @@
 
 ![](https://www.nkust.edu.tw/var/file/0/1000/img/513/182513897.png)
 
-本專案為**國立高雄科技大學研究所論文 LaTex 模板**，一個以開源軟體為基礎的環境，內文依照[國立高雄科技大學學位論文格式規範](https://ceed.nkust.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV3TDNCMFlWOHhPRFEzWHpJMk5qRXhNakJmTVRZMk9EVXVjR1Jt&fname=WSGGTSB00010A1KK50LKRKHGSTTW25B1RKFG40NPQPRLFG40ROFCLL54WWOODGOK44CCIH15A404GDJGVWPKTS14B0MOGCHCCC35DCTSZWB030FC145424DCGCLK0115JCLKSXHGTWFGSWHCUS30A110)及建工校區電子工程系網路計算實驗室(`WNDCLab`、`NCLab`、`AIoRLab`)之論文格式標準進行編排。其內容排列順序依序為：
+本專案為**國立高雄科技大學研究所論文 LaTeX 模板**，以開源工具為基礎 LaTeX 的編輯環境，內文依照[國立高雄科技大學學位論文格式規範](https://ceed.nkust.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV3TDNCMFlWOHhPRFEzWHpJMk5qRXhNakJmTVRZMk9EVXVjR1Jt&fname=WSGGTSB00010A1KK50LKRKHGSTTW25B1RKFG40NPQPRLFG40ROFCLL54WWOODGOK44CCIH15A404GDJGVWPKTS14B0MOGCHCCC35DCTSZWB030FC145424DCGCLK0115JCLKSXHGTWFGSWHCUS30A110)及建工校區電子工程系網路計算實驗室(`WNDCLab`、`NCLab`、`AIoRLab`)之論文格式標準進行編排。其內容排列順序依序為：
 
 1. 封面
 2. 書名頁
