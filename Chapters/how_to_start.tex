@@ -98,3 +98,56 @@ Externals、Figures 是用來儲存匯入論文的文件、圖片用。Tables �
     \caption{bibtex text}
     \label{fig_bib_2}
 \end{figure}
+
+\subsection*{使用 EndNote 製作 bibtex}
+
+使用 EndNote 書目管理軟體，可以有效的幫你節省時間，以及管理參考資料。 \href{https://www.lib.nkust.edu.tw/portal/portal__bib_mgmt_sw_download.php}{下載鏈接}，學校\href{https://www.lib.nkust.edu.tw/portal/portal__bib_mgmt_sw_1.php?button_num=_bib_mgmt_sw_1}{圖書館網頁}有完整的安裝教學以及使用手冊。這裡使用 EndNote 20 做為教學版本，下載並安裝完成後，請先將軟體更新到 20.5 或更高的版本。
+
+匯入參考資料時建議使用 Google Scholar ，在 Google Scholar 尋找需要的文獻，並按文獻的 \textbf{Cite} 如圖 \ref{fig_google_scholar} ，下載 EndNote 格式的檔案如圖 \ref{fig_google_scholar_download}。若要使用其他的來源可以搜尋該來源加上 EndNote 等關鍵字，將文獻匯入 EndeNote 內。
+
+\begin{figure}[H] 
+    \centering 
+    \includegraphics[width=0.7\textwidth]{Figures/Endnote/googleScholar.png} 
+    \caption{Google Scholar 的畫面}
+    \label{fig_google_scholar}
+\end{figure}
+
+\begin{figure}[H] 
+    \centering 
+    \includegraphics[width=0.5\textwidth]{Figures/Endnote/googleScholarDownload.png} 
+    \caption{Google Scholar 下載的畫面}
+    \label{fig_google_scholar_download}
+\end{figure}
+
+點擊兩下下載的檔案，參考資料就會匯入 EndNote 軟體內，關於如何管理 EndNote 資料庫，網路上應該很多教學這裡就不贅述。
+
+輸出成 bibtex 前有兩點要注意：
+\begin{itemize}
+    \item 每個參考資料要有獨立的 Label，可以參考圖 \ref{fig_endnote_label}，最上方的欄可以設定顯示的欄位，可以進去將 Lable 打開，以確認是否有設定 Lable。
+    \item 請下載 \href{https://endnote.com/style_download/bibtex-export-using-en-label-field/}{BibTeX Export using EN Label field} 輸出格式，此格式在輸出成 bibtex 時會將 Label 一併輸出。
+\end{itemize}
+
+\begin{figure}[!h] 
+    \centering 
+    \includegraphics[width=0.7\textwidth]{Figures/Endnote/endnoteLabel.png} 
+    \caption{Endnote Label 的示意圖，請確認每個參考資料都有 Label 欄位，請自行填入 Label 名稱。}
+    \label{fig_endnote_label}
+\end{figure}
+
+接著，選取將該群組內要輸出的參考資料，匯出時 \textbf{Output Style} 請選擇 \textbf{BibTeX Export using EN Label field}，並將檔案名稱改成以 \textbf{.bib} 結尾如圖 \ref{fig_bib_export}。
+
+\begin{figure}[H] 
+    \centering 
+    \includegraphics[width=0.7\textwidth]{Figures/Endnote/testbib.png} 
+    \caption{Endnote Label 輸出的格式。}
+    \label{fig_bib_export}
+\end{figure}
+
+最後就會看到帶有 Label 的 bibtex 如圖 \ref{fig_bibtex}，就可以直接使用了。
+
+\begin{figure}[H] 
+    \centering 
+    \includegraphics[width=0.7\textwidth]{Figures/Endnote/bibtex.png} 
+    \caption{輸出的 bibtex 檔案}
+    \label{fig_bibtex}
+\end{figure}
