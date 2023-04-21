@@ -9,8 +9,12 @@
 
 \titlecontents{chapter}[0em]{}
 {\hspace{0em}\makebox[4.1em][l]
-	{第\zhnumber{\thecontentslabel}章}}{}
+	{\zhnumber{\thecontentslabel}、}}{}
 {\titlerule*[0.7pc]{.}\contentspage}
 
-\titleformat{\chapter}{\centering\Huge\bfseries}{Chapter\,{\CJKnumber{\thechapter}}}{1em}{}
-\titleformat{\chapter}{\centering\Huge\bfseries}{\CJKnumber{\thechapter}\,、}{1em}{}    %設定章節樣式
+\titleformat{\chapter}{\centering\large\bfseries}{Chapter\,{\CJKnumber{\thechapter}}}{1em}{}
+\titleformat{\chapter}{\centering\large\bfseries}{\CJKnumber{\thechapter}\,、}{1em}{}    %設定章節樣式
+
+
+\titleformat*{\section}{\normalsize\bfseries} %設定 section樣式
+\titleformat*{\subsection}{\normalsize\bfseries} %設定 subsection樣式

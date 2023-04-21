@@ -3,6 +3,8 @@
 \setcounter{secnumdepth}{6}
 \setcounter{tocdepth}{6}
 
+% \usepackage{showframe} % 顯示邊界線(不需要請註解掉)
+
 % ----------------------------
 %   文字字型設定
 % ----------------------------
@@ -22,15 +24,22 @@
 \setmainfont[Path=./Fonts/]{DejaVuSerif}
 
 % 英文字家族範例
-\newcommand*{\edukai}{\CJKfamily{edukai-4.0}}
 \renewcommand*{\rmdefault}{lmr}
 \renewcommand*{\sfdefault}{lmss}
 \renewcommand*{\ttdefault}{lmtt}
 
+
 % 中文字體設定(教育部標準字體)
-\setCJKmainfont[Path=./Fonts/]{edukai-4.0}
-\setCJKmonofont[Path=./Fonts/]{edukai-4.0}
-\setCJKsansfont[Path=./Fonts/]{edukai-4.0}
+\setCJKfamilyfont{kai}[Path=./Fonts/]{edukai-4.0}
+\newcommand*{\edukai}{\CJKfamily{kai}}
+
+\setCJKfamilyfont{song}[Path=./Fonts/]{edusong-big5}
+\newcommand*{\edusong}{\CJKfamily{song}}
+
+\setCJKmainfont[Path=./Fonts/]{edusong-big5}
+\setCJKmonofont[Path=./Fonts/]{edusong-big5}
+\setCJKsansfont[Path=./Fonts/]{edusong-big5}
+
 
 % ----------------------------
 %   排版擴充
@@ -88,7 +97,7 @@
 	colorlinks=true, % Set to false to disable coloring links
 	citecolor=red, % The color of citations
 	linkcolor=blue, % The color of references to document elements (sections, figures, etc)
-	urlcolor=magenta, % The color of hyperlinks (URLs)
+	urlcolor=blue, % The color of hyperlinks (URLs)
 	pdfstartview={FitV},
 	unicode,
 	breaklinks=true,
@@ -108,6 +117,18 @@
 %   內文排版
 % ----------------------------
 
+% 設定行距為 1.5
+\linespread{1.5}
+
+% 章節上面不要留空
+\titlespacing*{\chapter}{0pt}{-25pt}{40pt}
+
+% 圖跟表目錄前面不要有空格
+\makeatletter
+\renewcommand*\l@figure{\@dottedtocline{1}{0em}{2.3em}}% Default: 1.5em/2.3em
+\let\l@table\l@figure
+\makeatother
+
 %   程式碼區塊
 \usepackage{listings}
 \usepackage{xcolor}
@@ -117,22 +138,22 @@
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
 \definecolor{backcolour}{rgb}{0.95,0.95,0.92}
 \lstdefinestyle{codestyle}{
-    backgroundcolor=\color{backcolour},   
-    commentstyle=\color{codegreen},
-    keywordstyle=\color{magenta},
-    numberstyle=\tiny\color{codegray},
-    stringstyle=\color{codepurple},
-    basicstyle=\textrm\footnotesize,
-    breakatwhitespace=false,         
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=none,                    
-    numbersep=5pt,                  
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{magenta},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\textrm\footnotesize\ttfamily,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
 }
 
 \lstset{style=codestyle}
@@ -242,7 +263,7 @@
 \newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % New command to make the lines in the title page
 \newcommand{\decoRule}{\rule{.8\textwidth}{.4pt}} % New command for a rule to be used under figures
 
-\renewcommand{\abovechapterspace}{\vspace*{10pt}} % Reduce the whitespace above a chapter heading
+% \renewcommand{}{\vspace*{1pt}} % Reduce the whitespace above a chapter heading
 
 \setcounter{tocdepth}{3} % The depth to which the document sections are printed to the table of contents
 \providecommand\addchaptertocentry[1]{%
