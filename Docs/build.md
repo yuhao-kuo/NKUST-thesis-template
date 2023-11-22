@@ -3,6 +3,8 @@
 此版型使用 make 協助編譯的相關工作，在 Visual Studio Code 中可以透過 Latex workshop 協助進行自動編譯。
 當前支援輸出論文內容、輸出封面、清除暫存檔、清除所有檔案的功能，下列將依序對功能進行詳細的說明。
 
+請注意，如果您使用的是 docker 方案，使用 make 編譯文件時，需要把指令下給 container 才會進行編譯。
+
 ### VSCode 支援
 
 安裝 Latex workshop 可提供自動編譯的功能，預設儲存 tex 檔案就會自動進行編譯，也可以透過 `ctl` + `alt` + `b` 進行編譯。
@@ -33,7 +35,7 @@ $ make distclean
 
 ### 檔案防拷處理
 
-防拷處理指令如下，另外請注意執行此命令時 `main.pdf` 必須存在。
+防拷處理指令如下，另外請注意執行此命令時 `main.pdf` 必須存在，更詳細的說明請見 [processing.md](processing.md)。
 
 ```
 $ make pdfprocessing

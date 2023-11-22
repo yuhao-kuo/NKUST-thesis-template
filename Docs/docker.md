@@ -1,8 +1,10 @@
-# docker support
+# Docker
 
 這個章節紀錄使用 docker 快速佈署論文編譯環境的操作流程。
 
-論文主體存在於 host 系統中，開機時自動將論文目錄掛載到 container 中。
+## 運作架構
+
+論文主體存在於 host 系統中，開機時會自動把 host 中的 NKUST-thesis-template 掛載到 Container 上。可利用 vscode remote development extension 等編輯器進行遠端編輯與編譯。
 
 當 container 被關閉時，除論文目錄以外的 container 的資料都會被抹除。如要有須保留 container 資料請在 `docker run` 的啟動參數中移除 `--rm` 即可。
 
@@ -15,7 +17,7 @@
 * [Mac OS install](https://docs.docker.com/desktop/mac/install/)
 * [Ubuntu install](https://docs.docker.com/engine/install/ubuntu/)
 
-### Bash 環境
+### CLI 環境
 
 > 適用於 Linux / Mac
 

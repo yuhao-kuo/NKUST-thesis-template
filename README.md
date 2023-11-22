@@ -8,23 +8,25 @@
 
 ![](https://www.nkust.edu.tw/var/file/0/1000/img/513/182513897.png)
 
-本專案為**國立高雄科技大學研究所論文 LaTeX 模板**，以開源工具為基礎 LaTeX 的編輯環境，內文依照[國立高雄科技大學學位論文格式規範](https://ceed.nkust.edu.tw/app/index.php?Action=downloadfile&file=WVhSMFlXTm9MekV3TDNCMFlWOHhPRFEzWHpJMk5qRXhNakJmTVRZMk9EVXVjR1Jt&fname=WSGGTSB00010A1KK50LKRKHGSTTW25B1RKFG40NPQPRLFG40ROFCLL54WWOODGOK44CCIH15A404GDJGVWPKTS14B0MOGCHCCC35DCTSZWB030FC145424DCGCLK0115JCLKSXHGTWFGSWHCUS30A110)及建工校區電子工程系網路計算實驗室(`WNDCLab`、`NCLab`、`AIoRLab`)之論文格式標準進行編排。其內容排列順序依序為：
+本專案為**國立高雄科技大學研究所論文 LaTeX 模板**，以開源工具為基礎 LaTeX 的編輯環境，內文依照[國立高雄科技大學教務處學位論文撰寫體例參考(中華民國111年3月修訂版)](https://acad.nkust.edu.tw/var/file/4/1004/img/212/F-2-35.docx)及建工校區電子工程系網路計算實驗室(`WNDCLab`、`NCLab`、`AIoRLab`)之論文格式標準進行編排。其內容排列順序依序為：
 
 1. 封面
 2. 書名頁
 3. 論文指導教授推薦書
 4. 論文口試委員會審訂書
-5. 中文摘要
-6. 英文摘要
-7. 誌謝或序言
-8. 目錄
-9. 表目錄
-10. 圖目錄
-11. 論文本文
-12. 參考文獻
-13. 附錄
-14. 自傳或簡歷 (未提供)
-15. 空白頁
+5. 學位論文著作權歸屬協議書
+6. 中文摘要
+7. 英文摘要
+8. 誌謝或序言
+9. 目錄
+10. 表目錄
+11. 圖目錄
+12. 符號說明 (未提供)
+13. 論文本文
+14. 參考文獻
+15. 附錄
+16. 自傳或簡歷 (未提供)
+17. 空白頁
 
 ## 開發環境
 
@@ -35,97 +37,13 @@
 ![OS - MacOS](https://img.shields.io/badge/Apple_MacOS-white?logo=apple&logoColor=gray)
 ![Container - Docker](https://img.shields.io/badge/Docker-white?logo=Docker&logoColor=blue)
 
-此模板開發初期使用 Linux 系作業系統進行開發，主體仍相依於 Linux 環境上，目前已知此模板能在 `Ubuntu`、`Arch Linux `、`Debian` 等多個 Linux 發行版中使用。如果您是 Windows 使用者或不想佈署環境的用戶可使用 [docker](Docs/docker.md) 方案進行使用。
+此模板開發初期使用 Linux 系作業系統進行開發，主體仍相依於 Linux 環境上，目前已知此模板能在 `Ubuntu`、`Arch Linux`、`Debian` 等多個 Linux 發行版中使用。如果您是 Windows 使用者或不想佈署環境的用戶可使用 [docker](Docs/docker.md) 方案進行使用。
 
 後續文件內容依序為**安裝工具**、**取得**與**使用**等三大部份。
 
 ### 安裝工具
 
-專案推薦使用編輯器 **Visual Studio Code**，使用 **make** 與 **texlive** 套件包進行文件的編譯移除等相關操作，另外我們推薦使用 **Git** 管理版本，預防資料遺失及損毀等災難。
-
-#### **[Docker](https://www.docker.com/)**
-
-![Docker](https://img.shields.io/badge/Docker-Docker-green?logo=Docker&logoColor=white)
-
-> 如**已有開發環境**者，此工具不須安裝。
-
-適用於 Windows 用戶、Mac 用戶、不想建立環境的用戶，安裝文件請見 [官方文件](https://docs.docker.com/engine/install/)。
-
-#### **[Visual Studio Code](https://code.visualstudio.com/)**
-
-![VSCode](https://img.shields.io/badge/VSCode-CLI-yellow?logo=visualstudiocode&logoColor=white)
-![VSCode](https://img.shields.io/badge/VSCode-Docker-green?logo=visualstudiocode&logoColor=white)
-
-> 推薦安裝
-
-Visual Studio Code 下面簡稱為 VSCode，由 Microsoft 釋出的開源開發工具，可提供 SSH 遠端連線與 WSL 開發的功能，提供研究生可以不用在電腦端也能連接上遠端進行論文的撰寫工作。下列是我們撰寫論文時經常使用的模組。
-
-* **LaTeX Workshop**，LaTeX 支援工具，提供編譯、預覽等功能的支援。
-* **LaTeX language support**，LaTeX 語法支援工具，提供語法高亮、自動補齊等功能。
-* **vscode-pdf**，PDF 預覽工具。
-* **Remote Development**，遠端開發工具包，安裝此套件將會自動安裝 SSH、WSL 等套件，是個好用的遠端工具包。
-* **Live Share**，遠端協作工具，提供他人透過 VSCode 提供協助，內含同時編輯文件、操作終端機、語音通訊等功能。
-
-當您的作業系統為 Linux 發行版，安裝時請先到官方網站進行下載，下載後請切換到檔案的目錄進行下列指令。
-
-```
-### debian / ubuntu
-$ sudo dpkg -i vscode.deb
-```
-
-您的作業系統為 Windows 7/8/10/11，請直接[由此](https://code.visualstudio.com/download)下載並安裝。
-
-#### **[Make](https://www.gnu.org/software/make/)**
-
-![Make](https://img.shields.io/badge/Make-CLI-yellow?logo=gnu&logoColor=white)
-
-> Docker 方案的使用者，此工具不須安裝。
-
-GNU 提供的工具，下列為安裝指令。雖然 make 工具有提供 Windows 的版本，但因本專案中使用了部分 Linux 語法，因此無法於 Windows CMD / PowerShell 中使用，目前已知可於 WSL、MSYS、Git Bash 中使用。
-
-```
-### debian / ubuntu
-$ sudo apt-get install make
-```
-
-#### **[Git](http://git-scm.com/)**
-
-![Git](https://img.shields.io/badge/Git-CLI-yellow?logo=git&logoColor=white)
-![Git](https://img.shields.io/badge/Git-Docker-green?logo=git&logoColor=white)
-
-> 建議安裝，非必要。
-
-是否安裝 Git 並不影響您使用此模板，但我們極度推薦安裝這個工具。Git 是當前最主流的版本控制軟體，能讓您能紀錄再哪個時候修改了什麼，以及諸多免費的遠端儲存庫([GitHub](https://github.com/)、[GitLab](https://gitlab.com/)、[bitbucket](https://bitbucket.org/))可以使用，快速擁有多個異地備份，保障您的論文安全。
-
-Linux 發行版可透過套件管理工具快速安裝。
-
-```
-### debian / ubuntu
-$ sudo apt-get install git-core
-```
-
-Windows 7/8/10/11 則需要手動安裝，請[由此](https://git-scm.com/downloads)下載。
-
-#### **[texlive](https://tug.org/texlive/)**
-
-![LaTeX](https://img.shields.io/badge/TexLive-CLI-yellow?logo=latex&logoColor=white)
-
-> Docker 方案的使用者，此工具不須安裝。
-
-LeTeX 文件編譯工具。
-
-```
-$ sudo apt install texlive-full
-```
-
-#### **[ghostscript](https://www.ghostscript.com/)**
-
-非必要的工具，目前僅用於 PDF 檔案防拷。
-
-> Linux 與 Docker 方案的使用者，此工具不須安裝。
-> Windows 系統使用者如有 Adobe 的工具，建議直接使用 Adobe 工具即可。
-
-請由此處[下載](https://www.ghostscript.com/releases/index.html)。
+專案推薦使用編輯器 **Visual Studio Code**，使用 **make** 與 **texlive** 套件包進行文件的編譯移除等相關操作，另外我們推薦使用 **Git** 管理版本，預防資料遺失及損毀等災難，詳細的工具安裝說明請見 [Docs/environment.md](Docs/environment.md)。
 
 ### 取得
 
@@ -150,9 +68,8 @@ $ sudo apt install texlive-full
 * ***Instance*** : 封面/書名頁/封面/摘要/誌謝
 * ***Packages*** : LaTeX 套件
 * ***References*** : 參考文獻 bib 檔案
-* ***Table*** : 外部插入的表格
 * ***Templates*** : 文件版型
-* ***Tables*** : 表格
+* ***Tables*** : 外部插入的表格
 * ***build*** : 編譯結果
 * ***.vscode*** : 編輯器設定檔
 * ***config.tex*** : 論文內容載入設定
@@ -194,7 +111,7 @@ $ make pdfprocessing
 
 ## 鳴謝
 
-感謝參與這個專案的[貢獻者](https://github.com/yuhao-kuo/NKUST-thesis-template/graphs/contributors)以及前輩們！
+感謝參與這個專案的[貢獻者](https://github.com/yuhao-kuo/NKUST-thesis-template/graphs/contributors)以及製作版型內容的前輩們！
 
 如果這個專案有幫助到您，請給專案一個 Star，Thanks！
 
