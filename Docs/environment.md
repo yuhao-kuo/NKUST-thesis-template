@@ -8,7 +8,7 @@
 
 > Overleaft 環境是由 [fuanho](https://github.com/fuanho) 維護的 [NKUST-Thesis-template-overleaf](https://github.com/fuanho/NKUST-Thesis-template-overleaf) 專案提供，使用此方案者不需要額外安裝套件。
 
-> 下列圖示以 CLI 來標示 **CLI 環境**，以 Docker 來標示 **Docker** 環境。
+> 下列圖示以 CLI 來標示的為 **CLI 環境**，以 Docker 圖示來標示的為 **Docker** 環境。
 
 #### **[Visual Studio Code](https://code.visualstudio.com/)**
 
@@ -94,7 +94,7 @@ $ sudo apt install texlive-full
 
 非必要的工具，目前僅用於 PDF 檔案防拷。
 
-> Linux 與 Docker 方案的使用者，此工具不須安裝。
+> Linux 與 Docker 方案的使用者，此工具已內建於系統中，不須額外安裝。<br>
 > Windows 系統使用者如有 Adobe 的工具，建議直接使用 Adobe 工具即可。
 
 請由此處[下載](https://www.ghostscript.com/releases/index.html)。

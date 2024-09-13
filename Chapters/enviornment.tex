@@ -2,7 +2,7 @@
 
 本章描述使用專案時需要環境設定。本章節分為作業系統說明、CLI 以及 Docker。
 NKUST-latex-template 編譯環境僅需由 CLI 和 Docker 之中擇一即可。
-本專案僅需要基礎的文字編輯器 vi、emase、notepad 等搭配 command line 即可使用，但我們推薦使用 VSCode 進行編輯，能讓您有較舒適的整合性使用體驗。
+本專案僅需要基礎的文字編輯器 vi、emase、notepad 等搭配 command line 即可使用，但我們推薦使用 VSCode 進行編輯，能讓您有較舒適的使用體驗。
 
 \section{Windows環境說明}
 
@@ -39,18 +39,10 @@ CLI 操作環境依賴 bash 等 UNIX-like 的環境，僅需要安裝 TexLive �
 
 \begin{itemize}
         \item 本專案的論文主體請存放於 host\footnote{附註：Host 系統指的是您 Docker 安裝的基底系統，正常情況下是 Windows、Linux 或是 MacOS，如果 Docker 是安裝於 WSL2 中，這個 Host 指的是 WSL2。} 系統中，Docker image 啟動時會自動將您的論文目錄掛載到 container 中。
-        \item 當 container 被關閉時，除論文目錄以外的 container 的資料都會被抹除。如要有須保留 container 資料請在 \emph{docker run} 的啟動參數中移除 $--$rm 即可。
+        \item 當 container 被關閉時，除論文目錄以外的 container 的資料都會一起被關閉。
 \end{itemize}
 
-Docker 安裝請參閱官方文件。
-
-\begin{itemize}
-        \item Windows\cite{win_docker}
-        \item Linux\cite{linux_docker}
-        \item MacOS\cite{mac_docker}
-\end{itemize}
-
-\newpage
+Docker 安裝請參閱官方文件。Windows\cite{win_docker}、Linux\cite{linux_docker}、MacOS\cite{mac_docker}。
 
 \subsection{Bash}
 

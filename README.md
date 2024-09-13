@@ -8,13 +8,13 @@
 
 ![](https://www.nkust.edu.tw/var/file/0/1000/img/513/182513897.png)
 
-本專案為**國立高雄科技大學研究所論文 LaTeX 模板**，以開源工具為基礎 LaTeX 的編輯環境，內文依照[國立高雄科技大學教務處學位論文撰寫體例參考(中華民國111年3月修訂版)](https://acad.nkust.edu.tw/var/file/4/1004/img/212/F-2-35.docx)及建工校區電子工程系網路計算實驗室(`WNDCLab`、`NCLab`、`AIoRLab`)之論文格式標準進行編排。其內容排列順序依序為：
+本專案為**國立高雄科技大學研究所論文 LaTeX 模板**，以開源工具為基礎的 LaTeX 編輯環境，內文依照[國立高雄科技大學教務處學位論文撰寫體例參考(中華民國111年3月修訂版)](https://acad.nkust.edu.tw/var/file/4/1004/img/212/F-2-35.docx)及建工校區電子工程系網路計算實驗室(`WNDCLab`、`NCLab`、`AIoRLab`)之論文格式標準進行編排。其內容排列順序依序為：
 
 1. 封面
 2. 書名頁
-3. 論文指導教授推薦書
-4. 論文口試委員會審訂書
-5. 學位論文著作權歸屬協議書
+3. 論文指導教授推薦書 (自行置入)
+4. 論文口試委員會審訂書 (自行置換)
+5. 學位論文著作權歸屬協議書 (自行置換)
 6. 中文摘要
 7. 英文摘要
 8. 誌謝或序言
@@ -49,7 +49,10 @@
 
 請直接下載[穩定版本](https://github.com/yuhao-kuo/NKUST-thesis-template/releases)/[開發版本](https://github.com/yuhao-kuo/NKUST-thesis-template/archive/master.zip)，或是使用 git 獲取專案。
 
-開發版本主要著重在新功能的開發及新的支援，但是當您的論文撰寫時間較為緊迫，我們建議使用穩定版本。
+> 建議使用 Git 獲取專案
+
+開發版本為 master 分支中的最新版本，穩定版本是架構或內容經過大變動後的版本。目前論文架構已經趨近穩定，已經少有劇烈的變動，因此直接下載開發版本即可。
+
 使用時發現任何問題，歡迎向我們發出 Issues 並描述您碰見的問題。
 
 ### 使用
@@ -77,7 +80,7 @@
 * ***thesisinfo.tex*** : 論文作者訊息
 * ***titlepage.tex*** : 置中的論文封面
 
-因字體問題經常導致使用者在編譯時出現錯誤，基於易用原則在本次更新中重新將 Fonts 加入至專案中，Fonts 內提供的字體皆為**開源** or **免費**的，字體的 License 將一併被附加到 Fonts 目錄中。
+字體問題經常導致編譯時出現錯誤，基於易用原則在 [Release v2.0](https://github.com/yuhao-kuo/NKUST-thesis-template/releases/tag/v2.0) 重新將 Fonts 加回專案中，Fonts 內提供的字體皆為**開源** or **免費**的，字體的 License 一併被附加到 Fonts 目錄中。
 
 #### 產生論文
 
@@ -89,7 +92,7 @@ $ make all
 
 #### 資料清除
 
-清除暫存資料請使用 `clean`，該指令將會保留 PDF 文件，如需完整清除編譯結果請使用 `distclean`。
+清除暫存資料請使用 `clean`，該指令將會保留編譯時產生的 PDF 文件，如需完整清除編譯結果請使用 `distclean`。
 
 ```
 $ make clean
@@ -98,8 +101,8 @@ $ make distclean
 
 #### 檔案防拷處理
 
-因有論文 PDF 加入防拷處理的需求，故新增 `pdfprocessing`，此功能依賴外部工具 **ghostscript**。
-該命令僅對 `main.pdf` 進行防拷，執行此命令時 `main.pdf` 必須存在。
+考量到論文 PDF 有加入防拷處理的需求，故新增指令 `pdfprocessing`，此功能依賴外部工具 **ghostscript**。
+該命令僅對 `main.pdf` 進行防拷處理，因此執行命令時 `main.pdf` 必須存在。
 
 ```
 $ make pdfprocessing
@@ -107,7 +110,7 @@ $ make pdfprocessing
 
 ## 安全性
 
-如使用 GitHub、GitLab、Bitbucket 等程式碼代管服務，請注意遠端儲存庫 (Remote Repository) 的存取權限，知識內容請設為私密，以避免防資料外洩等安全性問題。
+如使用 **GitHub**、**GitLab**、**Bitbucket** 等公開的程式碼代管服務管理論文，請注意遠端儲存庫 (Remote Repository) 的存取權限，知識內容請設為私密，以避免防資料外洩等安全性問題。
 
 ## 鳴謝
 

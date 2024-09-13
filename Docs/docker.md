@@ -6,7 +6,7 @@
 
 論文主體存在於 host 系統中，開機時會自動把 host 中的 NKUST-thesis-template 掛載到 Container 上。可利用 vscode remote development extension 等編輯器進行遠端編輯與編譯。
 
-當 container 被關閉時，除論文目錄以外的 container 的資料都會被抹除。如要有須保留 container 資料請在 `docker run` 的啟動參數中移除 `--rm` 即可。
+當 container 被關閉時，除論文目錄以外的 container 的資料都會被抹除。
 
 ## 環境佈署
 
