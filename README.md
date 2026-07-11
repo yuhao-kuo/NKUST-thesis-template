@@ -5,6 +5,7 @@
 [![forks - NKUST-thesis-template](https://img.shields.io/github/forks/yuhao-kuo/NKUST-thesis-template?style=social)](https://github.com/yuhao-kuo/NKUST-thesis-template/fork)
 [![stars - NKUST-thesis-template](https://img.shields.io/github/stars/yuhao-kuo/NKUST-thesis-template?style=social)](https://github.com/login?return_to=%2Fyuhao-kuo%2FNKUST-thesis-template)
 
+**繁體中文** | [English](README.en.md)
 
 ![](https://www.nkust.edu.tw/var/file/0/1000/img/513/182513897.png)
 

@@ -1,5 +1,7 @@
 # PDF加工
 
+**繁體中文** | [English](processing.en.md)
+
 > 註1: 套件 ghostscript 已經預裝在 texlive docker image 中。
 > 註2: 當前加工指令設定值並不完美，輸出時建議使用 main.pdf 進行輸出。
 

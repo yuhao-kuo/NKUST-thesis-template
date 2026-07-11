@@ -1,5 +1,7 @@
 ## Building Environment
 
+**繁體中文** | [English](environment.en.md)
+
 目前提供二個方案可以進行論文編輯，另有開發者提供 Overleaf 的版型，本節將會提供這三個編輯方式的環境建立說明。
 
 * [CLI 環境](build.md)
