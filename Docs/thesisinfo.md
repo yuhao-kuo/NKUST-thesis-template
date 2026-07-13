@@ -1,5 +1,7 @@
 ## NKUST Thesis LaTeX 使用者資訊
 
+**繁體中文** | [English](thesisinfo.en.md)
+
 ### 設定作者資訊
 
 作者資訊為本論文中的作者、指導教授、學校、科系、論文題目等相關資料，其設定欄位位於 `thesisinfo.tex` 中。

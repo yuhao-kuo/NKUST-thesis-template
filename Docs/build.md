@@ -1,5 +1,7 @@
 ## Template 編譯
 
+**繁體中文** | [English](build.en.md)
+
 此版型使用 make 協助編譯的相關工作，在 Visual Studio Code 中可以透過 Latex workshop 協助進行自動編譯。
 當前支援輸出論文內容、輸出封面、清除暫存檔、清除所有檔案的功能，下列將依序對功能進行詳細的說明。
 
