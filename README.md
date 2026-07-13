@@ -1,7 +1,7 @@
 # NKUST Thesis LaTeX
 
 [![yuhao-kuo - NKUST-thesis-template](https://img.shields.io/static/v1?label=&message=NKUST-thesis-template&color=gray&logo=github)](https://github.com/yuhao-kuo/NKUST-thesis-template)
-[![License](https://img.shields.io/badge/License-CC_BY--SA_3.0_TW-blue)](http://creativecommons.org/licenses/by-sa/3.0/tw/ "創用 CC 姓名標示-相同方式分享 3.0 台灣 授權條款")
+[![License](https://img.shields.io/badge/License-CC_BY--SA_4.0_International-blue)](https://creativecommons.org/licenses/by-sa/4.0/deed.zh-hant "創用 CC 姓名標示-相同方式分享 4.0 國際 授權條款")
 [![forks - NKUST-thesis-template](https://img.shields.io/github/forks/yuhao-kuo/NKUST-thesis-template?style=social)](https://github.com/yuhao-kuo/NKUST-thesis-template/fork)
 [![stars - NKUST-thesis-template](https://img.shields.io/github/stars/yuhao-kuo/NKUST-thesis-template?style=social)](https://github.com/login?return_to=%2Fyuhao-kuo%2FNKUST-thesis-template)
 
@@ -121,7 +121,7 @@ $ make pdfprocessing
 
 ## 授權與免責聲明
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/tw/"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/tw/88x31.png" /></a><br />本著作係採用<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/tw/">創用 CC 姓名標示-相同方式分享 3.0 台灣 授權條款</a>授權.
+<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh-hant"><img alt="創用 CC 授權條款" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />本著作係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh-hant">創用 CC 姓名標示-相同方式分享 4.0 國際授權條款</a>授權.
 
 因專案的貢獻者大多已畢業，使用前請務必檢視版型是否符合現行規範。若引用此專案造成一切損失，本專案之貢獻者不承擔任何責任。
 

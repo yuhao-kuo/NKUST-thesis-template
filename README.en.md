@@ -1,7 +1,7 @@
 # NKUST Thesis LaTeX
 
 [![yuhao-kuo - NKUST-thesis-template](https://img.shields.io/static/v1?label=&message=NKUST-thesis-template&color=gray&logo=github)](https://github.com/yuhao-kuo/NKUST-thesis-template)
-[![License](https://img.shields.io/badge/License-CC_BY--SA_3.0_TW-blue)](http://creativecommons.org/licenses/by-sa/3.0/tw/ "Creative Commons Attribution-ShareAlike 3.0 Taiwan License")
+[![License](https://img.shields.io/badge/License-CC_BY--SA_4.0_International-blue)](https://creativecommons.org/licenses/by-sa/4.0/ "Creative Commons Attribution-ShareAlike 4.0 International License")
 [![forks - NKUST-thesis-template](https://img.shields.io/github/forks/yuhao-kuo/NKUST-thesis-template?style=social)](https://github.com/yuhao-kuo/NKUST-thesis-template/fork)
 [![stars - NKUST-thesis-template](https://img.shields.io/github/stars/yuhao-kuo/NKUST-thesis-template?style=social)](https://github.com/login?return_to=%2Fyuhao-kuo%2FNKUST-thesis-template)
 
@@ -121,7 +121,7 @@ If this project helps you, please give it a star. Thanks!
 
 ## License and Disclaimer
 
-<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/tw/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/3.0/tw/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/tw/">Creative Commons Attribution-ShareAlike 3.0 Taiwan License</a>.
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
 Most contributors of this project have graduated. Before using the template, check that the layout still meets the current regulations. The contributors take no responsibility for any loss caused by using this project.
 
